@@ -1,0 +1,72 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    font-family: Aptos Century Gothic, sans-serif;
+}
+body{
+     background-color: #fff7fbe8;
+}
+/* ---------------------------------- main ----------------------- */
+.main{
+    width: 100%;
+    margin: 20px auto;
+}
+.theme-list{
+    background-color: #303E65;
+    margin: auto;
+    padding: 10px 0;
+    width: 80%;
+
+}
+
+.dropdown{
+    background-color: aqua;
+    width: 90%;
+    padding: 3px;
+    margin: 5px auto;
+}
+.dropdown-toggle::after{
+    margin-left: 50%!important;
+    font-size: 30px;
+    vertical-align: 0px!important;
+}
+.btn-secondary{
+    width: 100%;
+}
+/* .theme{
+    background-color: aqua;
+    width: 90%;
+    padding: 10px;
+    margin: 5px auto;
+} */
+.item p{
+    text-align: justify;
+}
+.theme-list .theme .item{
+    position: relative;
+    cursor: pointer;
+    background-color: #ffc0e1;
+    border: 2px solid #E0318C;
+    margin: 5px auto;
+    width: 100%;
+}
+.theme-list .theme .item a{
+    color: #E0318C;
+    font-weight: 600;
+    text-decoration: none;
+    display: block;
+    font-size: 34px;
+    padding: 10px 30px;
+    line-height: 36px;
+}
+.theme .sous-list{
+    background-color: cadetblue;
+    width: 100%;
+    /* display: none; */
+    transition: .2s ease-in-out;
+}
+
+/* ----------------------------------footer------------------------- */
