@@ -1,0 +1,70 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box; 
+    font-family:Century Gothic, sans-serif;
+}
+body{
+     background-color: #fff7fbe8;
+}
+header{
+    background-color: #ffc0e1;
+    width: 100%;
+    margin-bottom: 5px;
+    display: inline-block;
+    padding-bottom:10px;
+}
+.logo{
+    width: 160px;
+    height: 100%;
+    /* background-color: antiquewhite; */
+}
+.logo img,.logofoot img{
+    margin:0;
+    width: 100%;
+}
+.logofoot{
+    width:120px ;
+    background-color: brown;
+    transition: all ease-in-out .5s;
+}
+nav{
+    margin:0;
+    /* background-color: #303E65; */
+}
+nav ul{
+    position: absolute;
+    top: 25px;
+    right: 10px;
+    width: 500px;
+    margin: 5px;
+    /* background-color: yellowgreen; */
+    transition: all ease-in-out .5s;
+}
+.licontent{
+    float: right;
+}
+nav ul li{
+    display: inline-block;
+    /* background-color: #E0318C; */
+    border-radius: 3px 3px 0px 0px;
+    margin: 0 5px;
+    font-weight: bold;
+    padding: 5px;
+    border-bottom: solid 2px #E0318C;
+    border: none;
+}
+nav ul li:hover{
+    /* transition: ease-in-out .2s; */
+    border-bottom: solid 2px #E0318C;
+}
+nav ul li a{
+     color: #303E65;
+}
+nav ul li a:hover{
+   font-size: 17px;
+   transition: ease-in-out .3s;
+}

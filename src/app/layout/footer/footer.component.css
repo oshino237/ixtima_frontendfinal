@@ -27,11 +27,14 @@ footer div{
 footer div a{
     color: #fff;
     font-weight: bold;
+    color: rgba(223, 222, 222, 0.842);
+    font-size: 14px;
 }
 footer li,p{
     line-height: 25px;
     margin: 3px 0;
-    color: #fff;
+    color: rgba(223, 222, 222, 0.842);
+    font-size: 14px;
 }
 footer h2{
     line-height: 0;

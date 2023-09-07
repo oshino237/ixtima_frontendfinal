@@ -1,1 +1,33 @@
-<p>header works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="C:\Users\Hoshino Wendy\Desktop\SOUTENANCE\PROJETSOUTE\ixtima_frontend\ixtima_frontend\src\fontawesome-free-6.3.0-web\css\all.css">
+  <title></title>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="../assets/images/ixtima-blanc-removebg-preview.png" alt="">
+      </div>
+      <div class="menu">
+        <ul>
+          <div class="licontent">
+            <li><a routerLink="/accueil" routerLinkActive="active" href="#">ACCEUIL</a></li>
+          <li><a routerLink="/connexion" routerLinkActive="active">CONNEXION</a></li>
+          <li><a routerLink="/sensibilisation" routerLinkActive="active">JE M'INFORME</a></li>
+          </div>
+          
+        
+        </ul>
+      </div>
+    </nav>
+  </header>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+
+</body>
+</html>
