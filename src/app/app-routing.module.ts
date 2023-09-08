@@ -23,7 +23,7 @@ import { FooterComponent } from './layout/footer/footer.component';
 
 const routes: Routes = [
 
-  {path:'' ,component : AcceuilComponent},
+  {path:'accueil' ,component : AcceuilComponent},
   {path:'sensibilisation' ,component : SensibilisationComponent},
   {path:'connexion' ,component : ConnexionComponent},
   {path:'inscription' ,component : InscriptionComponent},

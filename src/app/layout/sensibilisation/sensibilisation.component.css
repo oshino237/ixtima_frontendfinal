@@ -1,72 +1,73 @@
-*{
-    padding: 0;
-    margin: 0;
-    text-decoration: none;
-    list-style: none;
-    box-sizing: border-box;
-    font-family: Aptos Century Gothic, sans-serif;
-}
-body{
-     background-color: #fff7fbe8;
-}
-/* ---------------------------------- main ----------------------- */
 .main{
-    width: 100%;
-    margin: 20px auto;
-}
-.theme-list{
-    background-color: #303E65;
+    width: 85%;
+    padding: 20px 5px;
+    /* background-color: aquamarine; */
     margin: auto;
-    padding: 10px 0;
-    width: 80%;
-
 }
-
-.dropdown{
-    background-color: aqua;
-    width: 90%;
-    padding: 3px;
-    margin: 5px auto;
+.accordion-item{
+    background-color: #ffc8e438;
+    border: 2px solid #dadde6;
 }
-.dropdown-toggle::after{
-    margin-left: 50%!important;
-    font-size: 30px;
-    vertical-align: 0px!important;
+.accordion-button{
+    background-color:#3c58a473 ;
 }
-.btn-secondary{
+.accordion-button:hover{
+    background-color:#3c58a475 ;
+}
+.accordion-button{
+    font-weight: bold;
+    font-size: 24px;
+    color: #303E65;
+}
+.sthm{
+    /* background-color: aqua; */
     width: 100%;
+    padding: 2px;
 }
-/* .theme{
-    background-color: aqua;
-    width: 90%;
-    padding: 10px;
-    margin: 5px auto;
-} */
-.item p{
-    text-align: justify;
+.sthm .btn-primary{
+    margin: 5px;
+    background-color:#ffd2e9 ;
+    color:#e0318b9d ;
+    border: 2px solid #e0318b9d;
+    padding: 30px 25px;
+    font-weight: bold;
+    font-size: 16px;
 }
-.theme-list .theme .item{
-    position: relative;
-    cursor: pointer;
-    background-color: #ffc0e1;
-    border: 2px solid #E0318C;
-    margin: 5px auto;
-    width: 100%;
+.sthm .btn-primary:hover{
+    background-color: #d4428e3a;
+    color: #303E65;
+    border-color: #303E65;
+    font-size:17px;
+    transition: all ease-in-out .3s;
 }
-.theme-list .theme .item a{
+strong{
+    color: #9b1c5e;
+    font-size: 20px;
+}
+.modal-header{
+    background-color:#3c58a473 ;
+    font-weight: bold;
+}
+.modal-title{
+    color: #fff;
+}
+.ref {
+    list-style: circle;
+}
+ul{
+    list-style: none;
+}
+span{
+    font-size: 18px;
+    font-weight: bold;
     color: #E0318C;
-    font-weight: 600;
-    text-decoration: none;
-    display: block;
-    font-size: 34px;
-    padding: 10px 30px;
-    line-height: 36px;
 }
-.theme .sous-list{
-    background-color: cadetblue;
-    width: 100%;
-    /* display: none; */
-    transition: .2s ease-in-out;
+code{
+    font-style: oblique;
+    font-weight: bold;
 }
-
-/* ----------------------------------footer------------------------- */
+.ref li{
+    font-size: 11px;
+    font-style: italic;
+    color: rgb(170, 170, 170);
+}
