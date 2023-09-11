@@ -10,7 +10,7 @@ height: 100%;
 /* border: 1px dashed #0d6efd; */
 }
 .maincontent{
-background-color:#fce2f0 ;
+background-color:#e1e9ff ;
 padding: 12px;
 margin:auto;
 min-width: 600px;
@@ -67,17 +67,11 @@ input::-webkit-input-placeholder{
     background-color: transparent;
     color: #303e65;
 }
-.choix1{
-    width: 200px;
-}
-.choix1 input[type="radio"]{
-    margin: 0 !important;
-    width: 40px;
-}
+
 .form-photo{
     text-align: center;
     width: 40%;
-    background-color: #6d063b31;
+    background-color: #303e6541;
     border-radius: 5px;
 }
 .form-photo .photo{

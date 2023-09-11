@@ -12,11 +12,13 @@ body{
   .maincontent{
     /* background-color:#d3deffc2 ; */
     padding: 12px;
-    margin: auto;
+    margin:auto;
   }
   .card{
     width: 90%;
-    margin: auto;
+    margin: 100px  auto;
+    min-width: 500px;
+    min-height: 350px;
     border-radius: 8px;
     border:2px solid #303E65;
 
@@ -64,15 +66,10 @@ body{
   }
   .nav-pills .nav-link {
       border-radius: 0px;
-        border-bottom: 1px solid #0d6efd40;
-        border-bottom: 1px solid #86A3DF;
-
   }
   .nav-item{
         display: table-cell;
-         background: #0d6efd2e;
-         border-top-left-radius: 5px;
-         border-top-right-radius: 5px;
+         background: #303e6546;
   }
   .tab-content{
     /* background-color: cornflowerblue; */
@@ -94,10 +91,10 @@ body{
     border-radius: 5px;
     width: 30%;
     margin: 3px;
-    min-width: 170px;
-    max-width: 350px;
+    min-width: 300px;
     border: 2px solid #D4DFFE;
     vertical-align: top;
+    transition: ease-in-out .3s;
   }
   .drname{
     width: 100%;
@@ -120,9 +117,13 @@ body{
     text-transform: uppercase;
     color:#303E65 ;
   }
+  .accordion-header{
+    box-shadow: none;
+  }
   .accordion-body{
     padding: 8px 5px!important;
     background-color:#dfe8ff9d ;
+    
   }
 .btn-primary{
     background-color: #3F5AA6;
@@ -144,11 +145,11 @@ body{
     display: inline-block;
 }
 .boutajout{
-    position: fixed;
-    right: 30px;
+    position: relative;
+    left:90%;
     /* background-color: #000; */
-    bottom: 180px;
-    width: 60px;
+    width: 50px;
+    margin: 0;
 }
 .boutajout .btn-primary{
     background-color: transparent;
@@ -171,16 +172,50 @@ body{
     right: 40px;
     transition:.3s cubic-bezier(0.43,-0.14, 0.67, 1.49);
 }
+.modal-dialog{
+  min-width: 600px;
+  margin: auto;
+}
 .modal-header{
     background-color:#810244 ;
     color: #fff;
 }
-.modal-footer .btn-primary{
-    background-color:#810244 ;
-    color: #fff;
-    border: none;
-    --bs-btn-active-border-color:#6d063b;
+.modal-body .btn-primary{
+  background-color:#810244 ;
+  color: #fff;
+  border: none;
+  --bs-btn-active-border-color:#6d063b;
+  margin: 5px;
 }
-.modal-footer .btn-primary:hover{
-    background-color:#6d063b ;
+.modal-body .btn-primary:hover{
+  background-color:#6d063b ;
+}
+.modal-body input, textarea{
+  border: solid 2px #D4DFFE;
+  border-radius: 5px;
+  margin: 10px ;
+  outline: none;
+  font-size: 13px;
+  transition: ease-in-out .3s;
+  padding: 8px 5px;
+  width: 80%;
+  min-width: 350px;
+}
+.modal-body input:hover, textarea:hover{
+  border-color: #6d063b6b;
+}
+input::-webkit-input-placeholder,textarea::-webkit-input-placeholder{
+  color: rgba(128, 128, 128, 0.637);
+  font-size: 13px;
+}
+@media(max-width:725px){
+  .pst1 ,.pst2,.pst3{
+    width: 90%;
+    display: block;
+    margin: 10px auto;
+  }
+  .lgpost{
+    width: 100%;
+    margin: auto;
+  }
 }

@@ -1,1 +1,62 @@
-<p>gerecmpjn works!</p>
+<section class="main">
+    <div class="maincontent">
+        <div class="maintitle">
+            <h1>Gestion du compte</h1>
+        </div>
+        <div class="modifinfo">
+            <div class="form-elemt">
+                <form action="">
+                    <label for="">Nom :</label><br> <input type="text" placeholder="Dongmo"><br>
+                    <label for="">Prénom :</label><br> <input type="text" placeholder="Simon"><br>
+                    <label for="">date de naissance :</label><br> <input type="date"><br>
+                    <label for="">Pseudo :</label><br> <input type="text" placeholder="jackpoo"><br>
+                    <label for="">Tel :</label><br> <input type="tel" placeholder="+237 627 17 43 55"><br>
+                    <div class="choix1">
+                        <label for="s">Sexe</label><br>
+                        F<input type="radio"><br>
+                        M<input type="radio"><br>
+                      </div><br>
+                </form>
+                <div class="boutajout">
+                        
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Modifier password
+                    </button>
+                </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Veuillez remplir ces champs</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="">
+                                <label for="">Mot de passe actuel :</label><br> <input type="password" required><br>
+                                <label for="">Nouveau mot de passe :</label><br> <input type="password" required><br>
+                                <label for="">confirmation du mot de passe :</label><br> <input type="password" required><br>
+                                <p>" La modification de votre mot de passe vous obligera a vous reconnecter just après. "</p><br>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                                <button type="submit" class="btn btn-primary">Valider</button>
+                            </form>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-photo">
+                <div class="photo">
+                    <img src="../../assets/images/forum.jpg" alt="">
+                </div>
+                <div class="file-upload">
+                    <i class="fas fa-upload"></i>&nbsp; Changer 
+                    <div class="load"><input type="file" name="photo">
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+</section>

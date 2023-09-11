@@ -34,7 +34,7 @@
 .form-box{
     width: 60%;
     margin: auto;
-    height: 750px;
+    height: 790px;
     background-color: #fff;
     overflow: hidden;
     transition: .5s;
@@ -102,7 +102,7 @@ span{
 }
 
 #chk:checked ~ .input-groupm{
-    transform: translateY(-675px);
+    transform: translateY(-695px);
 }
 #chk:checked ~ .input-groupm span {
     transform: scale(1);
@@ -168,7 +168,7 @@ span{
 .choix1{
     width: 100%;
     margin: 8px 0;
-    border:1px dashed #f7f9fd;
+    /* border:1px dashed #f7f9fd; */
 }
 .submit-btn{
     float: right;

@@ -1,0 +1,91 @@
+body{
+    font-size: 14px;
+    background-color: #000;
+  }
+  
+  .main{
+    width: 100%;
+    height: 100%;
+    /* background-color:#d3deffc2 ; */
+    /* border: 1px dashed #0d6efd; */
+  }
+  .maincontent{
+    /* background-color:#d3deffc2 ; */
+    padding: 12px;
+    margin:auto;
+  }
+  .card{
+    width: 90%;
+    margin: 100px auto;
+    min-width: 500px;
+    min-height: 350px;
+    border-radius: 3px;
+    border:2px solid #81024460;
+    padding: 15px 10px;
+  }
+  .lgpost{
+    width: 100%;
+    padding: 5px 7px;
+    /* background-color: #303E65; */
+  }
+  .pst1 ,.pst2,.pst3{
+    display: inline-block;
+    border-radius: 5px;
+    width: 30%;
+    margin: 3px;
+    min-width: 300px;
+    border: 2px solid #D4DFFE;
+    vertical-align: top;
+    transition: ease-in-out .3s;
+  }
+  .drname{
+    width: 100%;
+    background-color: #D4DFFE;
+    margin-top: 10px;
+    padding: 2px;
+    /* border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px; */
+  }
+  .drname p{
+    font-style: italic;
+    color: #810244;
+    font-size: 11px;
+    font-weight: 0;
+    margin: 0;
+  }
+  .accordion-button{
+    padding: 3px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color:#303E65 ;
+  }
+  .accordion-header{
+    box-shadow: none;
+  }
+  .accordion-body{
+    padding: 8px 5px!important;
+    background-color:#dfe8ff9d ;
+    
+  }
+  .actions{
+    width: 100%;
+    padding: 5px;
+    background-color:#D4DFFE;
+    text-align: center;
+}
+.actions .btn{
+    margin: 3px;
+    width: 100px;
+    display: inline-block;
+}
+  @media(max-width:725px){
+    .pst1 ,.pst2,.pst3{
+      width: 90%;
+      display: block;
+      margin: 10px auto;
+    }
+    .lgpost{
+      width: 100%;
+      margin: auto;
+    }
+  }

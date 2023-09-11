@@ -20,9 +20,12 @@ import { ComptusrComponent } from './dashboard/comptusr/comptusr.component';
 import { PostadComponent } from './dashboard/postad/postad.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
+import { GerecmpadComponent } from './dashboard/gerecmpad/gerecmpad.component';
+import { CycleComponent } from './dashboard/cycle/cycle.component';
 
 const routes: Routes = [
 
+  {path:'' ,component : AcceuilComponent},
   {path:'accueil' ,component : AcceuilComponent},
   {path:'sensibilisation' ,component : SensibilisationComponent},
   {path:'connexion' ,component : ConnexionComponent},
@@ -43,6 +46,8 @@ const routes: Routes = [
   {path:'postad' ,component : PostadComponent},
   {path:'header' ,component : HeaderComponent},
   {path:'footer' ,component : FooterComponent},
+  {path:'gerecmpad' ,component : GerecmpadComponent},
+  {path:'cycle' ,component : CycleComponent},
 ];
 
 @NgModule({
