@@ -12,6 +12,7 @@ height: 100%;
 .maincontent{
 background-color:#e1e9ff ;
 padding: 12px;
+background-size: cover;
 margin:auto;
 min-width: 600px;
 }

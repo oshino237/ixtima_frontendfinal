@@ -14,14 +14,13 @@ import { ConfermdComponent } from './dashboard/confermd/confermd.component';
 import { RdvjnComponent } from './dashboard/rdvjn/rdvjn.component';
 import { RdvmdComponent } from './dashboard/rdvmd/rdvmd.component';
 import { ThemeComponent } from './dashboard/theme/theme.component';
-import { SousthmComponent } from './dashboard/sousthm/sousthm.component';
 import { TracabiliteComponent } from './dashboard/tracabilite/tracabilite.component';
-import { ComptusrComponent } from './dashboard/comptusr/comptusr.component';
 import { PostadComponent } from './dashboard/postad/postad.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { GerecmpadComponent } from './dashboard/gerecmpad/gerecmpad.component';
 import { CycleComponent } from './dashboard/cycle/cycle.component';
+import { CmptmedComponent } from './dashboard/cmptmed/cmptmed.component';
 
 const routes: Routes = [
 
@@ -40,14 +39,13 @@ const routes: Routes = [
   {path:'rdvjn' ,component : RdvjnComponent},
   {path:'rdvmd' ,component : RdvmdComponent},
   {path:'theme' ,component : ThemeComponent},
-  {path:'sousthm' ,component : SousthmComponent},
   {path:'tracabilite' ,component : TracabiliteComponent},
-  {path:'comptusr' ,component : ComptusrComponent},
   {path:'postad' ,component : PostadComponent},
   {path:'header' ,component : HeaderComponent},
   {path:'footer' ,component : FooterComponent},
   {path:'gerecmpad' ,component : GerecmpadComponent},
   {path:'cycle' ,component : CycleComponent},
+  {path:'cmptmed' ,component : CmptmedComponent},
 ];
 
 @NgModule({

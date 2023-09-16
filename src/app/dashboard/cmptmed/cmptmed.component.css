@@ -86,12 +86,12 @@ min-width: 600px;
 .btn-primary:hover{
     background-color: #354e91;
 }
-.btn-success{
+.modal .btn-success{
     background-color: #810244;
     border: none;
     --bs-btn-active-bg:#6d063b;
 }
-.btn-success:hover{
+.modal .btn-success:hover{
     background-color: #6d063b;
 }
   .verif{

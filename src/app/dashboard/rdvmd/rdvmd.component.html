@@ -1,1 +1,211 @@
-<p>rdvmd works!</p>
+<section class="main">
+    <div class="maincontent">
+        <div class="maintitle">
+            <h1>Rendez-vous</h1>
+        </div>
+        <div class="bloctables">
+            <div class="card">
+
+                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item text-center">
+                      <a class="nav-link active btl" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">RDV en cours</a>
+                    </li>
+                    <li class="nav-item text-center">
+                      <a class="nav-link btr" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Historique</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+
+                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                        <div class="form px-4 pt-5">
+                             <!-- Button ajout plus -->
+                         <div class="boutajout">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ajoutplus">
+                            <i class="bi bi-plus-square-fill"></i>
+                            </button>
+                        </div>
+                            <table class="table table-bordered" data-toggle="table" data-search="true" data-pagination="true">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                        <th scope="col">No</th>
+                                        <th scope="col">Date  et heure</th>
+                                        <th scope="col">Hôpital </th>
+                                        <th scope="col">Nom patient</th>
+                                        <th scope="col">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                        <th scope="row">1</th>
+                                        <td>30/09/2023 08:30</td>
+                                        <td>Saint marc</td>
+                                        <td></td>
+                                        <td>
+                                            <!-- Button trigger supprim-->
+                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#supprim">
+                                                <i class="bi bi-trash-fill"></i>
+                                            </button>
+                                            <!-- button modif -->
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modif">
+                                                <i class="bi bi-pencil-fill"></i>
+                                            </button>
+                                            <!-- button envoyer -->
+                                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#envoyer">
+                                                <i class="bi bi-send"></i>Publier
+                                            </button>
+                                            <!-- Modal modif-->
+                                            <div class="modal fade" id="modif" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Modification du thème</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form action="">
+                                                            <label for="titre">Date & heure:</label><br><input
+                                                            id="party"
+                                                            type="datetime-local"
+                                                            name="partydate" required /><br>
+                                                            <label for="contenu">Hôpital  :</label><br>
+                                                            <select class="form-select" required aria-label="Default select example">
+                                                                <option selected>Saint Marc</option>
+                                                                <option value="1">La caisse</option>
+                                                                <option value="2">CHU</option>
+                                                              </select>
+                                                            <br><br>
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                                                            <button type="submit" class="btn btn-primary">Valider</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>
+                                            <!-- Modal envoyer-->
+                                            <div class="modal fade" id="envoyer" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog verif">
+                                                <div class="modal-content ">
+                                                    <div class="modal-body">
+                                                        <p>Etes-vous sûr de vouloir publier ce rendez-vous?</p>
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</button>
+                                                    <button type="button" class="btn btn-success"data-bs-dismiss="modal">Oui</button>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>
+                                            <!-- Modal supprim-->
+                                            <div class="modal fade" id="supprim" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog verif">
+                                                <div class="modal-content ">
+                                                    <div class="modal-body">
+                                                        <p>Etes-vous sûr de vouloir supprimer ce rendez-vous?</p>
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</button>
+                                                    <button type="button" class="btn btn-success"data-bs-dismiss="modal">Oui</button>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>
+
+                                        </td>
+                                        </tr>
+
+  
+                                            
+                                        <!-- <tr>
+                                        <th scope="row">3</th>
+                                        <td colspan="2">Larry the Bird</td>
+                                        <td>@twitter</td>
+                                        </tr> -->
+                                    </tbody>
+                                    </table>
+                            </table>
+
+                        </div>
+                        <!-- Modal ajout plus -->
+                    <div class="modal fade" id="ajoutplus" tabindex="-1"data-bs-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Ajout d'un rendez-vous</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="">
+                                    <label for="titre">Date & heure:</label><br><input
+                                    id="party"
+                                    type="datetime-local"
+                                    name="partydate" required /><br>
+                                    <label for="contenu">Hôpital  :</label><br>
+                                    <select class="form-select" required aria-label="Default select example">
+                                        <option selected>Saint Marc</option>
+                                        <option value="1">La caisse</option>
+                                        <option value="2">CHU</option>
+                                      </select>
+                                    <br><br>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                                    <button type="submit" class="btn btn-primary">Valider</button>
+                                </form>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                        <div class="form px-4 pt-5">
+                                       
+                            <table class="table table-bordered" data-toggle="table" data-search="true" data-pagination="true">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                        <th scope="col">No</th>
+                                        <th scope="col">Date & heure</th>
+                                        <th scope="col">Hôpital</th>
+                                        <th scope="col">Patient</th>
+                                        <th scope="col">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                        <th scope="row">1</th>
+                                        <td>18/09/2023 09:04</td>
+                                        <td>CHU</td>
+                                        <td>Marc</td>
+                                        <td>
+                                            <!-- Button trigger supprim-->
+                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#suprim">
+                                                <i class="bi bi-trash-fill"></i>
+                                            </button>
+                                            <!-- Modal supprim-->
+                                            <div class="modal fade" id="suprim" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog verif">
+                                                <div class="modal-content ">
+                                                    <div class="modal-body">
+                                                        <p>Etes-vous sûr de vouloir supprimer ce rendez-vous de votre historique?</p>
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</button>
+                                                    <button type="button" class="btn btn-success"data-bs-dismiss="modal">Oui</button>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        </tr>
+
+                                        <!-- <tr>
+                                        <th scope="row">3</th>
+                                        <td colspan="2">Larry the Bird</td>
+                                        <td>@twitter</td>
+                                        </tr> -->
+                                    </tbody>
+                                    </table>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+              
+            </div>
+        </div>
+    </div>
+</section>

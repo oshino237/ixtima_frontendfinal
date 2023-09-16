@@ -1,17 +1,17 @@
 <section class="main">
     <div class="maincontent">
         <div class="maintitle">
-            <h1>Tracabilité</h1>
+            <h1>validation de comptes médecin</h1>
         </div>
         <div class="bloctables">
             <div class="card">
 
                 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                     <li class="nav-item text-center">
-                      <a class="nav-link active btl" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Utilisateurs</a>
+                      <a class="nav-link active btl" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Nouvelles demandes</a>
                     </li>
                     <li class="nav-item text-center">
-                      <a class="nav-link btr" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Signalements</a>
+                      <a class="nav-link btr" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Demandes refusées</a>
                     </li>
                 </ul>
                 <div class="tab-content" id="pills-tabContent">
@@ -33,6 +33,7 @@
                                         <th scope="col">Spécialité</th>
                                         <th scope="col">Nmrb patients max</th>
                                         <th scope="col">Tel</th>
+                                        <th scope="col">Autorisation Ex</th>
                                         <th scope="col">Actions</th>
                                         </tr>
                                     </thead>
@@ -49,9 +50,33 @@
                                         <td>@mdo</td>
                                         <td>@mdo</td>
                                         <td>
+
+                                             <!-- Button trigger modal 2-->
+                                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModa"><i class="bi bi-download"></i>Télécharger
+                                             </button>
+                                             <!-- Modal 2-->
+                                             <div class="modal fade" id="exampleModa" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                 <div class="modal-dialog salaire">
+                                                 <div class="modal-content">
+                                                     <div class="modal-header">
+                                                     <h5 class="modal-title" id="exampleModalLabel">Autorisation d'exercice</h5>
+                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                     </div>
+                                                     <div class="modal-body">
+                                                        <p>Etes-vous sûr de refuser ce dossier?</p>
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</button>
+                                                        <button type="button" class="btn btn-success"data-bs-dismiss="modal">Oui</button>
+                                                     </div>
+                                                 </div>
+                                                 </div>
+                                             </div>
+
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-success">Valider</button>
                                             <!-- Button trigger modal 1-->
                                             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                <i class="bi bi-lock-fill"></i>Bloquer
+                                            Refuser
                                             </button>
                                             
                                             <!-- Modal 1-->
@@ -59,7 +84,7 @@
                                                 <div class="modal-dialog verif">
                                                 <div class="modal-content ">
                                                     <div class="modal-body">
-                                                        <p>Etes-vous sûr de vouloir bloquer cet utilisateur?</p>
+                                                        <p>Etes-vous sûr de refuser ce dossier?</p>
                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</button>
                                                     <button type="button" class="btn btn-success"data-bs-dismiss="modal">Oui</button>
                                                     </div>
@@ -92,11 +117,16 @@
                                     <thead>
                                         <tr>
                                             <th scope="col">No</th>
-                                        <th scope="col">Signaleur</th>
-                                        <th scope="col">Type signaleur</th>
-                                        <th scope="col">Signalé</th>
-                                        <th scope="col">Type signalé</th>
-                                        <th scope="col">Date signalement</th>
+                                        <th scope="col">Nom</th>
+                                        <th scope="col">Prénom</th>
+                                        <th scope="col">Pseudo</th>
+                                        <th scope="col">Date naissance</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Sexe</th>
+                                        <th scope="col">Spécialité</th>
+                                        <th scope="col">Nmrb patients max</th>
+                                        <th scope="col">Tel</th>
+                                        <th scope="col">Autorisation Ex</th>
                                         <th scope="col">Actions</th>
                                         </tr>
                                     </thead>
@@ -104,14 +134,41 @@
                                         <tr>
                                         <th scope="row">1</th>
                                         <td>Mark</td>
-                                        <td>jeune</td>
+                                        <td>Mark</td>
                                         <td>Otto</td>
-                                        <td>medecin</td>
-                                        <td>03-08-2023</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                        <td>
+
+                                            <!-- Button trigger modal 2-->
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModa"><i class="bi bi-download"></i>Télécharger
+                                            </button>
+                                            <!-- Modal 2-->
+                                            <div class="modal fade" id="exampleModa" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog salaire">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Autorisation d'exercice</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                       <p>Etes-vous sûr de refuser ce dossier?</p>
+                                                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</button>
+                                                       <button type="button" class="btn btn-success"data-bs-dismiss="modal">Oui</button>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>
+
+                                       </td>
                                         <td>
                                             <!-- Button trigger modal 1-->
                                             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#telch">
-                                                <i class="bi bi-lock-fill"></i>Bloquer
+                                            <i class="bi bi-trash-fill"></i>
                                             </button>
                                             
                                             <!-- Modal 1-->
@@ -119,7 +176,7 @@
                                                 <div class="modal-dialog verif">
                                                 <div class="modal-content ">
                                                     <div class="modal-body">
-                                                        <p>Etes-vous sûr de vouloir bloquer cet utilisateur?</p>
+                                                        <p>Etes-vous sûr de vouloir supprimer cet  enregistrement?</p>
                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</button>
                                                     <button type="button" class="btn btn-success"data-bs-dismiss="modal">Oui</button>
                                                     </div>

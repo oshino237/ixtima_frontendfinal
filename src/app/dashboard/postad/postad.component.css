@@ -73,9 +73,22 @@ body{
     background-color:#D4DFFE;
     text-align: center;
 }
+.modal .btn{
+  margin: 5px;
+}
+.modal-body .btn-success{
+  background-color:#810244 ;
+  color: #fff;
+  border: none;
+  --bs-btn-active-border-color:#6d063b;
+  margin: 5px;
+}
+.modal-body .btn-success:hover{
+  background-color:#6d063b ;
+}
 .actions .btn{
     margin: 3px;
-    width: 100px;
+    /* width: 100px; */
     display: inline-block;
 }
   @media(max-width:725px){

@@ -19,12 +19,11 @@ import { ConfermdComponent } from './dashboard/confermd/confermd.component';
 import { GerecmpmdComponent } from './dashboard/gerecmpmd/gerecmpmd.component';
 import { PostmdComponent } from './dashboard/postmd/postmd.component';
 import { ThemeComponent } from './dashboard/theme/theme.component';
-import { SousthmComponent } from './dashboard/sousthm/sousthm.component';
 import { PostadComponent } from './dashboard/postad/postad.component';
 import { TracabiliteComponent } from './dashboard/tracabilite/tracabilite.component';
-import { ComptusrComponent } from './dashboard/comptusr/comptusr.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
+import { CmptmedComponent } from './dashboard/cmptmed/cmptmed.component';
 
 @NgModule({
   declarations: [
@@ -44,12 +43,11 @@ import { FooterComponent } from './layout/footer/footer.component';
     GerecmpmdComponent,
     PostmdComponent,
     ThemeComponent,
-    SousthmComponent,
     PostadComponent,
     TracabiliteComponent,
-    ComptusrComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    CmptmedComponent
   ],
   imports: [
     BrowserModule,

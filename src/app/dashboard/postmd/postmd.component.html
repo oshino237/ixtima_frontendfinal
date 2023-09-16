@@ -79,9 +79,8 @@
                 </div>
 
                 <div class="tab-pane fade" id="pills-profile1" role="tabpanel" aria-labelledby="pills-profile-tab1">
-                    
+                    <!-- Button ajout plus -->
                   <div class="boutajout">
-                    <!-- Button trigger modal -->
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <i class="bi bi-plus-square-fill"></i>
                     </button>
@@ -107,8 +106,13 @@
                               <p>Dr. Robert TSINGUE</p>
                           </div>
                           <div class="actions">
-                            <button type="button" class="btn btn-primary">modifier</button>&nbsp;&nbsp;&nbsp;
-                            <button type="button" class="btn btn-danger">supprimer</button>
+                            <!-- boutton modif -->
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modif">
+                              Modifier
+                              </button>&nbsp;&nbsp;&nbsp;
+                            <!-- Button trigger supprim-->
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#supprim"><i class="bi bi-trash-fill"></i>
+                          </button>
                           </div>
                       </div>
                       <div class="pst2">
@@ -128,8 +132,13 @@
                               <p>Dr. Robert TSINGUE</p>
                           </div>
                           <div class="actions">
-                            <button type="button" class="btn btn-primary">modifier</button>&nbsp;&nbsp;&nbsp;
-                            <button type="button" class="btn btn-danger">supprimer</button>
+                            <!-- boutton modif -->
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modif">
+                              Modifier
+                              </button>&nbsp;&nbsp;&nbsp;
+                            <!-- Button trigger supprim-->
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#supprim"><i class="bi bi-trash-fill"></i>
+                          </button>
                           </div>
                       </div>
                       <div class="pst3">
@@ -149,14 +158,19 @@
                               <p>Dr. Robert TSINGUE</p>
                           </div>
                           <div class="actions">
-                            <button type="button" class="btn btn-primary">modifier</button>&nbsp;&nbsp;&nbsp;
-                            <button type="button" class="btn btn-danger">supprimer</button>
+                            <!-- boutton modif -->
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modif">
+                              Modifier
+                              </button>&nbsp;&nbsp;&nbsp;
+                            <!-- Button trigger supprim-->
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#supprim"><i class="bi bi-trash-fill"></i>
+                          </button>
                           </div>
                       </div>
   
                     </div>
 
-                    <!-- Modal -->
+                    <!-- Modal ajout plus -->
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                         <div class="modal-content">
@@ -170,11 +184,43 @@
                                     <label for="contenu">contenu :</label><br><textarea name="" id="contenu" placeholder="Il est commun pour ..." required cols="40" rows="15"></textarea><br>
                                     <label for="source">Source :</label><br><input type="text" id="source"><br><br>
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-                            <button type="button" class="btn btn-primary">Publier</button>
+                            <button type="submit" class="btn btn-primary">Publier</button>
                                 </form>
                             </div>
                         </div>
                         </div>
+                    </div>
+                    <!-- Modal modif-->
+                    <div class="modal fade" id="modif" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Modification du post</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                              <form action="">
+                                  <label for="titre">Titre :</label><br><input type="text" id="titre" required placeholder="les preservatifs"><br>
+                                  <label for="contenu">contenu :</label><br><textarea name="" id="contenu" placeholder="Il est commun pour ..." required cols="40" rows="15"></textarea><br>
+                                  <label for="source">Source :</label><br><input type="text" id="source"><br><br>
+                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                          <button type="submit" class="btn btn-primary">Publier</button>
+                              </form>
+                          </div>
+                      </div>
+                      </div>
+                    </div>
+                     <!-- Modal supprim-->
+                     <div class="modal fade" id="supprim" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog verif">
+                      <div class="modal-content ">
+                          <div class="modal-body">
+                              <p>Etes-vous sûr de vouloir spprimer ce post?</p>
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</button>
+                          <button type="button" class="btn btn-success"data-bs-dismiss="modal">Oui</button>
+                          </div>
+                      </div>
+                      </div>
                     </div>
 
 

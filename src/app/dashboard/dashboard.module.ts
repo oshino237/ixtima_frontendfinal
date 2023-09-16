@@ -4,12 +4,14 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {DashboardComponent} from "./dashboard.component";
 import { GerecmpadComponent } from './gerecmpad/gerecmpad.component';
 import { CycleComponent } from './cycle/cycle.component';
+import { CmptmedComponent } from './cmptmed/cmptmed.component';
 
 
 @NgModule({
   declarations: [
     GerecmpadComponent,
-    CycleComponent
+    CycleComponent,
+    CmptmedComponent
   ],
   imports: [
     BrowserModule,

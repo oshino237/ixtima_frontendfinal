@@ -1,1 +1,290 @@
-<p>theme works!</p>
+<section class="main">
+    <div class="maincontent">
+        <div class="maintitle">
+            <h1>Thèmes et sous-thèmes</h1>
+        </div>
+        <div class="bloctables">
+            <div class="card">
+
+                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item text-center">
+                      <a class="nav-link active btl" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Thèmes</a>
+                    </li>
+                    <li class="nav-item text-center">
+                      <a class="nav-link btr" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Sous-thèmes</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+
+                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                        <div class="form px-4 pt-5">
+                             <!-- Button ajout plus -->
+                         <div class="boutajout">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ajoutplus">
+                            <i class="bi bi-plus-square-fill"></i>
+                            </button>
+                        </div>
+                            <table class="table table-bordered" data-toggle="table" data-search="true" data-pagination="true">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                        <th scope="col">No</th>
+                                        <th scope="col">Titre du thème</th>
+                                        <th scope="col">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                        <th scope="row">1</th>
+                                        <td>
+                                            Puberté 
+                                            <!-- button consulthm -->
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#consulthm">
+                                               Consulter
+                                           </button>
+                                        </td>
+                                        <td>
+                                            <!-- Button trigger supprim-->
+                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#supprim">
+                                                <i class="bi bi-trash-fill"></i>
+                                            </button>
+                                            <!-- button modif -->
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modif">
+                                                <i class="bi bi-pencil-fill"></i>
+                                            </button>
+                                            <!-- button ajout sousthm -->
+                                            <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#ajousouthem">
+                                                <i class="bi bi-plus-lg"></i>Sous-thème
+                                            </button>
+                                            <!-- Modal modif-->
+                                            <div class="modal fade" id="modif" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Modification du thème</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form action="">
+                                                            <label for="titre">Titre :</label><br><input type="text" id="titre" required placeholder="les preservatifs"><br>
+                                                            <label for="contenu">contenu :</label><br><textarea name="" id="contenu" placeholder="Il est commun pour ..." required cols="40" rows="15"></textarea><br><br>
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                                                             <button type="submit" class="btn btn-primary">valider</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>
+                                            <!-- Modal supprim-->
+                                            <div class="modal fade" id="supprim" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog verif">
+                                                <div class="modal-content ">
+                                                    <div class="modal-body">
+                                                        <p>Etes-vous sûr de vouloir supprimer ce thème?</p>
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</button>
+                                                    <button type="button" class="btn btn-success"data-bs-dismiss="modal">Oui</button>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>
+                                            <!-- Modal ajout sousthm-->
+                                            <div class="modal fade" id="ajousouthem" tabindex="-1" data-bs-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Ajout d'un sous-thème</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form action="">
+                                                            <label for="titre">Titre :</label><br><input type="text" id="titre" required placeholder="les preservatifs"><br>
+                                                            <label for="contenu">contenu :</label><br><textarea name="" id="contenu" placeholder="Il est commun pour ..." required cols="40" rows="15"></textarea><br><br>
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                                                             <button type="submit" class="btn btn-primary">valider</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>
+                                             <!-- Modal consluthm -->
+                                             <div class="modal fade" id="consulthm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Puberté</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <strong>Chez le garçon</strong> <br>
+                                                        <ul>
+                                                            <li><span>*</span>&nbsp;&nbsp; La puberté survient souvent chez les garçons entre l’âge de 11 et 14 ans (en moyenne à l’âge de 12 ans)</li>
+                                                            <li><span>*</span>&nbsp;&nbsp;Changement de la voix </li>
+                                                            <li><span>*</span>&nbsp;&nbsp;Croissance de l’appareil génital</li>
+                                                            <li><span>*</span>&nbsp;&nbsp;Poussée de poil sous les aisselles et autour de l’appareil génital</li>
+                                                            <li><span>*</span>&nbsp;&nbsp;Apparition de l’acné</li>
+                                                            <li><span>*</span>&nbsp;&nbsp;Emergence des sentiments d’amour et d’attirance vers l’autre</li>
+                                                            <li><span>*</span>&nbsp;&nbsp;Survenue de la première éjaculation (la sortie du sperme du pénis)</li>
+                                                            <li><span>*</span>&nbsp;&nbsp;Le corps et le système reproducteur grandissent et le pubère(ou adolescent) acquiert la faculté de se procréer et avoir des enfants</li>
+                                                        </ul>
+                                                        Le rythme de croissance et de changement physique varie d’un adolescent à un autre. <br><br>
+
+                                                        <strong>Chez la fille</strong><br>
+                                                        <ul>
+                                                            <li><span>*</span>&nbsp;&nbsp;La puberté survient souvent chez les filles entre l’âge de 11 et 14 ans (en moyenne à l’âge de 11 ans)</li>
+                                                            <li><span>*</span>&nbsp;&nbsp;Développement des seins</li>
+                                                            <li><span>*</span>&nbsp;&nbsp;Poussée de poils sous les aisselles et autour de l’appareil génital</li>
+                                                            <li><span>*</span>&nbsp;&nbsp;Apparition de l’acné</li>
+                                                            <li>Emergence des sentiments d’amour et d’attirance vers l’autre</li>
+                                                            <li><span>*</span>&nbsp;&nbsp;Survenue des premières règles qui se manifestent par un petit saignement de l'appareil génital (sortie d'un peu de sang du vagin).</li>
+                                                            <li><span>*</span>&nbsp;&nbsp;Le cycle menstruel survient chaque mois le corps et le système reproducteur grandissent et la pubère(ou adolescente) acquiert la faculté de se procréer et avoir des enfants.</li>
+                                                        </ul><br>
+                                                        Le rythme de croissance et de changement physique varie d'une adolescente à une autre.
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>
+
+                                        </td>
+                                        </tr>
+
+  
+                                            
+                                        <!-- <tr>
+                                        <th scope="row">3</th>
+                                        <td colspan="2">Larry the Bird</td>
+                                        <td>@twitter</td>
+                                        </tr> -->
+                                    </tbody>
+                                    </table>
+                            </table>
+
+                        </div>
+                        <!-- Modal ajout plus -->
+                    <div class="modal fade" id="ajoutplus" tabindex="-1"data-bs-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Ajout d'un thème</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="">
+                                    <label for="titre">Titre :</label><br><input type="text" id="titre" required placeholder="les preservatifs"><br>
+                                    <label for="contenu">contenu :</label><br><textarea name="" id="contenu" placeholder="Il est commun pour ..." required cols="40" rows="15"></textarea><br><br>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                            <button type="submit" class="btn btn-primary">Publier</button>
+                                </form>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                        <div class="form px-4 pt-5">
+                                       
+                            <table class="table table-bordered" data-toggle="table" data-search="true" data-pagination="true">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                        <th scope="col">No</th>
+                                        <th scope="col">Sous-thème</th>
+                                        <th scope="col">Référence</th>
+                                        <th scope="col">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                        <th scope="row">1</th>
+                                        <td>
+                                            Adoéscence 
+                                             <!-- button consulsthm -->
+                                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#consulsthm">
+                                                Consulter
+                                            </button>
+                                        </td>
+                                        <td>Puberté</td>
+                                        <td>
+                                            <!-- Button trigger supprim-->
+                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#suprim">
+                                                <i class="bi bi-trash-fill"></i>
+                                            </button>
+                                            <!-- button modif -->
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modifs">
+                                                <i class="bi bi-pencil-fill"></i>
+                                            </button>
+                                            <!-- Modal modif-->
+                                            <div class="modal fade" id="modifs" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Modification du sous-thème</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form action="">
+                                                            <label for="titre">Titre :</label><br><input type="text" id="titre" required placeholder="les preservatifs"><br>
+                                                            <label for="contenu">contenu :</label><br><textarea name="" id="contenu" placeholder="Il est commun pour ..." required cols="40" rows="15"></textarea><br><br>
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                                                             <button type="submit" class="btn btn-primary">valider</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>
+                                            <!-- Modal supprim-->
+                                            <div class="modal fade" id="suprim" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog verif">
+                                                <div class="modal-content ">
+                                                    <div class="modal-body">
+                                                        <p>Etes-vous sûr de vouloir supprimer ce sous-thème?</p>
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</button>
+                                                    <button type="button" class="btn btn-success"data-bs-dismiss="modal">Oui</button>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>
+                                            <!-- Modal conslusthm -->
+                                            <div class="modal fade" id="consulsthm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Adoléscence</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        C’est une étape de la vie qui commence généralement de 10 ans jusqu’à 18 ans. <br>
+                                                        Durant cette période, l’adolescent subit de nombreux changements physiques et psychologiques.
+                                                        L’adolescent se retrouve dans un conflit constant entre non seulement ses besoins personnels (physiques et psychologiques) mais aussi entre ses tentatives d’indépendance, d’affirmation du soi et les idées et contraintes de la société. <br>
+                                                        En effet, l’adolescent sent parfois : <br>
+                                                        <ul>
+                                                            <li><span>*</span>&nbsp;&nbsp;Des sauts d’humeur..</li>
+                                                            <li><span>*</span>&nbsp;&nbsp;Une anxiété permanente </li>
+                                                            <li><span>*</span>&nbsp;&nbsp;Une instabilité psychologique</li>
+                                                            <li><span>*</span>&nbsp;&nbsp;Une attirance vers l’autre</li>
+                                                            <li><span>*</span>&nbsp;&nbsp;Un repli sur soi</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        </tr>
+
+                                        <!-- <tr>
+                                        <th scope="row">3</th>
+                                        <td colspan="2">Larry the Bird</td>
+                                        <td>@twitter</td>
+                                        </tr> -->
+                                    </tbody>
+                                    </table>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+              
+            </div>
+        </div>
+    </div>
+</section>
