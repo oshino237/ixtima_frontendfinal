@@ -5,13 +5,15 @@ import {DashboardComponent} from "./dashboard.component";
 import { GerecmpadComponent } from './gerecmpad/gerecmpad.component';
 import { CycleComponent } from './cycle/cycle.component';
 import { CmptmedComponent } from './cmptmed/cmptmed.component';
+import { ChatsComponent } from './chats/chats.component';
 
 
 @NgModule({
   declarations: [
     GerecmpadComponent,
     CycleComponent,
-    CmptmedComponent
+    CmptmedComponent,
+    ChatsComponent
   ],
   imports: [
     BrowserModule,

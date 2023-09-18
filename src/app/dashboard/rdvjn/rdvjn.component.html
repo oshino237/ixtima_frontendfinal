@@ -1,1 +1,118 @@
-<p>rdvjn works!</p>
+<section class="main">
+    <div class="maincontent">
+        <div class="maintitle">
+            <h1>Rendez-vous</h1>
+        </div>
+        <div class="bloctables">
+            <div class="card">
+
+                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item text-center">
+                      <a class="nav-link active btl" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">RDV en cours</a>
+                    </li>
+                    <li class="nav-item text-center">
+                      <a class="nav-link btr" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Mes rendez_vous</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+
+                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                        <div class="form px-4 pt-5">
+                            <table class="table table-bordered" data-toggle="table" data-search="true" data-pagination="true">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">No</th>
+                                            <th scope="col">Date & heure</th>
+                                            <th scope="col">Hôpital</th>
+                                            <th scope="col">Médecin</th>
+                                            <th scope="col">Spétialité</th>
+                                            <th scope="col">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                        <th scope="row">1</th>
+                                        <td>18/09/2023 09:04</td>
+                                        <td>CHU</td>
+                                        <td>Simon</td>
+                                        <td>Sexologue</td>
+                                        <td>
+                                            <!-- button prendrerdv -->
+                                            <button type="button" class="btn btn-success">
+                                                Prendre RDV
+                                            </button>
+                                        </td>
+                                        </tr>
+                                        <!-- <tr>
+                                        <th scope="row">3</th>
+                                        <td colspan="2">Larry the Bird</td>
+                                        <td>@twitter</td>
+                                        </tr> -->
+                                    </tbody>
+                                    </table>
+                            </table>
+
+                        </div>
+                       
+                    </div>
+
+                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                        <div class="form px-4 pt-5">
+                                       
+                            <table class="table table-bordered" data-toggle="table" data-search="true" data-pagination="true">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                        <th scope="col">No</th>
+                                        <th scope="col">Date & heure</th>
+                                        <th scope="col">Hôpital</th>
+                                        <th scope="col">Médecin</th>
+                                        <th scope="col">Spétialité</th>
+                                        <th scope="col">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                        <th scope="row">1</th>
+                                        <td>18/09/2023 09:04</td>
+                                        <td>CHU</td>
+                                        <td>Simon</td>
+                                        <td>Sexologue</td>
+                                        <td>
+                                            <!-- Button trigger supprim-->
+                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#suprim">
+                                               Annuler
+                                            </button>
+                                            <!-- Modal supprim-->
+                                            <div class="modal fade" id="suprim" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog verif">
+                                                <div class="modal-content ">
+                                                    <div class="modal-body">
+                                                        <p>Etes-vous sûr de vouloir Annuler ce rendez-vous ?</p>
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</button>
+                                                    <button type="button" class="btn btn-success"data-bs-dismiss="modal">Oui</button>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        </tr>
+
+                                        <!-- <tr>
+                                        <th scope="row">3</th>
+                                        <td colspan="2">Larry the Bird</td>
+                                        <td>@twitter</td>
+                                        </tr> -->
+                                    </tbody>
+                                    </table>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+              
+            </div>
+        </div>
+    </div>
+</section>
