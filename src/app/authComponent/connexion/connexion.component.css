@@ -1,5 +1,8 @@
-.error{
-    color: red;
+.invalid-feedback,.warning-feedback{
+    font-size: 13px;
+}
+.warning-feedback{
+    color: rgb(184, 167, 14);
 }
 /* ////////////////////////////    main   ////////////////////// */
 .milieu{
