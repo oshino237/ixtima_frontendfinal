@@ -3,15 +3,43 @@
   <section class="milieu">
     <div class="formulr">
       <h1>Connexion</h1>
-      <form action="">
-        <input type="email" placeholder="E-mail" class="input" required><br>
-        <input type="password" placeholder="password"  class="input" required><br>
-        <button  type="submit">valider</button> 
+      
+
+      <form  (ngSubmit)= "OnSubmit()" FormGroup="loginForm">
+
+        <input type="email" placeholder="E-mail" name="email" class="form-contol"  [(ngModel)] = "authRequest.email" [ngModelOptions]="{standalone:true}" required email #emailvr="ngModel" [ngClass]="
+        {'is-invalid':emailvr.touched && !emailvr.valid}" FormControlName="email" ><br>
+
+        <input type="password" placeholder="password" 
+         name="password" class="form-contol" required minlength="8" maxlength="20" pattern="(?=.?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^& -]). {8, }$" #passvr="ngModel" [ngClass]="
+         {'is-invalid':passvr.touched && !passvr.valid}" [(ngModel)] = "authRequest.password" [ngModelOptions]="{standalone:true}" FormControlName="password" required><br>
+         
+
+        <button class="boutval" type="submit" [disabled]="loginForm.valid">valider</button> 
         <button class="boutinscr"><a routerLink="/inscription" routerLinkActive="active" target="_blank">s'inscrire</a></button><br>
         <p><u><a href="#"> Mot de pass oublié ?</a></u></p>
+        
+        <!-- ----------------alerts----------- -->
+        <div class="invalid-feedback">
+
+          <div *ngIf='emailvr.getError("required")' class="alert alert-danger" role="alert">
+            remplir l'email!
+          </div>
+          <div *ngIf='emailvr.getError("email")' class="alert alert-warning " role="alert">
+            ce champ doit contenir un email!
+          </div>
+          <div *ngIf='passvr.getError("required")' class="alert alert-danger" role="alert">
+            remplir le mot de passe!
+          </div>
+          <div *ngIf='passvr.getError("minlength")' class="alert alert-warning " role="alert">
+            Le mot de pass doit avoir au moins 8 caractère!
+          </div>
+          
+        </div>
       </form>
+
     </div>
-    
+    <!-- (click)="login()"    [(ngModel)] = "authRequest.email" [ngModelOptions]="{standalone:true}"        [(ngModel)] = "authRequest.password" [ngModelOptions]="{standalone:true}"     --> 
   </section>
     
 <app-footer></app-footer>

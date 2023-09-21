@@ -10,46 +10,111 @@
       <input type="checkbox" id="chk" aria-hidden="true">
 
       <div class="input-groupj">
-        <form action="" id="jeunes"  autocomplete="">
+        <form  (ngSubmit)= "OnRegistjn()"  [formGroup]="registerForm" autocomplete="">
+
             <span><label for="chk" aria-hidden="true">JEUNE</label></span>
-          <input type="text" placeholder="Nom" class="input-slide" required><br>
-          <input type="text" placeholder="Prénom" class="input-slide" required><br>
-          <input type="email" placeholder="Email" class="input-slide" required><br>
-          <input type="date" placeholder="Date de naissance" class="input-slide" required><br>
-          <input type="text" placeholder="Pseudo" class="input-slide" required><br>
-          <input type="tel" required placeholder="telephone" value="+237 " class="input-slide">
-          <input type="password" placeholder="password" class="input-slide" required><br><br>
+
+          <input type="text" placeholder="Nom" class="input-slide" [(ngModel)]= "regist.firstname" [ngModelOptions]="{standalone:true}" required maxlength="30" #nomvr="ngModel" [ngClass]="
+          {'is-invalid':nomvr.touched && !nomvr.valid}"><br>
+
+          <input type="text" placeholder="Prénom" class="input-slide" [(ngModel)]= "regist.lastname" [ngModelOptions]="{standalone:true}" maxlength="30"  #prenomvr="ngModel" [ngClass]="
+          {'is-invalid':prenomvr.touched && !prenomvr.valid}"><br>
+
+          <input type="email" placeholder="Email" class="input-slide"[(ngModel)]= "regist.email" [ngModelOptions]="{standalone:true}" required #emailvr="ngModel" [ngClass]="
+          {'is-invalid':emailvr.touched && !emailvr.valid}"><br>
+
+          <input type="date" placeholder="Date de naissance" class="input-slide" [(ngModel)]= "regist.datenaiss" [ngModelOptions]="{standalone:true}" required #datevr="ngModel" [ngClass]="
+          {'is-invalid':datevr.touched && !datevr.valid}"><br>
+
+          <input type="text" placeholder="Pseudo" class="input-slide" [(ngModel)]= "regist.pseudo" [ngModelOptions]="{standalone:true}" required #pseudovr="ngModel" [ngClass]="
+          {'is-invalid':pseudovr.touched && !pseudovr.valid}"><br>
+
+          <input type="tel" placeholder="telephone" class="input-slide" [(ngModel)]= "regist.telephone" [ngModelOptions]="{standalone:true}" maxlength="9" minlength="9" required #telvr="ngModel" [ngClass]="
+          {'is-invalid':telvr.touched && !telvr.valid}">
+
+          <input type="password" placeholder="password" class="input-slide" [(ngModel)]= "regist.password" [ngModelOptions]="{standalone:true}" minlength="8" maxlength="30" required #passvr="ngModel" [ngClass]="
+          {'is-invalid':passvr.touched && !passvr.valid}"><br><br>
     
           <label for="s" class="sex">Sexe</label><br><br>
-          F &nbsp;<input type="radio" name="cl"  id="s" required>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          M &nbsp;<input type="radio" name="cl"id="s" required><br>
+          F &nbsp;<input type="radio" name="cl"  id="s" required [(ngModel)]= "regist.sexe" [ngModelOptions]="{standalone:true}" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          M &nbsp;<input type="radio" name="cl"id="s" required [(ngModel)]= "regist.sexe" [ngModelOptions]="{standalone:true}"><br>
           <button  type="submit" class="submit-btn">Valider</button><br>
+
+           <!-- ----------------alerts----------- -->
+        <div class="invalid-feedback">
+
+          <div *ngIf='emailvr.getError("required")' class="alert alert-danger" role="alert">
+            l'email ne doit pas rester vide!
+          </div>
+          <div *ngIf='emailvr.getError("email")' class="alert alert-danger" role="alert">
+            ce champ doit contenir un email!
+          </div>
+          <div *ngIf='passvr.getError("required")' class="alert alert-danger" role="alert">
+            remplir le mot de passe!
+          </div>
+          <div *ngIf='passvr.getError("minlength")' class="alert alert-danger" role="alert">
+            Le mot de pass doit avoir au moins 8 caractère!
+          </div>
+          <div *ngIf='nomvr.getError("required")' class="alert alert-danger" role="alert">
+            le nom ne doit pas rester vide!
+          </div>
+          <div *ngIf='datevr.getError("required")' class="alert alert-danger" role="alert">
+            la date ne doit pas rester vide!
+          </div>
+          <div *ngIf='pseudovr.getError("required")' class="alert alert-danger" role="alert">
+            la date ne doit pas rester vide!
+          </div>
+          <div *ngIf='telvr.getError("minlength")' class="alert alert-danger" role="alert">
+            le numero est de 9 chiffres!
+          </div>
+          <div *ngIf='telvr.getError("required")' class="alert alert-danger" role="alert">
+            la date ne doit pas rester vide!
+          </div>
+          
+        </div>
+
         </form>
       </div>
 
       <div class="input-groupm">
-        <form action="" id="medecin"  autocomplete="">
+        <form  (ngSubmit)= "OnRegistmd()"  [formGroup]="registerForm"  autocomplete="">
+
           <span><label for="chk" aria-hidden="true">MEDECIN</label></span>
           <div class="col1">
-            <input type="text" placeholder="Nom" class="input-slide" required><br>
-            <input type="text" placeholder="Prénom" class="input-slide" required><br>
-            <input type="email" placeholder="Email" class="input-slide" required><br>
-            <input type="tel" required placeholder="telephone" value="+237 " class="input-slide">
-            <input type="password" placeholder="password" class="input-slide" required><br><br>
+            <input type="text" placeholder="Nom" class="input-slide" [(ngModel)]= "registmd.firstname" [ngModelOptions]="{standalone:true}" required #nomedvr="ngModel" [ngClass]="
+            {'is-invalid':nomedvr.touched && !nomedvr.valid}"><br>
+
+            <input type="text" placeholder="Prénom" class="input-slide" [(ngModel)]= "registmd.lastname" [ngModelOptions]="{standalone:true}" required #prenomedvr="ngModel" [ngClass]="
+            {'is-invalid':prenomedvr.touched && !prenomedvr.valid}"><br>
+
+            <input type="email" placeholder="Email" class="input-slide" [(ngModel)]= "registmd.email" [ngModelOptions]="{standalone:true}" required #emailedvr="ngModel" [ngClass]="
+            {'is-invalid':emailedvr.touched && !emailedvr.valid}"><br>
+
+            <input type="tel" required placeholder="telephone" value="+237 " [(ngModel)]= "registmd.telephone" [ngModelOptions]="{standalone:true}" class="input-slide" #teledvr="ngModel" [ngClass]="
+            {'is-invalid':teledvr.touched && !teledvr.valid}">
+
+            <input type="password" placeholder="password" class="input-slide" [(ngModel)]= "registmd.password" [ngModelOptions]="{standalone:true}" required #passedvr="ngModel" [ngClass]="
+            {'is-invalid':passedvr.touched && !passedvr.valid}"><br><br>
           </div>
     
           <div class="col2">
-            <input type="date" placeholder="Date de naissance" class="input-slide" required><br>
-            <input type="text" placeholder="Pseudo" class="input-slide" required><br>
+            <input type="date" placeholder="Date de naissance" class="input-slide" [(ngModel)]= "registmd.datenaiss" [ngModelOptions]="{standalone:true}" required #datedvr="ngModel" [ngClass]="
+            {'is-invalid':datedvr.touched && !datedvr.valid}"><br>
+
+            <input type="text" placeholder="Pseudo" class="input-slide" [(ngModel)]= "registmd.pseudo" [ngModelOptions]="{standalone:true}" required #pseudoedvr="ngModel" [ngClass]="
+            {'is-invalid':pseudoedvr.touched && !pseudoedvr.valid}"><br>
+
             <label for="autori">Autorisation d'exercer</label><br>
+
             <div class="file-upload">
               <i class="fas fa-upload"></i>&nbsp; choisir fichier 
-              <div class="load"><input type="file" required name="autori">
+              <div class="load">
+                <input type="file" required name="autori">
               </div>
             </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
     
             Proféssion <br>
-            <select class="form-select" aria-label="Default select example">
+            <select class="form-select" aria-label="Default select example" required>
               <option selected>Généraliste</option>
               <option value="1">Spychologue</option>
               <option value="2">Généraliste</option>
@@ -61,11 +126,11 @@
             
             <div class="choix1">
               <label for="s">Sexe</label><br>
-              F &nbsp;<input type="radio" name="cl"  id="s" required>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              M &nbsp;<input type="radio" name="cl"id="s" required>
+              F &nbsp;<input type="radio" name="cl"  id="s" [(ngModel)]= "registmd.sexe" [ngModelOptions]="{standalone:true}" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              M &nbsp;<input type="radio" name="cl"id="s" [(ngModel)]= "registmd.sexe" [ngModelOptions]="{standalone:true}">
             </div><br>
             Hôpital <br>
-            <select class="form-select" aria-label="Default select example">
+            <select class="form-select" aria-label="Default select example"  required>
               <option selected>Saint marc</option>
               <option value="1">La caisse</option>
               <option value="2">Mvolier</option>

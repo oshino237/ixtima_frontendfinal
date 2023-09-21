@@ -1,4 +1,6 @@
-
+.error{
+    color: red;
+}
 /* ////////////////////////////    main   ////////////////////// */
 .milieu{
     background-color: #303E65;
@@ -61,6 +63,9 @@ input::-webkit-input-placeholder{
 .formulr .boutinscr{
     background-color: #3C57A4;
 }
+.formulr .boutinscr:hover,.boutinscr:focus{
+    background-color: #2f488f;
+}
 .formulr .boutinscr a{
     color: #fff;
 }
@@ -69,6 +74,9 @@ input::-webkit-input-placeholder{
     font-size: 12px;
     text-decoration: underline;
     transition: all cubic-bezier(0.23, -0.48, 0.19, 1.51) .3s;
+}
+.formulr .boutval:hover,.boutval:focus{
+    background-color:#bd196d ;
 }
 .formulr p a:hover{
     font-size: 14px;
