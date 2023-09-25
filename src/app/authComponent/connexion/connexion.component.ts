@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { catchError } from 'rxjs';
 import { Authrequest } from 'src/app/classe/authrequest';
 import { LoginserviceService } from 'src/app/service/loginservice.service';
 
@@ -11,16 +13,22 @@ import { LoginserviceService } from 'src/app/service/loginservice.service';
 export class ConnexionComponent {
 
   authRequest: Authrequest = new Authrequest();
-  constructor(private authService: LoginserviceService) { }
+  constructor(private authService: LoginserviceService, private router: Router) { }
 
 
   OnSubmit():void{
     console.log(this.authRequest);
-    this.authService.login(this.authRequest).subscribe((res: any) => {
+    this.authService.login(this.authRequest)
+    .pipe( catchError(err => {
+      throw 'error in source. Details: ' + err + " Compte inexistant";
+    }))
+    .subscribe((res: any) => {
       console.log(res);
       window.localStorage.setItem("token", res.token);
       console.log("auth avec succes"+ res.token)
-    });
+      this.router.navigate(['/forum'])
+    })
+
   }
   loginForm = new FormGroup({
     email: new FormControl('',

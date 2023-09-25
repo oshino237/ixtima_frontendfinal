@@ -5,31 +5,41 @@
       <h1>Connexion</h1>
       
 
-      <form  (ngSubmit)= "OnSubmit()" FormGroup="loginForm">
+      <form  FormGroup="loginForm" name="form" (ngSubmit)= " OnSubmit()">
 
         <input type="email" placeholder="E-mail" name="email" class="form-contol"  [(ngModel)] = "authRequest.email" [ngModelOptions]="{standalone:true}" required email #emailvr="ngModel" [ngClass]="
         {'is-invalid':emailvr.touched && !emailvr.valid}" FormControlName="email" >
          <!-- ----------------alerts----------- -->
-         <div *ngIf='emailvr.getError("required")' class="invalid-feedback" role="alert">
-          remplir l'email!
-        </div>
-        <div *ngIf='emailvr.getError("email")' class="warning-feedback" role="alert">
-          ce champ doit contenir un email!
-        </div><br>
+          <div *ngIf='emailvr.getError("required")' class="invalid-feedback" role="alert">
+            remplir l'email!
+          </div>
+          <div *ngIf='emailvr.getError("email")' class="warning-feedback" role="alert">
+            ce champ doit contenir un email!
+          </div>
+      
 
         <input type="password" placeholder="password" 
-         name="password" class="form-contol" required minlength="8" maxlength="20" pattern="(?=.?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^& -]). {8, }$" #passvr="ngModel" [ngClass]="
-         {'is-invalid':passvr.touched && !passvr.valid}" [(ngModel)] = "authRequest.password" [ngModelOptions]="{standalone:true}" FormControlName="password" required>
+         name="password" class="form-contol" required minlength="5" maxlength="20" pattern="(?=.?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^& -]). {8, }$" #passvr="ngModel" 
+         [ngClass]="{'is-invalid':passvr.touched && !passvr.valid}"
+         [(ngModel)] = "authRequest.password" [ngModelOptions]="{standalone:true}" FormControlName="password" required>
          <!-- ----------------alerts----------- -->
          <div *ngIf='passvr.getError("required")' class="invalid-feedback" role="alert">
           remplir le mot de passe!
         </div>
         <div *ngIf='passvr.getError("minlength")' class="warning-feedback" role="alert">
-          Le mot de pass doit avoir au moins 8 caractère!
+          Le mot de pass doit avoir au moins 5 caractère!
         </div><br>
          
 
-        <button class="boutval" type="submit" [disabled]="loginForm.valid">valider</button> 
+        <button 
+        class="btn btn-secondary btn-lg" disabled
+        *ngIf='emailvr.getError("required") || emailvr.getError("email") || passvr.getError("required") || passvr.getError("minlength")'
+         type="submit">valider</button> 
+         <button 
+        class="boutval"
+        *ngIf='!emailvr.getError("required") && !emailvr.getError("email") && !passvr.getError("required") && !passvr.getError("minlength")' 
+         type="submit">valider</button>
+
         <button class="boutinscr"><a routerLink="/inscription" routerLinkActive="active" target="_blank">s'inscrire</a></button><br>
         <p><u><a href="#"> Mot de pass oublié ?</a></u></p>
         
@@ -40,4 +50,3 @@
   </section>
     
 <app-footer></app-footer>
-

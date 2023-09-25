@@ -15,7 +15,7 @@ min-width: 600px;
 }
   .maincontent .maintitle{
     background-color:#354e9198;
-    margin:auto;
+    margin:10px auto;
     width: 100%;
     min-width: 600px;
     text-align: center;
@@ -29,11 +29,12 @@ min-width: 600px;
   .card{
     --bs-card-bg:#fff;
     min-width: 700px;
+    height: 700px;
     border:none;
-    width: 95%;
+    width: 100%;
     overflow-y: hidden;
     position: relative;
-    margin:7% auto;
+    margin: auto;
     padding-bottom: 20px;
     border-top-right-radius: 8px;
     border-top-left-radius: 8px;
@@ -65,16 +66,18 @@ min-width: 600px;
   .form{
     padding: 10px;
     overflow-x: scroll;
-   min-height: 300px;
+   min-height: 600px;
    height: 100%;
   }
   .table-bordered{
     width: 100%;
+    height: 100%;
   }
   thead th{
     color: #303E65;
     background-color: #D4DFFE;
   }
+ 
   .btn{
     margin: 5px;
   }

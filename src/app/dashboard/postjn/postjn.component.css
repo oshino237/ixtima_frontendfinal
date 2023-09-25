@@ -6,7 +6,7 @@ body{
   .main{
     width: 100%;
     height: 100%;
-    /* background-color:#d3deffc2 ; */
+    background-color:#d3deffc2 ;
     /* border: 1px dashed #0d6efd; */
   }
   .maincontent{
@@ -15,10 +15,10 @@ body{
     margin: auto;
   }
   .card{
-    width: 90%;
-    margin: 100px auto;
+    width: 100%;
+    margin: 20px auto;
     min-width: 500px;
-    min-height: 350px;
+    min-height: 600px;
     border-radius: 3px;
     border:2px solid #81024460;
     padding: 15px 10px;

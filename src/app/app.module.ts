@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+
 import { HttpClientModule} from "@angular/common/http";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,7 +27,8 @@ import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { CmptmedComponent } from './dashboard/cmptmed/cmptmed.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { Router } from '@angular/router';
+import { catchError } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -58,7 +60,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NgbModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    
+    // Router,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -9,7 +9,7 @@ height: 100%;
 }
 .maincontent{
 background-color:#e1e9ff ;
-padding: 12px;
+padding:5px 12px;
 margin:auto;
 min-width: 600px;
 }
@@ -29,6 +29,7 @@ min-width: 600px;
   .card{
     --bs-card-bg:#fff;
     min-width: 700px;
+    min-height: 600px;
     border:none;
     width: 95%;
     overflow-y: hidden;
@@ -70,6 +71,7 @@ min-width: 600px;
   }
   .table-bordered{
     width: 100%;
+    min-height: 500px;
   }
   thead th{
     color: #303E65;

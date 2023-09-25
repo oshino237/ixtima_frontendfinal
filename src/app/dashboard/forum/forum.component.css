@@ -159,11 +159,11 @@ min-width: 600px;
     color: #303E65;
   }
   .foot-center .bi-send-fill{
-    color:#FF96CD ;
+    color:#303E65 ;
     transition: ease-in-out .4s;
   }
   .foot-center .bi-send-fill:hover{
-    color:#f37bb9 ;
+    color:#303E65 ;
   }
 
 .footer-chat input{

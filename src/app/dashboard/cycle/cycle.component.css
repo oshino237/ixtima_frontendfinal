@@ -18,7 +18,7 @@ min-width: 600px;
 }
 .maincontent .maintitle{
     background-color:#354e9198;
-    margin: 0;
+    margin: 10px auto;
     width: 100%;
     padding: 10px;
     text-align: center;
@@ -27,11 +27,11 @@ min-width: 600px;
     color: rgba(204, 204, 204, 0.63);
 }
 .cycle{
-    width: 90%;
+    width: 100%;
     min-width: 450px;
     border-radius: 10px;
     padding: 30px 20px;
-    margin: 30px auto;
+    margin: auto;
     background-color:#F3E4EC ;
     box-shadow: 5px 5px 8px rgb(77, 74, 74);
 }

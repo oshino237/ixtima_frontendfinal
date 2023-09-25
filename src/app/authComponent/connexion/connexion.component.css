@@ -4,6 +4,7 @@
 .warning-feedback{
     color: rgb(184, 167, 14);
 }
+
 /* ////////////////////////////    main   ////////////////////// */
 .milieu{
     background-color: #303E65;
@@ -57,14 +58,16 @@ input::-webkit-input-placeholder{
     color: #fff;
     padding: 10px 7px;
     width: 100px;
-    background-color: #E0318C;
     transition: all cubic-bezier(0.23, -0.48, 0.19, 1.51) .3s;
+}
+.formulr button{
+    background-color: #E0318C;
 }
 .formulr button:hover,.boutinscr:hover{
    width:110px ;
 }
 .formulr .boutinscr{
-    background-color: #3C57A4;
+    background-color: #3C57A4!important;
 }
 .formulr .boutinscr:hover,.boutinscr:focus{
     background-color: #2f488f;

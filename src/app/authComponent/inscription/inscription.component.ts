@@ -18,15 +18,15 @@ export class InscriptionComponent {
     this.inscrptionService.inscription(this.regist).subscribe((res: any) => {
       console.log(res);
       window.localStorage.setItem("token", res.token);
-      console.log("inscription effectuee avec succes"+ res.token)
+      console.log("inscription effectuee avec succes " + res.token+ " Et le role est "+res.role)
     });
   }
   OnRegistmd():void{
     console.log(this.registmd);
-    this.inscrptionService.inscription(this.registmd).subscribe((res: any) => {
+    this.inscrptionService.inscriptionMed(this.registmd).subscribe((res: any) => {
       console.log(res);
       window.localStorage.setItem("token", res.token);
-      console.log("inscription effectuee avec succes"+ res.token)
+      console.log("inscription effectuee avec succes " + res.token+ " Et le role est "+res.role)
     });
   }
 

@@ -8,13 +8,23 @@ import { RegistRequest } from '../classe/regist-request';
 export class InscriptionService {
 
   constructor(private http: HttpClient) { }
+  inscriptionMed(registRequest : RegistRequest) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "Content-type" : "application/json",
+      }),
+    }
+    console.log("l'iscrition ok "+registRequest.password+registRequest.email+registRequest.telephone);
+    return this.http.post('http://localhost:8080/auth/registers', registRequest, httpOptions).pipe();
+  }
   inscription(registRequest : RegistRequest) {
     const httpOptions = {
       headers: new HttpHeaders({
         "Content-type" : "application/json",
       }),
     }
-    console.log("l'iscrition ok"+registRequest.password+registRequest.email+registRequest.telephone);
+    console.log("l'iscrition ok "+registRequest.password+registRequest.email+registRequest.telephone);
     return this.http.post('http://localhost:8080/auth/register', registRequest, httpOptions).pipe();
   }
+
 }

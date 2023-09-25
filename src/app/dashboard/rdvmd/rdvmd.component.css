@@ -6,16 +6,16 @@ body{
 .main{
 width: 100%;
 height: 100%;
+background-color:#e1e9ff ;
+padding:5px  12px;
 }
 .maincontent{
-background-color:#e1e9ff ;
-padding: 12px;
 margin:auto;
 min-width: 600px;
 }
   .maincontent .maintitle{
     background-color:#354e9198;
-    margin:auto;
+    margin: 0px auto 10px auto;
     width: 100%;
     min-width: 600px;
     text-align: center;
@@ -29,11 +29,12 @@ min-width: 600px;
   .card{
     --bs-card-bg:#fff;
     min-width: 700px;
+    min-height: 600px;
     border:none;
-    width: 95%;
+    width: 100%;
     overflow-y: hidden;
     position: relative;
-    margin:7% auto;
+    margin:auto;
     padding-bottom: 20px;
     border-top-right-radius: 8px;
     border-top-left-radius: 8px;
@@ -71,6 +72,8 @@ min-width: 600px;
   }
   .table-bordered{
     width: 100%;
+    min-height: 500px;
+    height: 100%;
   }
   thead th{
     color: #303E65;

@@ -176,6 +176,9 @@ span{
     margin: 8px 0;
     /* border:1px dashed #f7f9fd; */
 }
+.formulr .boutval:hover,.boutval:focus{
+    background-color:#bd196d ;
+}
 .submit-btn{
     float: right;
     border: none;
