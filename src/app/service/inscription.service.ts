@@ -14,7 +14,7 @@ export class InscriptionService {
         "Content-type" : "application/json",
       }),
     }
-    console.log("l'iscrition ok "+registRequest.password+registRequest.email+registRequest.telephone);
+    console.log("l'iscrition medecin ok "+registRequest.password+registRequest.email+registRequest.telephone);
     return this.http.post('http://localhost:8080/auth/registers', registRequest, httpOptions).pipe();
   }
   inscription(registRequest : RegistRequest) {
@@ -23,7 +23,7 @@ export class InscriptionService {
         "Content-type" : "application/json",
       }),
     }
-    console.log("l'iscrition ok "+registRequest.password+registRequest.email+registRequest.telephone);
+    console.log("l'iscrition jeune ok "+registRequest.password+registRequest.email+registRequest.telephone);
     return this.http.post('http://localhost:8080/auth/register', registRequest, httpOptions).pipe();
   }
 

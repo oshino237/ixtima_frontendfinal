@@ -46,5 +46,4 @@ export class ConnexionComponent {
       Validators.maxLength(30)
     ])
   })
-
 }

@@ -179,12 +179,12 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <form action="">
-                                    <label for="titre">Titre :</label><br><input type="text" id="titre" required placeholder="les preservatifs"><br>
-                                    <label for="contenu">contenu :</label><br><textarea name="" id="contenu" placeholder="Il est commun pour ..." required cols="40" rows="15"></textarea><br>
+                                <form (ngSubmit)= " OnAjpost()">
+                                    <label for="titre">Titre :</label><br><input type="text" id="titre" required placeholder="les preservatifs" [(ngModel)]= "ajpost.titre_post" [ngModelOptions]="{standalone:true}" ><br>
+                                    <label for="contenu">contenu :</label><br><textarea name="" id="contenu" placeholder="Il est commun pour ..." required cols="40" rows="15" [(ngModel)]= "ajpost.libelle_post" [ngModelOptions]="{standalone:true}"></textarea><br>
                                     <label for="source">Source :</label><br><input type="text" id="source"><br><br>
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-                            <button type="submit" class="btn btn-primary">Publier</button>
+                                    <button type="submit" class="btn btn-primary">Publier</button>
                                 </form>
                             </div>
                         </div>

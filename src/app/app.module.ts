@@ -29,6 +29,7 @@ import { CmptmedComponent } from './dashboard/cmptmed/cmptmed.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { catchError } from 'rxjs';
+import{DatePipe} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,7 @@ import { catchError } from 'rxjs';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    
+  
     // Router,
   ],
   providers: [],
