@@ -13,7 +13,7 @@ export class Ajpost {
             "Content-type" : "application/json",
           }),
         }
-        console.log("l'iscrition medecin ok "+ajpostRequest.source_post+ajpostRequest.date_creation_post+ajpostRequest.libelle_post);
+        console.log("ajout post ok "+ajpostRequest.source_post+ajpostRequest.date_creation_post+ajpostRequest.libelle_post);
         return this.http.post('http://localhost:8080/post/add', ajpostRequest, httpOptions).pipe();
       }
 }

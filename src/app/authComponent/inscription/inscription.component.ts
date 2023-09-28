@@ -29,7 +29,7 @@ export class InscriptionComponent {
       console.log("inscription effectuee avec succes " + res.token+ " Et le role est "+res.role)
     });
   }
-
+  
   registerForm = new FormGroup({
     email: new FormControl('',
     [

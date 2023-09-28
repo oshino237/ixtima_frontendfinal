@@ -47,7 +47,7 @@
                 <div class="message">
                     <div class="response">
                         <div class="text-only">
-                            <p class="text">tu es à quel niveau?</p>
+                            <p class="text">{{messg.libelle_messfor}}</p>
                             <p class="response-time time"> 15:04</p>
                         </div>
                     </div>
@@ -67,10 +67,20 @@
             </div>
         </div>
         <div class="footer-chat">
+           
             <div class="foot-center">
-                <i class="bi bi-emoji-smile-fill" ></i>
-                <input type="text" class="write-message" placeholder="Message">
-                <i class="bi bi-send-fill"></i> 
+                <form (ngSubmit)= " OnMessage()">
+                    <input type="text" class="write-message" placeholder="Message" [(ngModel)]= "messg.libelle_messfor" [ngModelOptions]="{standalone:true}" required minlength="1" #messvr="ngModel" [ngClass]="
+                    {'is-invalid':messvr.touched && !messvr.valid}">
+                    <!-- ----------------alerts----------- -->
+                    
+                    <button type="submit" class="btn btn-dark" disabled
+                    *ngIf='messvr.getError("required") || messvr.getError("minlength")'><i class="bi bi-send-fill"></i>
+                    </button>
+                    <button type="submit" class="btn btn-dark"
+                    *ngIf='!messvr.getError("required") && !messvr.getError("minlength")'><i class="bi bi-send-fill"></i>
+                    </button>
+                </form>
             </div>
             
         </div>

@@ -31,6 +31,23 @@ min-width: 600px;
     padding: 10px 7px;
     margin: 15px auto;
 }
+.invalid-feedback,.warning-feedback{
+    font-size: 12px;
+}
+.warning-feedback{
+    color: rgb(184, 167, 14);
+}
+ .btn-warning{
+    background-color:#810244 ;
+    color: #fff;
+    border: none;
+    --bs-btn-active-border-color:#6d063b;
+    margin-bottom: 7px;
+    float: right;
+}
+.btn-warning:hover{
+    background-color:#6d063b ;
+}
 .form-elemt,.form-photo{
     /* border: dashed 2px #000; */
     display: inline-block;

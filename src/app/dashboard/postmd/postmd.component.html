@@ -180,11 +180,47 @@
                             </div>
                             <div class="modal-body">
                                 <form (ngSubmit)= " OnAjpost()">
-                                    <label for="titre">Titre :</label><br><input type="text" id="titre" required placeholder="les preservatifs" [(ngModel)]= "ajpost.titre_post" [ngModelOptions]="{standalone:true}" ><br>
-                                    <label for="contenu">contenu :</label><br><textarea name="" id="contenu" placeholder="Il est commun pour ..." required cols="40" rows="15" [(ngModel)]= "ajpost.libelle_post" [ngModelOptions]="{standalone:true}"></textarea><br>
-                                    <label for="source">Source :</label><br><input type="text" id="source"><br><br>
+                                    <label for="titre">Titre :</label><br>
+                                    <input type="text" id="titre" required placeholder="les preservatifs" [(ngModel)]= "ajpost.titre_post" [ngModelOptions]="{standalone:true}" maxlength="50" minlength="3" required #titrevr="ngModel" [ngClass]="
+                                    {'is-invalid':titrevr.touched && !titrevr.valid}">
+                                    <!-- ----------------alerts----------- -->
+                                    <div *ngIf='titrevr.getError("required")' class="invalid-feedback" role="alert">
+                                      le titre ne doit pas rester vide!
+                                    </div>
+                                    <div *ngIf='titrevr.getError("minlength")'  role="alert" class="warning-feedback">
+                                      ce champs a au moins 3 lettres!
+                                    </div>
+                                    <br>
+
+                                    <label for="contenu">contenu :</label><br>
+                                    <textarea name="" id="contenu" placeholder="Il est commun pour ..." required cols="40" rows="15" [(ngModel)]= "ajpost.libelle_post" [ngModelOptions]="{standalone:true}" maxlength="3000" minlength="50" required #contentvr="ngModel" [ngClass]="
+                                    {'is-invalid':contentvr.touched && !contentvr.valid}"></textarea>
+                                    <!-- ----------------alerts----------- -->
+                                    <div *ngIf='contentvr.getError("required")' class="invalid-feedback" role="alert">
+                                      le contenu ne doit pas rester vide!
+                                    </div>
+                                    <div *ngIf='contentvr.getError("minlength")'  role="alert" class="warning-feedback">
+                                      ce champs a au moins 50 lettres!
+                                    </div>
+                                    <br>
+
+                                    <label for="source">Source :</label><br>
+                                    <input type="text" id="source" [(ngModel)]= "ajpost.source_post" [ngModelOptions]="{standalone:true}" minlength="3" required #sourcevr="ngModel" [ngClass]="
+                                    {'is-invalid':sourcevr.touched && !sourcevr.valid}"><br>
+                                    <!-- ----------------alerts----------- -->
+                                    <div *ngIf='sourcevr.getError("minlength")'  role="alert" class="warning-feedback">
+                                      ce champs a au moins 3 lettres!
+                                    </div>
+                                    <!-- <div *ngIf='sourcevr.getError("required")' class="invalid-feedback" role="alert">
+                                      le contenu ne doit pas rester vide!
+                                    </div> -->
+                                    <br>
+
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-                                    <button type="submit" class="btn btn-primary">Publier</button>
+
+                                    <button disabled
+                                     *ngIf='contentvr.getError("required") || contentvr.getError("email") || titrevr.getError("required") || titrevr.getError("minlength") || sourcevr.getError("minlength")' type="submit" class="btn btn-primary">Publier</button>
+                                    <button  *ngIf='!contentvr.getError("required") && !contentvr.getError("email") && !titrevr.getError("required") && !sourcevr.getError("minlength") && !titrevr.getError("minlength")' type="submit" class="btn btn-primary">Publier</button>
                                 </form>
                             </div>
                         </div>
@@ -199,12 +235,48 @@
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
                           <div class="modal-body">
-                              <form action="">
-                                  <label for="titre">Titre :</label><br><input type="text" id="titre" required placeholder="les preservatifs"><br>
-                                  <label for="contenu">contenu :</label><br><textarea name="" id="contenu" placeholder="Il est commun pour ..." required cols="40" rows="15"></textarea><br>
-                                  <label for="source">Source :</label><br><input type="text" id="source"><br><br>
-                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-                          <button type="submit" class="btn btn-primary">Publier</button>
+                              <form (ngSubmit)= " Onmodifpost()">
+                                <label for="titre">Titre :</label><br>
+                                <input type="text" id="titre" required placeholder="les preservatifs" [(ngModel)]= "ajpost.titre_post" [ngModelOptions]="{standalone:true}" maxlength="50" minlength="3" required #motitrevr="ngModel" [ngClass]="
+                                {'is-invalid':motitrevr.touched && !motitrevr.valid}">
+                                <!-- ----------------alerts----------- -->
+                                <div *ngIf='motitrevr.getError("required")' class="invalid-feedback" role="alert">
+                                  le titre ne doit pas rester vide!
+                                </div>
+                                <div *ngIf='motitrevr.getError("minlength")'  role="alert" class="warning-feedback">
+                                  ce champs a au moins 3 lettres!
+                                </div>
+                                <br>
+
+                                <label for="contenu">contenu :</label><br>
+                                <textarea name="" id="contenu" placeholder="Il est commun pour ..." required cols="40" rows="15" [(ngModel)]= "ajpost.libelle_post" [ngModelOptions]="{standalone:true}" maxlength="3000" minlength="50" required #mocontentvr="ngModel" [ngClass]="
+                                {'is-invalid':mocontentvr.touched && !mocontentvr.valid}"></textarea>
+                                <!-- ----------------alerts----------- -->
+                                <div *ngIf='mocontentvr.getError("required")' class="invalid-feedback" role="alert">
+                                  le contenu ne doit pas rester vide!
+                                </div>
+                                <div *ngIf='mocontentvr.getError("minlength")'  role="alert" class="warning-feedback">
+                                  ce champs a au moins 50 lettres!
+                                </div>
+                                <br>
+
+                                <label for="source">Source :</label><br>
+                                <input type="text" id="source" [(ngModel)]= "ajpost.source_post" [ngModelOptions]="{standalone:true}" minlength="3" required #mosourcevr="ngModel" [ngClass]="
+                                {'is-invalid':mosourcevr.touched && !mosourcevr.valid}"><br>
+                                <!-- ----------------alerts----------- -->
+                                <div *ngIf='mosourcevr.getError("minlength")'  role="alert" class="warning-feedback">
+                                  ce champs a au moins 3 lettres!
+                                </div>
+                                <!-- <div *ngIf='sourcevr.getError("required")' class="invalid-feedback" role="alert">
+                                  le contenu ne doit pas rester vide!
+                                </div> -->
+                                <br>
+
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+
+                                <button disabled
+                                 *ngIf='mocontentvr.getError("required") || mocontentvr.getError("email") || motitrevr.getError("required") || motitrevr.getError("minlength") || mosourcevr.getError("minlength")' type="submit" class="btn btn-primary">Publier</button>
+                                <button  *ngIf='!mocontentvr.getError("required") && !mocontentvr.getError("email") && !motitrevr.getError("required") && !mosourcevr.getError("minlength") && !motitrevr.getError("minlength")' type="submit" class="btn btn-primary">Publier</button>
                               </form>
                           </div>
                       </div>

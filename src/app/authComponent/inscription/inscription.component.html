@@ -14,18 +14,18 @@
 
             <span><label for="chk" aria-hidden="true">JEUNE</label></span>
 
-          <input type="text" placeholder="Nom" class="input-slide" [(ngModel)]= "regist.firstname" [ngModelOptions]="{standalone:true}" required maxlength="30" minlength="2" #nomvr="ngModel" [ngClass]="
+          <input type="text" placeholder="Nom" class="input-slide" [(ngModel)]= "regist.firstname" [ngModelOptions]="{standalone:true}" required maxlength="25" minlength="2" #nomvr="ngModel" [ngClass]="
           {'is-invalid':nomvr.touched && !nomvr.valid}">
           <!-- ----------------alerts----------- -->
           <div *ngIf='nomvr.getError("required")' class="invalid-feedback" role="alert">
             le nom ne doit pas rester vide!
           </div>
           <div *ngIf='nomvr.getError("minlength")'  role="alert" class="warning-feedback">
-            ce champs a au moins 2 lettre!
+            ce champs a au moins 2 lettres!
           </div>
           <br>
 
-          <input type="text" placeholder="Prénom" class="input-slide" [(ngModel)]= "regist.lastname" [ngModelOptions]="{standalone:true}" maxlength="30" minlength="2" #prenomvr="ngModel" [ngClass]="
+          <input type="text" placeholder="Prénom" class="input-slide" [(ngModel)]= "regist.lastname" [ngModelOptions]="{standalone:true}" maxlength="25" minlength="2" #prenomvr="ngModel" [ngClass]="
           {'is-invalid':prenomvr.touched && !prenomvr.valid}"><br>
           <!-- ----------------alerts----------- -->
           <div *ngIf='prenomvr.getError("minlength")'  role="alert" class="invalid-feedback">
@@ -92,9 +92,9 @@
           <button 
           class="submit-btn" disabled
         *ngIf='emailvr.getError("required") || emailvr.getError("email") || passvr.getError("required") || passvr.getError("minlength") || nomvr.getError("required") || datevr.getError("required") || pseudovr.getError("required") || pseudovr.getError("minlength") || telvr.getError("minlength") || telvr.getError("required") || prenomvr.getError("minlength")|| nomvr.getError("minlength")'
-         type="submit" >valider</button> 
+         type="submit" >valider</button>
+
          <button 
-        
         *ngIf='!emailvr.getError("required") && !emailvr.getError("email") && !passvr.getError("required") && !passvr.getError("minlength") && !nomvr.getError("required") && !datevr.getError("required") && !pseudovr.getError("required") && !pseudovr.getError("minlength") && !telvr.getError("minlength") && !telvr.getError("required") && !prenomvr.getError("minlength") && !nomvr.getError("minlength")' 
          type="submit" class="submit-btn">valider</button><br>
           
@@ -107,7 +107,7 @@
           <span><label for="chk" aria-hidden="true">MEDECIN</label></span>
           <div class="col1">
 
-            <input type="text" placeholder="Nom" class="input-slide" [(ngModel)]= "registmd.firstname" [ngModelOptions]="{standalone:true}" required #nomedvr="ngModel" minlength="2" [ngClass]="
+            <input type="text" placeholder="Nom" class="input-slide" [(ngModel)]= "registmd.firstname" [ngModelOptions]="{standalone:true}" required #nomedvr="ngModel" maxlength="25" minlength="2" [ngClass]="
             {'is-invalid':nomedvr.touched && !nomedvr.valid}">
             <!-- ----------------alerts----------- -->
           <div *ngIf='nomedvr.getError("required")' class="invalid-feedback" role="alert">
@@ -117,7 +117,7 @@
             ce champs a au moins 2 lettre!
           </div>
 
-            <input type="text" placeholder="Prénom" class="input-slide" [(ngModel)]= "registmd.lastname" [ngModelOptions]="{standalone:true}" required #prenomedvr="ngModel" minlength="2" [ngClass]="
+            <input type="text" placeholder="Prénom" class="input-slide" [(ngModel)]= "registmd.lastname" [ngModelOptions]="{standalone:true}" required #prenomedvr="ngModel" maxlength="25" minlength="2" [ngClass]="
             {'is-invalid':prenomedvr.touched && !prenomedvr.valid}">
             <!-- ----------------alerts----------- -->
           <div *ngIf='prenomedvr.getError("minlength")'  role="alert" class="warning-feedback">
@@ -195,8 +195,8 @@
             
             <div class="choix1">
               <label for="s">Sexe</label><br>
-              F &nbsp;<input type="radio" name="cl"  id="s" [(ngModel)]= "registmd.sexe" [ngModelOptions]="{standalone:true}" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              M &nbsp;<input type="radio" name="cl"id="s" [(ngModel)]= "registmd.sexe" [ngModelOptions]="{standalone:true}">
+              F &nbsp;<input type="radio" name="cl"  id="s" required [(ngModel)]= "regist.sexe" [ngModelOptions]="{standalone:true}" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              M &nbsp;<input type="radio" name="cl"id="s" required>
             </div><br>
             Hôpital <br>
             <select class="form-select" aria-label="Default select example"  required>
