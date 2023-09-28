@@ -25,8 +25,18 @@ export class ConnexionComponent {
     .subscribe((res: any) => {
       console.log(res);
       window.localStorage.setItem("token", res.token);
-      console.log("auth avec succes"+ res.token)
-      this.router.navigate(['/forum'])
+      window.localStorage.setItem("role", res.role);
+      console.log("auth avec succes"+ res.token+"  Le role est  :   "+res.role )
+      switch(res.role){
+        case 'JEUNE':this.router.navigate(['/forum'])
+        break;
+        case 'MEDECIN':this.router.navigate(['/postmd'])
+        break;
+        case 'ADMIN':this.router.navigate(['/postad'])
+        break;
+
+      }
+     
     })
 
   }
