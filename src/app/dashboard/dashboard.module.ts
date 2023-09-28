@@ -5,7 +5,6 @@ import {DashboardComponent} from "./dashboard.component";
 import { GerecmpadComponent } from './gerecmpad/gerecmpad.component';
 import { CycleComponent } from './cycle/cycle.component';
 import { CmptmedComponent } from './cmptmed/cmptmed.component';
-import { ChatsComponent } from './chats/chats.component';
 
 
 @NgModule({
@@ -13,7 +12,6 @@ import { ChatsComponent } from './chats/chats.component';
     GerecmpadComponent,
     CycleComponent,
     CmptmedComponent,
-    ChatsComponent
   ],
   imports: [
     BrowserModule,
