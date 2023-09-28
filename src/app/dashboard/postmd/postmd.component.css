@@ -9,6 +9,12 @@ body{
     background-color:#d3deffc2 ;
     /* border: 1px dashed #0d6efd; */
   }
+  .invalid-feedback,.warning-feedback{
+    font-size: 12px;
+}
+.warning-feedback{
+    color: rgb(184, 167, 14);
+}
   .maincontent{
     /* background-color:#455da5c2 ; */
     padding: 12px;

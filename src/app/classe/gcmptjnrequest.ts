@@ -1,17 +1,11 @@
-export class RegistRequest {
+export class Gcmptjnrequest {
     firstname!:string;
     lastname!:string;
     pseudo!:string;
     sexe!:string;
-    email!:string;
     password!:string;
+    ancpassword!:string;
+    newpassword!:string;
     datenaiss!:Date;
     telephone!:number;
-    specialite!:string;
-    // id_medc!:number;
-    auto_exercice!:string;
-
 }
-
-
-

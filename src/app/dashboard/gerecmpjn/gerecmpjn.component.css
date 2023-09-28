@@ -9,6 +9,23 @@ height: 100%;
 /* background-color:#d3deffc2 ; */
 /* border: 1px dashed #0d6efd; */
 }
+.invalid-feedback,.warning-feedback{
+    font-size: 12px;
+}
+.warning-feedback{
+    color: rgb(184, 167, 14);
+}
+.btn-warning{
+    background-color:#810244 ;
+    color: #fff;
+    border: none;
+    --bs-btn-active-border-color:#6d063b;
+    margin-bottom: 7px;
+    float: right;
+}
+.btn-warning:hover{
+    background-color:#6d063b ;
+}
 .maincontent{
 background-color:#fce2f0 ;
 padding: 12px;

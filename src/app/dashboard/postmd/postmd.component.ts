@@ -3,6 +3,8 @@ import { AjpostRequest } from '../../classe/ajpost-request';
 import { Ajpost } from '../../service/ajpost';
 import { catchError } from 'rxjs';
 import { Router } from '@angular/router';
+import { Modifpostrequest } from 'src/app/classe/modifpostrequest';
+import { ModifpostserviceService } from 'src/app/service/modifpostservice.service';
 
 
 @Component({
@@ -12,21 +14,24 @@ import { Router } from '@angular/router';
 })
 export class PostmdComponent {
 ajpost : AjpostRequest = new AjpostRequest();
-constructor(private ajpostService : Ajpost, private router : Router){}  
+modpost : Modifpostrequest = new Modifpostrequest();
+constructor(private ajpostService : Ajpost, private modifpostservice : ModifpostserviceService){}  
 
 OnAjpost(){
-  // this.ajpost.date_creation_post = new Date();
-  //  this.ajpost.date_creation_post = this.formatDate();
-this.ajpostService.Ajoutpost(this.ajpost).pipe(
-  catchError(err =>{
-    throw 'error in source. Details: ' + err + " Erreur de format";
-  })
-).subscribe((res:any)=> {
-  console.log(res);
-  this.router.navigate(['/forum'])
-}
-)
 
+  console.log(this.ajpost);
+  this.ajpostService.Ajoutpost(this.ajpost).subscribe((res: any) => {
+     console.log(res);
+    // window.localStorage.setItem("token");
+    // console.log("ajout post effectuee avec succes " + res.token+ " Et le role est ")
+  });
 }
-
+Onmodifpost(){
+  console.log(this.modpost);
+  this.modifpostservice.Modifpost(this.modpost).subscribe((res: any) => {
+     console.log(res);
+    // window.localStorage.setItem("token");
+    // console.log("ajout post effectuee avec succes " + res.token+ " Et le role est ")
+  });
+}
 }

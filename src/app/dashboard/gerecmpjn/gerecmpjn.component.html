@@ -5,20 +5,77 @@
         </div>
         <div class="modifinfo">
             <div class="form-elemt">
-                <form action="">
-                    <label for="">Nom :</label><br> <input type="text" placeholder="Dongmo"><br>
-                    <label for="">Prénom :</label><br> <input type="text" placeholder="Simon"><br>
-                    <label for="">date de naissance :</label><br> <input type="date"><br>
-                    <label for="">Pseudo :</label><br> <input type="text" placeholder="jackpoo"><br>
-                    <label for="">Tel :</label><br> <input type="tel" placeholder="+237 627 17 43 55"><br>
+                <form (ngSubmit)= " Onmodifprofiljn()">
+                    <label for="">Nom :</label><br> 
+                    <input type="text" placeholder="Dongmo" [(ngModel)]= "modifpro.firstname" [ngModelOptions]="{standalone:true}" maxlength="25" minlength="1" required #nomvr="ngModel" [ngClass]="
+                    {'is-invalid':nomvr.touched && !nomvr.valid}">
+                    <!-- ----------------alerts----------- -->
+                      <div *ngIf='nomvr.getError("minlength")'  role="alert" class="warning-feedback">
+                        ce champs a au moins 1 lettres!
+                      </div>
+                      <div *ngIf='nomvr.getError("required")'  role="alert" class="invalid-feedback">
+                        Remplir ce champs!
+                      </div>
+                    <br>
+
+                    <label for="">Prénom :</label><br> 
+                    <input type="text" placeholder="Simon" [(ngModel)]= "modifpro.lastname" [ngModelOptions]="{standalone:true}" maxlength="25" minlength="1" required #prenvr="ngModel" [ngClass]="
+                    {'is-invalid':prenvr.touched && !prenvr.valid}">
+                    <!-- ----------------alerts----------- -->
+                    <div *ngIf='prenvr.getError("minlength")'  role="alert" class="warning-feedback">
+                        ce champs a au moins 1 lettres!
+                      </div>
+                      <div *ngIf='prenvr.getError("required")'  role="alert" class="invalid-feedback">
+                        Remplir ce champs!
+                      </div>
+                    <br>
+
+                    <label for="">date de naissance :</label><br>
+                    <input type="date" [(ngModel)]= "modifpro.datenaiss" [ngModelOptions]="{standalone:true}"  required #datevr="ngModel" [ngClass]="
+                    {'is-invalid':datevr.touched && !datevr.valid}">
+                    <!-- ----------------alerts----------- -->
+                      <div *ngIf='datevr.getError("required")'  role="alert" class="invalid-feedback">
+                        Remplir ce champs!
+                      </div>
+                    <br>
+
+                    <label for="">Pseudo :</label><br> 
+                    <input type="text" placeholder="jackpoo" [(ngModel)]= "modifpro.pseudo" [ngModelOptions]="{standalone:true}" maxlength="15" minlength="5" required #pseudovr="ngModel" [ngClass]="
+                    {'is-invalid':pseudovr.touched && !pseudovr.valid}">
+                    <!-- ----------------alerts----------- -->
+                    <div *ngIf='pseudovr.getError("minlength")'  role="alert" class="warning-feedback">
+                        ce champs a au moins 5 lettres!
+                      </div>
+                      <div *ngIf='pseudovr.getError("required")'  role="alert" class="invalid-feedback">
+                        Remplir ce champs!
+                      </div>
+                    <br>
+
+                    <label for="">Tel :</label><br> 
+                    <input type="tel" placeholder="+237 627 17 43 55" [(ngModel)]= "modifpro.telephone" [ngModelOptions]="{standalone:true}" maxlength="9" minlength="9" required #telvr="ngModel" [ngClass]="
+                    {'is-invalid':telvr.touched && !telvr.valid}">
+                    <!-- ----------------alerts----------- -->
+                    <div *ngIf='telvr.getError("minlength")'  role="alert" class="warning-feedback">
+                        numéro à 9 chiffres!
+                      </div>
+                      <div *ngIf='telvr.getError("required")'  role="alert" class="invalid-feedback">
+                        Remplir ce champs!
+                      </div>
+                    <br>
+
                     <div class="choix1">
                         <label for="s">Sexe</label><br>
                         F<input type="radio"><br>
                         M<input type="radio"><br>
                       </div><br>
+
+                      <button 
+                      *ngIf='nomvr.getError("required") || nomvr.getError("minlength") || prenvr.getError("required") || prenvr.getError("minlength") || datevr.getError("required") || pseudovr.getError("minlength") || pseudovr.getError("required") || telvr.getError("minlength") || telvr.getError("required") || nomvr.touched || prenvr.touched || datevr.touched|| pseudovr.touched || telvr.touched' type="submit" class="btn btn-warning">
+                        Apliquer
+                    </button>
                 </form>
+
                 <div class="boutajout">
-                        
                     <!-- Button trigger modal -->
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         Modifier password
@@ -34,13 +91,50 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form action="">
-                                <label for="">Mot de passe actuel :</label><br> <input type="password" required><br>
-                                <label for="">Nouveau mot de passe :</label><br> <input type="password" required><br>
-                                <label for="">confirmation du mot de passe :</label><br> <input type="password" required><br>
+                            <form (ngSubmit)= " Onmodifprofiljn()">
+                                <label for="">Mot de passe actuel :</label><br> 
+                                <input type="password"  [(ngModel)]= "modifpro.ancpassword" [ngModelOptions]="{standalone:true}" required #ancpassvr="ngModel" [ngClass]="
+                                {'is-invalid':ancpassvr.touched && !ancpassvr.valid}">
+                                <!-- ----------------alerts----------- -->
+                                <div *ngIf='ancpassvr.getError("required")'  role="alert" class="invalid-feedback">
+                                    Remplir ce champs!
+                                </div>                                
+                                <br>
+
+                                <label for="">Nouveau mot de passe :</label><br> <input type="password"  [(ngModel)]= "modifpro.newpassword" [ngModelOptions]="{standalone:true}" maxlength="25" minlength="5" required #newpassvr="ngModel" [ngClass]="
+                                {'is-invalid':newpassvr.touched && !newpassvr.valid}">
+                                <!-- ----------------alerts----------- -->
+                                <div *ngIf='newpassvr.getError("minlength")'  role="alert" class="warning-feedback">
+                                    ce champs a au moins 5 lettres!
+                                </div>
+                                <div *ngIf='newpassvr.getError("required")'  role="alert" class="invalid-feedback">
+                                    Remplir ce champs!
+                                </div>
+                                <br>
+
+                                <label for="">confirmation du mot de passe :</label><br> 
+                                <input type="password"  [(ngModel)]= "modifpro.password" [ngModelOptions]="{standalone:true}" maxlength="25" minlength="5" required #passWvr="ngModel" [ngClass]="
+                                {'is-invalid':passWvr.touched && !passWvr.valid}">
+                                <!-- ----------------alerts----------- -->
+                                <div *ngIf='passWvr.getError("minlength")'  role="alert" class="warning-feedback">
+                                    ce champs a au moins 5 lettres!
+                                </div>
+                                <div *ngIf='passWvr.getError("required")'  role="alert" class="invalid-feedback">
+                                    Remplir ce champs!
+                                </div>
+                                <div *ngIf='(passWvr.value != newpassvr.value)'  role="alert" class="invalid-feedback">
+                                    incompatible!
+                                </div>
+                                <br>
                                 <p>" La modification de votre mot de passe vous obligera a vous reconnecter just après. "</p><br>
+
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-                                <button type="submit" class="btn btn-primary">Valider</button>
+
+                                <button disabled
+                                *ngIf='passWvr.getError("minlength") || passWvr.getError("required") || newpassvr.getError("minlength") || newpassvr.getError("required") || ancpassvr.getError("minlength") || ancpassvr.getError("required") || (passWvr.value != newpassvr.value)' type="submit" class="btn btn-primary">Valider</button>
+                                <button 
+                                *ngIf='!passWvr.getError("minlength") && !passWvr.getError("required") && !newpassvr.getError("minlength") && !newpassvr.getError("required") && !ancpassvr.getError("minlength") && !ancpassvr.getError("required") && (passWvr.value == newpassvr.value)' type="submit" class="btn btn-primary">Valider</button>
+
                             </form>
                         </div>
                     </div>

@@ -1,6 +1,5 @@
-export class AjpostRequest {
+export class Modifpostrequest {
     titre_post!:string;
     source_post!:string;
     libelle_post!:string;
-    date_creation_post!:Date;
 }

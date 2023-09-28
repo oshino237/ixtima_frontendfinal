@@ -8,12 +8,15 @@ import { AjpostRequest } from "../classe/ajpost-request";
 export class Ajpost {
     constructor(private http: HttpClient) { }
     Ajoutpost(ajpostRequest : AjpostRequest) {
+      const token = window.localStorage.getItem("token")
         const httpOptions = {
           headers: new HttpHeaders({
             "Content-type" : "application/json",
+            Authorization: "Bearer "+token,
           }),
         }
-        console.log("l'iscrition medecin ok "+ajpostRequest.source_post+ajpostRequest.date_creation_post+ajpostRequest.libelle_post);
+        console.log(" LE TOKEN EST "+token);
+        console.log("ajout post ok "+ajpostRequest.source_post+ajpostRequest.date_creation_post+ajpostRequest.libelle_post);
         return this.http.post('http://localhost:8080/post/add', ajpostRequest, httpOptions).pipe();
       }
 }
