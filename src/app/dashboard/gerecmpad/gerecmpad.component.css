@@ -10,21 +10,21 @@ height: 100%;
 /* border: 1px dashed #0d6efd; */
 }
 .maincontent{
-background-color:#e1e9ff ;
-padding: 12px;
+/* background-color:#e1e9ff ;
+padding: 12px; */
 background-size: cover;
 margin:auto;
 min-width: 600px;
 }
 .maincontent .maintitle{
-    background-color:#354e9198;
+    /* background-color:#354e9198; */
     margin: 0;
     width: 100%;
     padding: 10px;
     text-align: center;
 }
 .maintitle h1{
-    color: rgba(204, 204, 204, 0.63);
+    color: #354e916c;
 }
 .modifinfo{
     width: 95%;

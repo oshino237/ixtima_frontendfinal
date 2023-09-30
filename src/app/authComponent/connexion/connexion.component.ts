@@ -19,23 +19,26 @@ export class ConnexionComponent {
   OnSubmit():void{
     console.log(this.authRequest);
     this.authService.login(this.authRequest)
-    .pipe( catchError(err => {
-      throw 'error in source. Details: ' + err + " Compte inexistant";
-    }))
+   
     .subscribe((res: any) => {
       console.log(res);
       window.localStorage.setItem("token", res.token);
       window.localStorage.setItem("role", res.role);
-      console.log("auth avec succes"+ res.token+"  Le role est  :   "+res.role )
-      switch(res.role){
-        case 'JEUNE':this.router.navigate(['/forum'])
-        break;
-        case 'MEDECIN':this.router.navigate(['/postmd'])
-        break;
-        case 'ADMIN':this.router.navigate(['/postad'])
-        break;
+      window.localStorage.setItem("nom",res.nom);
+     const nomLinge = window.localStorage.getItem("nom");
+     const roleLinge = window.localStorage.getItem("role");
+     const tokenLinge = window.localStorage.getItem("token");
+      console.log("auth wefewe bfiiuedweda"+ tokenLinge+"  Le role est  :   "+roleLinge+"  Le nom est  :   "+nomLinge )
+      this.router.navigate(['/dashboard']) 
+      // switch(res.role){
+      //   case 'JEUNE':this.router.navigate(['/forum'])
+      //   break;
+      //   case 'MEDECIN':this.router.navigate(['/postmd'])
+      //   break;
+      //   case 'ADMIN':this.router.navigate(['/postad'])
+      //   break;
 
-      }
+      // }
      
     })
 

@@ -8,13 +8,13 @@ width: 100%;
 height: 100%;
 }
 .maincontent{
-background-color:#e1e9ff ;
-padding: 12px;
+/* background-color:#e1e9ff ; */
+/* padding: 12px; */
 margin:auto;
 min-width: 600px;
 }
   .maincontent .maintitle{
-    background-color:#354e9198;
+    /* background-color:#354e9198; */
     margin:10px auto;
     width: 100%;
     min-width: 600px;
@@ -22,8 +22,8 @@ min-width: 600px;
     padding: 20px;
   }
   .maintitle h1{
-    color: rgba(204, 204, 204, 0.63);
-    margin:o0;
+    color: #354e916c;
+    margin:0;
     line-height: 20px;
   }
   .card{

@@ -7,14 +7,14 @@ body{
 width: 100%;
 height: 100%;
 background-color:#e1e9ff ;
-padding: 5px 12px;
+/* padding: 5px 12px; */
 }
 .maincontent{
 margin:auto;
 min-width: 600px;
 }
   .maincontent .maintitle{
-    background-color:#354e9198;
+    /* background-color:#354e9198; */
     margin: 0px auto 10px auto;
     width: 100%;
     min-width: 600px;
@@ -22,7 +22,7 @@ min-width: 600px;
     padding: 20px;
   }
   .maintitle h1{
-    color: rgba(204, 204, 204, 0.63);
+    color: #354e916c;
     margin:o0;
     line-height: 20px;
   }

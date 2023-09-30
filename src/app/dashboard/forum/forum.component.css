@@ -18,14 +18,14 @@ margin:auto;
 min-width: 600px;
 }
 .maincontent .maintitle{
-    background-color:#354e9198;
+    /* background-color:#354e9198; */
     margin: 0;
     width: 100%;
     padding: 10px;
     text-align: center;
 }
 .maintitle h1{
-    color: #ffffffd0;
+    color: #354e916c;
 }
   /* === CONVERSATIONS === */
 

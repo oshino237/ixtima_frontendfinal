@@ -40,21 +40,26 @@ const routes: Routes = [
   {path: 'header', component: HeaderComponent},
   {path: 'footer', component: FooterComponent},
   {path: 'gerecmpad', component: GerecmpadComponent},
-  // {path: 'cycle', component: CycleComponent},
+  {path: 'cycle', component: CycleComponent},
   {path: 'cmptmed', component: CmptmedComponent},
-  {
-    path: 'dashboard', component: DashboardComponent,
-
+  {path: 'dashboard', component: DashboardComponent,
     children: [
-      {path: '', redirectTo: 'cycleComponent', pathMatch: 'full'}, // Redirect to dashboard/details by default
+      {path: '', redirectTo: 'ForumComponent', pathMatch: 'full'}, // Redirect to dashboard/details by default
       {path: 'cycleComponent', component: CycleComponent},
       {path: 'postjn', component: PostjnComponent},
       {path: 'postmd', component: PostmdComponent},
+      {path: 'postad', component: PostadComponent},
       {path: 'gerecmpjn', component: GerecmpjnComponent},
       {path: 'gerecmpmd', component: GerecmpmdComponent},
+      {path: 'gerecmpad', component: GerecmpadComponent},
       {path: 'forum', component: ForumComponent},
       {path: 'conferjn', component: ConferjnComponent},
       {path: 'confermd', component: ConfermdComponent},
+      {path:'rdvjn', component: RdvjnComponent},
+      {path: 'rdvmd', component: RdvmdComponent},
+      {path: 'theme', component: ThemeComponent},
+      {path: 'tracabilite', component: TracabiliteComponent},
+      {path: 'cmptmed', component: CmptmedComponent},
     ],
   },
 ];

@@ -21,4 +21,5 @@ import { CmptmedComponent } from './cmptmed/cmptmed.component';
   bootstrap: [DashboardComponent]
 })
 export class DashboardModule {
+
 }

@@ -1,64 +1,113 @@
 <div class="sidebar">
   <div class="logo-details">
-    <i class="bx bxl-c-plus-plus"></i>
-    <span class="logo_name">IXTIMA</span>
+    <!-- <i class="bx bxl-c-plus-plus"></i> -->
+    <span class="logo_name">
+      <img src="/../../images/conference.jpg" alt="">
+      <p>Ixtima</p>
+    </span>
   </div>
   <ul class="nav-links">
-    <li>
+    <li *ngIf='role == "JEUNE"'>
       <a routerLink="/dashboard/cycleComponent" routerLinkActive="active">
         <i class="bi bi-menu-button-wide"></i>
         <span class="links_name">Cycle</span>
       </a>
     </li>
-    <li>
-      <a routerLink="/dashboard/postjn" routerLinkActive="active">
-        <i class="bi bi-asterisk"></i>
-        <span class="links_name">Postjn</span>
-      </a>
-    </li>
-    <li>
-      <a routerLink="/dashboard/postmd" routerLinkActive="active">
-        <i class="bi bi-asterisk"></i>
-        <span class="links_name">postmd</span>
-      </a>
-    </li>
-    <li>
-      <a routerLink="/dashboard/gerecmpjn" routerLinkActive="active">
-        <i class="bi bi-asterisk"></i>
-        <span class="links_name">gerecmpjn</span>
-      </a>
-    </li>
-    <li>
-      <a routerLink="/dashboard/gerecmpmd" routerLinkActive="active">
-        <i class="bi bi-asterisk"></i>
-        <span class="links_name">gerecmpmd</span>
-      </a>
-    </li>
-    <li>
+    <li >
       <a routerLink="/dashboard/forum" routerLinkActive="active">
         <i class="bi bi-asterisk"></i>
         <span class="links_name">forum</span>
       </a>
     </li>
-    <li>
+    <li *ngIf=' role == "JEUNE"'>
+      <a routerLink="/dashboard/postjn" routerLinkActive="active">
+        <i class="bi bi-asterisk"></i>
+        <span class="links_name">Postjn</span>
+      </a>
+    </li>
+    <li *ngIf=' role == "MEDECIN"'>
+      <a routerLink="/dashboard/postmd" routerLinkActive="active">
+        <i class="bi bi-asterisk"></i>
+        <span class="links_name">postmd</span>
+      </a>
+    </li>
+    <li *ngIf=' role == "ADMIN"'>
+      <a routerLink="/dashboard/postad" routerLinkActive="active">
+        <i class="bi bi-asterisk"></i>
+        <span class="links_name">postad</span>
+      </a>
+    </li>
+    <li *ngIf=' role == "JEUNE"'>
+      <a routerLink="/dashboard/rdvjn" routerLinkActive="active">
+        <i class="bi bi-asterisk"></i>
+        <span class="links_name">rdvjeune</span>
+      </a>
+    </li>
+    <li *ngIf=' role == "MEDECIN"'>
+      <a routerLink="/dashboard/rdvmd" routerLinkActive="active">
+        <i class="bi bi-asterisk"></i>
+        <span class="links_name">rdvmedecin</span>
+      </a>
+    </li>
+    
+    <li  *ngIf=' role == "JEUNE"'>
+      <a routerLink="/dashboard/gerecmpjn" routerLinkActive="active">
+        <i class="bi bi-asterisk"></i>
+        <span class="links_name">gerecmpjn</span>
+      </a>
+    </li>
+    <li  *ngIf=' role == " ADMIN"'>
+      <a routerLink="/dashboard/gerecmpmd" routerLinkActive="active">
+        <i class="bi bi-asterisk"></i>
+        <span class="links_name">gerecmpmd</span>
+      </a>
+    </li>
+    <li *ngIf='role == "ADMIN"'>
+      <a routerLink="/dashboard/gerecmpad" routerLinkActive="active">
+        <i class="bi bi-asterisk"></i>
+        <span class="links_name">gerecmpad</span>
+      </a>
+    </li>
+    <li  *ngIf=' role == " ADMIN"'>
+      <a routerLink="/dashboard/tracabilite" routerLinkActive="active">
+        <i class="bi bi-asterisk"></i>
+        <span class="links_name">tracabilite</span>
+      </a>
+    </li>
+    <li  *ngIf=' role == "ADMIN"'>
+      <a routerLink="/dashboard/theme" routerLinkActive="active">
+        <i class="bi bi-asterisk"></i>
+        <span class="links_name">theme</span>
+      </a>
+    </li>
+    <li *ngIf=' role == "MEDECIN"'>
+      <a routerLink="/dashboard/cmptmed" routerLinkActive="active">
+        <i class="bi bi-asterisk"></i>
+        <span class="links_name">cmptmedecin</span>
+      </a>
+    </li>
+   
+    <li  *ngIf=' role == "JEUNE"'>
       <a routerLink="/dashboard/conferjn" routerLinkActive="active">
         <i class="bi bi-asterisk"></i>
         <span class="links_name">conferjn</span>
       </a>
-    </li> <li>
+    </li> <li  *ngIf=' role == " MEDECIN "'>
       <a routerLink="/dashboard/confermd" routerLinkActive="active">
         <i class="bi bi-asterisk"></i>
         <span class="links_name">confermd</span>
       </a>
     </li>
 
-    <li class="log_out">
+    <li class="log_out"  *ngIf=' role == "MEDECIN" || "JEUNE"'>
       <a>
         <i class="bi bi-box-arrow-left"></i>
         <span class="links_name">Log out</span>
       </a>
     </li>
   </ul>
+
+  <!-- \\\\\\\\\\\\\\\ -->
 </div>
 <section class="home-section">
   <nav>
@@ -71,13 +120,14 @@
       <i class="bi bi-search"></i>
     </div>
     <div class="profile-details">
-      <img alt="" src="images/profile.jpg"/>
-      <span class="admin_name">Fono Wendy</span>
+      <img alt="" src="/../../images/téléchargement-removebg-preview.png"/>
+      <!-- -----------------------------------NOM ICI------------------------ -->
+      <span class="admin_name">{{nom}}</span>
       <i class="bx bx-chevron-down"></i>
     </div>
   </nav>
 
-  <div class="home-content">
+  <div class="home-content" >
     <div class="overview-boxes">
       <div class="box">
         <div class="right-side">
