@@ -2,105 +2,107 @@
   <div class="logo-details">
     <!-- <i class="bx bxl-c-plus-plus"></i> -->
     <span class="logo_name">
-      <img src="/../../images/conference.jpg" alt="">
+      <div class="logo">
+        <img src="/../../images/conference.jpg" alt="">
+      </div>
       <p>Ixtima</p>
     </span>
   </div>
   <ul class="nav-links">
     <li *ngIf='role == "JEUNE"'>
-      <a routerLink="/dashboard/cycleComponent" routerLinkActive="active">
-        <i class="bi bi-menu-button-wide"></i>
+      <a routerLink="/dashboard/cycleComponent" routerLinkActive="active" data-bs-toggle="tooltip" data-bs-placement="right" title="Cycle">
+        <i class="bi bi-droplet-fill"></i>
         <span class="links_name">Cycle</span>
       </a>
     </li>
     <li >
-      <a routerLink="/dashboard/forum" routerLinkActive="active">
-        <i class="bi bi-asterisk"></i>
-        <span class="links_name">forum</span>
+      <a routerLink="/dashboard/forum" routerLinkActive="active" data-bs-toggle="tooltip" data-bs-placement="right" title="Forum">
+        <i class="bi bi-wechat"></i>
+        <span class="links_name">Forum</span>
       </a>
     </li>
     <li *ngIf=' role == "JEUNE"'>
-      <a routerLink="/dashboard/postjn" routerLinkActive="active">
-        <i class="bi bi-asterisk"></i>
-        <span class="links_name">Postjn</span>
+      <a routerLink="/dashboard/postjn" routerLinkActive="active" data-bs-toggle="tooltip" data-bs-placement="right" title="Posts">
+        <i class="bi bi-card-heading"></i>
+        <span class="links_name">Posts</span>
       </a>
     </li>
     <li *ngIf=' role == "MEDECIN"'>
-      <a routerLink="/dashboard/postmd" routerLinkActive="active">
-        <i class="bi bi-asterisk"></i>
-        <span class="links_name">postmd</span>
+      <a routerLink="/dashboard/postmd" routerLinkActive="active" data-bs-toggle="tooltip" data-bs-placement="right" title="Posts">
+        <i class="bi bi-card-heading"></i>
+        <span class="links_name">Posts</span>
       </a>
     </li>
     <li *ngIf=' role == "ADMIN"'>
-      <a routerLink="/dashboard/postad" routerLinkActive="active">
-        <i class="bi bi-asterisk"></i>
-        <span class="links_name">postad</span>
+      <a routerLink="/dashboard/postad" routerLinkActive="active" data-bs-toggle="tooltip" data-bs-placement="right" title="Posts">
+        <i class="bi bi-card-heading"></i>
+        <span class="links_name">Posts</span>
       </a>
     </li>
     <li *ngIf=' role == "JEUNE"'>
-      <a routerLink="/dashboard/rdvjn" routerLinkActive="active">
-        <i class="bi bi-asterisk"></i>
-        <span class="links_name">rdvjeune</span>
+      <a routerLink="/dashboard/rdvjn" routerLinkActive="active" data-bs-toggle="tooltip" data-bs-placement="right" title="Rendez-vous">
+        <i class="bi bi-calendar2-check-fill"></i>
+        <span class="links_name">Rendez-vous</span>
       </a>
     </li>
     <li *ngIf=' role == "MEDECIN"'>
-      <a routerLink="/dashboard/rdvmd" routerLinkActive="active">
-        <i class="bi bi-asterisk"></i>
-        <span class="links_name">rdvmedecin</span>
+      <a routerLink="/dashboard/rdvmd" routerLinkActive="active" data-bs-toggle="tooltip" data-bs-placement="right" title="Rendez-vous">
+        <i class="bi bi-calendar2-check-fill"></i>
+        <span class="links_name">Rendez-vous</span>
       </a>
     </li>
     
     <li  *ngIf=' role == "JEUNE"'>
-      <a routerLink="/dashboard/gerecmpjn" routerLinkActive="active">
-        <i class="bi bi-asterisk"></i>
-        <span class="links_name">gerecmpjn</span>
+      <a routerLink="/dashboard/gerecmpjn" routerLinkActive="active" data-bs-toggle="tooltip" data-bs-placement="right" title="Mon compte">
+        <i class="bi bi-person-circle"></i>
+        <span class="links_name">Mon compte</span>
       </a>
     </li>
     <li  *ngIf=' role == " ADMIN"'>
-      <a routerLink="/dashboard/gerecmpmd" routerLinkActive="active">
-        <i class="bi bi-asterisk"></i>
-        <span class="links_name">gerecmpmd</span>
+      <a routerLink="/dashboard/gerecmpmd" routerLinkActive="active" data-bs-toggle="tooltip" data-bs-placement="right" title="Mon compte">
+        <i class="bi bi-person-circle"></i>
+        <span class="links_name">Mon compte</span>
       </a>
     </li>
     <li *ngIf='role == "ADMIN"'>
-      <a routerLink="/dashboard/gerecmpad" routerLinkActive="active">
-        <i class="bi bi-asterisk"></i>
-        <span class="links_name">gerecmpad</span>
+      <a routerLink="/dashboard/gerecmpad" routerLinkActive="active" data-bs-toggle="tooltip" data-bs-placement="right" title="Mon compte">
+        <i class="bi bi-person-circle"></i>
+        <span class="links_name">Mon compte</span>
       </a>
     </li>
     <li  *ngIf=' role == " ADMIN"'>
-      <a routerLink="/dashboard/tracabilite" routerLinkActive="active">
-        <i class="bi bi-asterisk"></i>
-        <span class="links_name">tracabilite</span>
+      <a routerLink="/dashboard/tracabilite" routerLinkActive="active" data-bs-toggle="tooltip" data-bs-placement="right" title="Tracabilité">
+        <i class="bi bi-table"></i>
+        <span class="links_name">Tracabilité</span>
       </a>
     </li>
     <li  *ngIf=' role == "ADMIN"'>
-      <a routerLink="/dashboard/theme" routerLinkActive="active">
-        <i class="bi bi-asterisk"></i>
-        <span class="links_name">theme</span>
+      <a routerLink="/dashboard/theme" routerLinkActive="active" data-bs-toggle="tooltip" data-bs-placement="right" title="Thèmes">
+        <i class="bi bi-book-half"></i>
+        <span class="links_name">Thèmes</span>
       </a>
     </li>
     <li *ngIf=' role == "MEDECIN"'>
-      <a routerLink="/dashboard/cmptmed" routerLinkActive="active">
-        <i class="bi bi-asterisk"></i>
-        <span class="links_name">cmptmedecin</span>
+      <a routerLink="/dashboard/cmptmed" routerLinkActive="active" data-bs-toggle="tooltip" data-bs-placement="right" title="Médecins">
+        <i class="bi bi-clipboard2-pulse-fill"></i>
+        <span class="links_name">Médecins</span>
       </a>
     </li>
    
     <li  *ngIf=' role == "JEUNE"'>
-      <a routerLink="/dashboard/conferjn" routerLinkActive="active">
-        <i class="bi bi-asterisk"></i>
-        <span class="links_name">conferjn</span>
+      <a routerLink="/dashboard/conferjn" routerLinkActive="active" data-bs-toggle="tooltip" data-bs-placement="right" title="Conférence">
+        <i class="bi bi-person-video2"></i>
+        <span class="links_name">Conférence</span>
       </a>
     </li> <li  *ngIf=' role == " MEDECIN "'>
-      <a routerLink="/dashboard/confermd" routerLinkActive="active">
-        <i class="bi bi-asterisk"></i>
-        <span class="links_name">confermd</span>
+      <a routerLink="/dashboard/confermd" routerLinkActive="active" data-bs-toggle="tooltip" data-bs-placement="right" title="Conférence">
+        <i class="bi bi-person-video2"></i>
+        <span class="links_name">Conférence</span>
       </a>
     </li>
 
     <li class="log_out"  *ngIf=' role == "MEDECIN" || "JEUNE"'>
-      <a>
+      <a data-bs-toggle="tooltip" data-bs-placement="right" title="Déconnexion">
         <i class="bi bi-box-arrow-left"></i>
         <span class="links_name">Log out</span>
       </a>
@@ -131,47 +133,47 @@
     <div class="overview-boxes">
       <div class="box">
         <div class="right-side">
-          <div class="box-topic">Total Order</div>
-          <div class="number">40,876</div>
+          <div class="box-topic">Total Jeunes</div>
+          <div class="number">40</div>
           <div class="indicator">
             <i class="bx bx-up-arrow-alt"></i>
             <span class="text">Up from yesterday</span>
           </div>
         </div>
-        <i class="bx bx-cart-alt cart"></i>
+        <i class="bi bi-person-fill cart"></i>
       </div>
       <div class="box">
         <div class="right-side">
-          <div class="box-topic">Total Sales</div>
-          <div class="number">38,876</div>
+          <div class="box-topic">Total Médecins</div>
+          <div class="number">38</div>
           <div class="indicator">
             <i class="bx bx-up-arrow-alt"></i>
             <span class="text">Up from yesterday</span>
           </div>
         </div>
-        <i class="bx bxs-cart-add cart two"></i>
+        <i class="bi bi-clipboard2-pulse-fill cart two"></i>
       </div>
       <div class="box">
         <div class="right-side">
-          <div class="box-topic">Total Profit</div>
-          <div class="number">$12,876</div>
+          <div class="box-topic">Total Thèmes</div>
+          <div class="number">12</div>
           <div class="indicator">
             <i class="bx bx-up-arrow-alt"></i>
             <span class="text">Up from yesterday</span>
           </div>
         </div>
-        <i class="bx bx-cart cart three"></i>
+        <i class="bi bi-book-half cart three"></i>
       </div>
       <div class="box">
         <div class="right-side">
-          <div class="box-topic">Total Return</div>
-          <div class="number">11,086</div>
+          <div class="box-topic">Total Posts</div>
+          <div class="number">11</div>
           <div class="indicator">
             <i class="bx bx-down-arrow-alt down"></i>
             <span class="text">Down From Today</span>
           </div>
         </div>
-        <i class="bx bxs-cart-download cart four"></i>
+        <i class="bi bi-card-heading cart four"></i>
       </div>
     </div>
 

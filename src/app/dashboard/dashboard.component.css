@@ -45,19 +45,22 @@
 }
 .sidebar .logo-details .logo_name p{
   color: #fff;
-  font-size: 32px;
+  font-size: 25px;
   font-weight: 500;
   margin: 0;
   display: inline-block;
   vertical-align: middle;
 }
-.logo_name img{
+.logo_name .logo{
   margin:0;
-    width: 36%;
+    width: 60px;
     display: inline-block;
+    background-color: #2697FF;
     vertical-align: top;
 }
-
+.logo img{
+  width: 100%;
+}
 .sidebar .nav-links {
   margin-top: 10px;
   padding-left: 0px;
@@ -89,7 +92,7 @@
 .sidebar .nav-links li i {
   min-width: 60px;
   text-align: center;
-  font-size: 18px;
+  font-size: 28px;
   color: #fff;
 }
 
@@ -155,7 +158,7 @@ nav .sidebar-button i {
 
 .home-section nav .search-box {
   position: relative;
-  height: 50px;
+  height: 40px;
   max-width: 550px;
   width: 100%;
   margin: 0 20px;
@@ -165,26 +168,25 @@ nav .search-box input {
   height: 100%;
   width: 100%;
   outline: none;
-  background: #F5F6FA;
-  border: 2px solid #EFEEF1;
-  border-radius: 6px;
-  font-size: 18px;
+  background: #f7d4d7;
+  border: 2px solid #e87d88;
+  border-radius: 30px;
+  font-size: 16px;
   padding: 0 15px;
 }
 
 nav .search-box .bi-search {
   position: absolute;
-  height: 40px;
-  width: 40px;
-  background: #2697FF;
+  height: 30px;
+  width: 30px;
   right: 5px;
   top: 50%;
   transform: translateY(-50%);
   border-radius: 4px;
-  line-height: 40px;
+  line-height: 30px;
   text-align: center;
-  color: #fff;
-  font-size: 22px;
+  color: #e87d88;
+  font-size: 19px;
   transition: all 0.4 ease;
 }
 
@@ -422,9 +424,12 @@ nav .profile-details i {
 /* Responsive Media Query */
 @media (max-width: 1240px) {
   .sidebar {
-    width: 78px;
+    width: 66px;
+    overflow-x: hidden;
   }
-
+  .logo_name p{
+    display: none!important;
+  }
   .sidebar.active {
     width: 220px;
   }

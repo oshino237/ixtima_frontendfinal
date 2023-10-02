@@ -13,6 +13,7 @@ export class LoginserviceService {
     const httpOptions = {
       headers: new HttpHeaders({
         "Content-type" : "application/json",
+      
       }),
     }
     console.log("Auth service renvoie "+authRequest.password+authRequest.email);
