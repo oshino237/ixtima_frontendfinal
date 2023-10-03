@@ -6,31 +6,29 @@ body{
 .main{
 width: 100%;
 height: 100%;
-background-color:#e1e9ff ;
+background-color:#f7d4d7 ;
 /* padding: 5px 12px; */
 }
 .maincontent{
 margin:auto;
-min-width: 600px;
+width: 100%;
 }
   .maincontent .maintitle{
     /* background-color:#354e9198; */
     margin: 0px auto 10px auto;
     width: 100%;
-    min-width: 600px;
     text-align: center;
     padding: 20px;
   }
   .maintitle h1{
-    color: #354e916c;
-    margin:o0;
+    color: #e052608c;
+    margin:0;
     line-height: 20px;
   }
   .card{
     --bs-card-bg:#fff;
-    min-width: 700px;
     border:none;
-    min-height: 600px;
+    min-height: 350px;
     width: 100%;
     overflow-y: hidden;
     position: relative;
@@ -40,8 +38,8 @@ min-width: 600px;
     border-top-left-radius: 8px;
   }
   .nav{
-    --bs-nav-link-hover-color:#810244;
-    --bs-nav-link-color:#810244;
+    --bs-nav-link-hover-color:#3C57A4;
+    --bs-nav-link-color:#3C57A4;
     font-weight: 500;
   }
   .nav-pills{
@@ -50,17 +48,17 @@ min-width: 600px;
     cursor: default;
   }
   .nav-pills .nav-link.active{
-    background-color: #E0318C;
+    background-color: #3C57A4;
     border-top-right-radius: 8px;
     border-top-left-radius: 8px;
   }
   .nav-pills .nav-link {
       border-radius: 0px;
-          border-bottom: 1px solid #E0318C;
+          border-bottom: 1px solid #3C57A4;
   }
   .nav-item{
         display: table-cell;
-         background: #FF96CD;
+         background: #a9bbee;
         
   }
   .form{
@@ -72,11 +70,13 @@ min-width: 600px;
   }
   .table-bordered{
     width: 100%;
-    height: 600px;
+    min-height: 300px;
+    overflow-x: scroll;
   }
   thead th{
-    color: #303E65;
-    background-color: #D4DFFE;
+    min-width: 170px;
+    color: #810244;
+    background-color: #f7d4d7;
   }
   .btn{
     margin: 5px;

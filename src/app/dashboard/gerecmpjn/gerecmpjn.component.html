@@ -133,7 +133,7 @@
                                 <button disabled
                                 *ngIf='passWvr.getError("minlength") || passWvr.getError("required") || newpassvr.getError("minlength") || newpassvr.getError("required") || ancpassvr.getError("minlength") || ancpassvr.getError("required") || (passWvr.value != newpassvr.value)' type="submit" class="btn btn-primary">Valider</button>
                                 <button 
-                                *ngIf='!passWvr.getError("minlength") && !passWvr.getError("required") && !newpassvr.getError("minlength") && !newpassvr.getError("required") && !ancpassvr.getError("minlength") && !ancpassvr.getError("required") && (passWvr.value == newpassvr.value)' type="submit" class="btn btn-primary">Valider</button>
+                                *ngIf='!passWvr.getError("minlength") && !passWvr.getError("required") && !newpassvr.getError("minlength") && !newpassvr.getError("required") && !ancpassvr.getError("minlength") && !ancpassvr.getError("required") && (passWvr.value == newpassvr.value)' type="submit" class="btn btn-primary" data-bs-dismiss="modal">Valider</button>
 
                             </form>
                         </div>

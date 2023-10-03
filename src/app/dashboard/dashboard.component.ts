@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { TokenService } from '../service/token.service';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,11 +15,13 @@ export class DashboardComponent {
 // role:string='Jeune'
 // roleJeune:string='Jeune'
 // roleMed:string='Med'
-constructor(){}
-role = window.localStorage.getItem("role")
+constructor(private deconnec : TokenService, private route:Router){}
+ role = window.localStorage.getItem("role")
 nom = window.localStorage.getItem("nom")
 
+OnLogout(): any{
+  this.deconnec.log_out();
+  this.route.navigate(['/accueil']);  
+}
 
-
- 
 }

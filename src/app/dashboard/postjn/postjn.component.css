@@ -6,7 +6,7 @@ body{
   .main{
     width: 100%;
     height: 100%;
-    background-color:#d3deffc2 ;
+    background-color:#f7d4d7 ;
     /* border: 1px dashed #0d6efd; */
   }
   .maincontent{
@@ -14,13 +14,26 @@ body{
     /* padding: 12px; */
     margin: auto;
   }
+  .maincontent .maintitle{
+    /* background-color:#354e9198; */
+    margin: 0px auto 10px auto;
+    width: 100%;
+    min-width: 600px;
+    text-align: center;
+    padding: 20px;
+  }
+  .maintitle h1{
+    color: #e052608c;
+    margin:o0;
+    line-height: 20px;
+  }
   .card{
     width: 100%;
     margin: 20px auto;
     min-width: 500px;
-    min-height: 600px;
+    min-height: 350px;
     border-radius: 3px;
-    border:2px solid #81024460;
+    border:2px solid #fdadb5;
     padding: 15px 10px;
   }
   .lgpost{
@@ -31,9 +44,9 @@ body{
   .pst1 ,.pst2,.pst3{
     display: inline-block;
     border-radius: 5px;
-    width: 30%;
+    width: 40%;
     margin: 3px;
-    min-width: 300px;
+    min-width: 370px;
     border: 2px solid #D4DFFE;
     vertical-align: top;
     transition: ease-in-out .3s;

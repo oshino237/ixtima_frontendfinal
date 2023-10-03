@@ -274,9 +274,9 @@
 
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
 
-                                <button disabled
+                                <button disabled 
                                  *ngIf='mocontentvr.getError("required") || mocontentvr.getError("email") || motitrevr.getError("required") || motitrevr.getError("minlength") || mosourcevr.getError("minlength")' type="submit" class="btn btn-primary">Publier</button>
-                                <button  *ngIf='!mocontentvr.getError("required") && !mocontentvr.getError("email") && !motitrevr.getError("required") && !mosourcevr.getError("minlength") && !motitrevr.getError("minlength")' type="submit" class="btn btn-primary">Publier</button>
+                                <button  *ngIf='!mocontentvr.getError("required") && !mocontentvr.getError("email") && !motitrevr.getError("required") && !mosourcevr.getError("minlength") && !motitrevr.getError("minlength")' type="submit" class="btn btn-primary" data-bs-dismiss="modal">Publier</button>
                               </form>
                           </div>
                       </div>

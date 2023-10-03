@@ -41,7 +41,7 @@
          <button 
         class="boutval"
         *ngIf='!emailvr.getError("required") && !emailvr.getError("email") && !passvr.getError("required") && !passvr.getError("minlength")' 
-         type="submit">valider</button>
+         type="submit" target="_blank" >valider</button>
 
         <button class="boutinscr"><a routerLink="/inscription" routerLinkActive="active" target="_blank">s'inscrire</a></button><br>
         <p><u><a href="#"> Mot de pass oublié ?</a></u></p>

@@ -75,6 +75,7 @@ min-width: 600px;
   }
   thead th{
     color: #303E65;
+    min-width: 170px;
     background-color: #D4DFFE;
   }
   .btn{

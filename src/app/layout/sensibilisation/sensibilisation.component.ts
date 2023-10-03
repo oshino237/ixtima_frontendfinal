@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./sensibilisation.component.css']
 })
 export class SensibilisationComponent {
-
+R = window.localStorage.getItem("role")
 }

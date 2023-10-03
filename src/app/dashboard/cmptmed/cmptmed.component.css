@@ -11,13 +11,12 @@ height: 100%;
 /* background-color:#e1e9ff ; */
 /* padding: 12px; */
 margin:auto;
-min-width: 600px;
+width: 100%;
 }
   .maincontent .maintitle{
     /* background-color:#354e9198; */
     margin:10px auto;
     width: 100%;
-    min-width: 600px;
     text-align: center;
     padding: 20px;
   }
@@ -28,8 +27,7 @@ min-width: 600px;
   }
   .card{
     --bs-card-bg:#fff;
-    min-width: 700px;
-    height: 700px;
+    height: 300px;
     border:none;
     width: 100%;
     overflow-y: hidden;
@@ -72,9 +70,11 @@ min-width: 600px;
   .table-bordered{
     width: 100%;
     height: 100%;
+    min-height: 300px;
   }
   thead th{
     color: #303E65;
+    min-width: 170px;
     background-color: #D4DFFE;
   }
  

@@ -3,14 +3,14 @@
 <section class="main">
   <div class="accordion" id="accordionExample">
 
-    <div class="accordion-item">
+    <div class="accordion-item" >
       <h2 class="accordion-header" id="headingOne">
         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
          CYCLE ET MENSTRUATIONS
         </button>
       </h2>
       <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
+        <div class="accordion-body" *ngIf='R == "JEUNE" || R =="MEDECIN"'>
           
           Ce sont les changements hormonaux naturels qui surviennent chaque mois chez une femme en préparation à la grossesse, à partir de la puberté et jusqu'à la ménopause. <br>
           Le cycle menstruel commence dès le premier jour des règles et le saignement dure en moyenne de 3 à 7 jours.La durée moyenne du cycle menstruel est de 28 jours, et cette période varie selon les femmes de 21 à 35 jours. <br>
@@ -94,7 +94,7 @@
         </button>
       </h2>
       <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
+        <div class="accordion-body" *ngIf='R == "JEUNE" || R =="MEDECIN"'>
           <strong>Chez le garçon</strong> <br>
           <ul>
             <li><span>*</span>&nbsp;&nbsp; La puberté survient souvent chez les garçons entre l’âge de 11 et 14 ans (en moyenne à l’âge de 12 ans)</li>
@@ -163,7 +163,7 @@
         </button>
       </h2>
       <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
+        <div class="accordion-body" *ngIf='R == "JEUNE" || R =="MEDECIN"'>
           Les infections sexuellement transmissibles (|ST) peuvent être contractées lors de tout contact sexuel non protégé (relations sexuelles vaginales, orales ou anales). Elles peuvent également être transmises par le contact avec du sang infecté, le partage d'aiguilles pour des injections, par exemple. Certaines IST peuvent également être transmises par contact cutané. <br><br>
 
           <strong>Les IST virales </strong><br><br>

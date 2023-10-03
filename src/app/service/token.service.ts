@@ -12,4 +12,7 @@ export class TokenService {
   hasToken(){
     return this.getToken() != null;
   }
+  log_out(): void {
+   window.localStorage.clear()
+  }
 }

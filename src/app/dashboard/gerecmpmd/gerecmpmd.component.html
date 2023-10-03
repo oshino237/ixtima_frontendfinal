@@ -93,6 +93,17 @@
                         <option value="7">Les soeurs</option>
                       </select>
                       <br>
+                      <label for="">Ville</label><br>
+                      <select class="form-select" aria-label="Default select example">
+                        <option selected>Yaounde</option>
+                        <option value="1">Douala</option>
+                        <option value="2">Bamenda</option>
+                        <option value="4">Nkonsamba</option>
+                        <option value="5">Kribi</option>
+                        <option value="6">Buea</option>
+                        <option value="7">Edea</option>
+                      </select>
+                      <br>
                       
                       <button 
                       *ngIf='nomvr.getError("required") || nomvr.getError("minlength") || prenvr.getError("required") || prenvr.getError("minlength") || datevr.getError("required") || pseudovr.getError("minlength") || pseudovr.getError("required") || telvr.getError("minlength") || telvr.getError("required") || nomvr.touched || prenvr.touched || datevr.touched|| pseudovr.touched || telvr.touched' type="submit" class="btn btn-warning">
@@ -159,7 +170,7 @@
                                 <button disabled
                                 *ngIf='passWvr.getError("minlength") || passWvr.getError("required") || newpassvr.getError("minlength") || newpassvr.getError("required") || ancpassvr.getError("minlength") || ancpassvr.getError("required") || (passWvr.value != newpassvr.value)' type="submit" class="btn btn-primary">Valider</button>
                                 <button 
-                                *ngIf='!passWvr.getError("minlength") && !passWvr.getError("required") && !newpassvr.getError("minlength") && !newpassvr.getError("required") && !ancpassvr.getError("minlength") && !ancpassvr.getError("required") && (passWvr.value == newpassvr.value)' type="submit" class="btn btn-primary">Valider</button>
+                                *ngIf='!passWvr.getError("minlength") && !passWvr.getError("required") && !newpassvr.getError("minlength") && !newpassvr.getError("required") && !ancpassvr.getError("minlength") && !ancpassvr.getError("required") && (passWvr.value == newpassvr.value)' type="submit" class="btn btn-primary" data-bs-dismiss="modal">Valider</button>
                             </form>
                         </div>
                     </div>

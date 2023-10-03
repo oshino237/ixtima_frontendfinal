@@ -59,12 +59,16 @@
                                                 <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Modification du thème</h5>
+                                                    <h5 class="modal-title" id="exampleModalLabel">Modification de la disponibilite</h5>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
                                                         <form action="">
-                                                            <label for="titre">Date & heure:</label><br><input
+                                                            <label for="titre">Date & heure début:</label><br><input
+                                                            id="consultation"
+                                                            type="datetime-local"
+                                                            name="consultdate" required /><br>
+                                                            <label for="titre">Date & heure fin:</label><br><input
                                                             id="consultation"
                                                             type="datetime-local"
                                                             name="consultdate" required /><br>
@@ -76,7 +80,7 @@
                                                               </select>
                                                             <br><br>
                                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-                                                            <button type="submit" class="btn btn-primary">Valider</button>
+                                                            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Valider</button>
                                                         </form>
                                                     </div>
                                                 </div>
@@ -127,12 +131,16 @@
                         <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Ajout d'un rendez-vous</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Ajout d'une disponibilite</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 <form action="">
-                                    <label for="titre">Date & heure:</label><br><input
+                                    <label for="titre">Date & heure début:</label><br><input
+                                    id="party"
+                                    type="datetime-local"
+                                    name="partydate" required /><br>
+                                    <label for="titre">Date & heure fin:</label><br><input
                                     id="party"
                                     type="datetime-local"
                                     name="partydate" required /><br>
@@ -144,7 +152,7 @@
                                       </select>
                                     <br><br>
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-                                    <button type="submit" class="btn btn-primary">Valider</button>
+                                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Valider</button>
                                 </form>
                             </div>
                         </div>

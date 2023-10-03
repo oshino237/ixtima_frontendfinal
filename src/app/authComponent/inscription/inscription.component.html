@@ -153,15 +153,15 @@
             <div *ngIf='passedvr.getError("minlength")'  class="warning-feedback" role="alert">
               Le mot de pass doit avoir au moins 5 caractères!
             </div><br>
-          </div>
-    
-          <div class="col2">
             <input type="date" placeholder="Date de naissance" class="input-slide" [(ngModel)]= "registmd.datenaiss" [ngModelOptions]="{standalone:true}" required #datedvr="ngModel" [ngClass]="
             {'is-invalid':datedvr.touched && !datedvr.valid}">
             <!-- ----------------alerts----------- -->
           <div *ngIf='datedvr.getError("required")' class="invalid-feedback" role="alert">
             la date ne doit pas rester vide!
           </div><br>
+          </div>
+    
+          <div class="col2">
 
             <input type="text" placeholder="Pseudo" class="input-slide" minlength="5" [(ngModel)]= "registmd.pseudo" [ngModelOptions]="{standalone:true}" required #pseudoedvr="ngModel" [ngClass]="
             {'is-invalid':pseudoedvr.touched && !pseudoedvr.valid}">
@@ -191,13 +191,24 @@
               <option value="5">Urologue</option>
               <option value="6">Ostéopathe</option>
               <option value="7">Sexologue</option>
+            </select><br>
+            
+            Ville <br>
+            <select class="form-select" aria-label="Default select example" required>
+              <option selected>Yaounde</option>
+              <option value="1">Douala</option>
+              <option value="2">Nkonsamba</option>
+              <option value="4">Edea</option>
+              <option value="5">Bafoussam</option>
+              <option value="6">Dschang</option>
+              <option value="7">Sangmelima</option>
             </select>
             
             <div class="choix1">
               <label for="s">Sexe</label><br>
               F &nbsp;<input type="radio" name="cl"  id="s" required [(ngModel)]= "regist.sexe" [ngModelOptions]="{standalone:true}" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               M &nbsp;<input type="radio" name="cl"id="s" required>
-            </div><br>
+            </div>
             Hôpital <br>
             <select class="form-select" aria-label="Default select example"  required>
               <option selected>Saint marc</option>
@@ -215,7 +226,7 @@
           <button 
           class="submit-btn" disabled
         *ngIf='emailedvr.getError("required") || emailedvr.getError("email") || passedvr.getError("required") || passedvr.getError("minlength") || nomedvr.getError("required") || datedvr.getError("required") || pseudoedvr.getError("required") || pseudoedvr.getError("minlength") || teledvr.getError("minlength") || teledvr.getError("required") || prenomedvr.getError("minlength") || nomedvr.getError("minlength")'
-         type="submit" >non-valider</button> 
+         type="submit" >valider</button> 
          <button 
         *ngIf='!emailedvr.getError("required") && !emailedvr.getError("email") && !passedvr.getError("required") && !passedvr.getError("minlength") && !nomedvr.getError("required") && !datedvr.getError("required") && !pseudoedvr.getError("required") && !pseudoedvr.getError("minlength") && !teledvr.getError("minlength") && !teledvr.getError("required") && 
         !prenomedvr.getError("minlength") && !nomedvr.getError("minlength")' 

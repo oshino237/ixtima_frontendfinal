@@ -15,7 +15,7 @@ import { ModifpostserviceService } from 'src/app/service/modifpostservice.servic
 export class PostmdComponent {
 ajpost : AjpostRequest = new AjpostRequest();
 modpost : Modifpostrequest = new Modifpostrequest();
-constructor(private ajpostService : Ajpost, private modifpostservice : ModifpostserviceService){}  
+constructor(private ajpostService : Ajpost, private modifpostservice : ModifpostserviceService, private route: Router){}  
 
 OnAjpost(){
 
@@ -30,6 +30,9 @@ Onmodifpost(){
   console.log(this.modpost);
   this.modifpostservice.Modifpost(this.modpost).subscribe((res: any) => {
      console.log(res);
+     this.route.navigate(['/dashboard/postmd'])
+    
+
     // window.localStorage.setItem("token");
     // console.log("ajout post effectuee avec succes " + res.token+ " Et le role est ")
   });

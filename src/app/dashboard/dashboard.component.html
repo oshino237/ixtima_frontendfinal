@@ -3,19 +3,19 @@
     <!-- <i class="bx bxl-c-plus-plus"></i> -->
     <span class="logo_name">
       <div class="logo">
-        <img src="/../../images/conference.jpg" alt="">
+        <img src="../../images/logoixti.png" alt="">
       </div>
       <p>Ixtima</p>
     </span>
   </div>
   <ul class="nav-links">
-    <li *ngIf='role == "JEUNE"'>
-      <a routerLink="/dashboard/cycleComponent" routerLinkActive="active" data-bs-toggle="tooltip" data-bs-placement="right" title="Cycle">
+    <li *ngIf='role == "JEUNE" || role == "MEDECIN" || role == "ADMIN" '>
+      <a routerLink="/dashboard/cycleComponent" routerLinkActive="active" data-bs-toggle="tooltip" data-bs-placement="right" title="Cycle menstruel">
         <i class="bi bi-droplet-fill"></i>
-        <span class="links_name">Cycle</span>
+        <span class="links_name">Cycle menstruel</span>
       </a>
     </li>
-    <li >
+    <li  *ngIf='role == "JEUNE" || role ==  "MEDECIN" || role =="ADMIN"'>
       <a routerLink="/dashboard/forum" routerLinkActive="active" data-bs-toggle="tooltip" data-bs-placement="right" title="Forum">
         <i class="bi bi-wechat"></i>
         <span class="links_name">Forum</span>
@@ -58,7 +58,7 @@
         <span class="links_name">Mon compte</span>
       </a>
     </li>
-    <li  *ngIf=' role == " ADMIN"'>
+    <li  *ngIf=' role == "MEDECIN"'>
       <a routerLink="/dashboard/gerecmpmd" routerLinkActive="active" data-bs-toggle="tooltip" data-bs-placement="right" title="Mon compte">
         <i class="bi bi-person-circle"></i>
         <span class="links_name">Mon compte</span>
@@ -70,7 +70,7 @@
         <span class="links_name">Mon compte</span>
       </a>
     </li>
-    <li  *ngIf=' role == " ADMIN"'>
+    <li  *ngIf=' role == "ADMIN"'>
       <a routerLink="/dashboard/tracabilite" routerLinkActive="active" data-bs-toggle="tooltip" data-bs-placement="right" title="Tracabilité">
         <i class="bi bi-table"></i>
         <span class="links_name">Tracabilité</span>
@@ -82,7 +82,7 @@
         <span class="links_name">Thèmes</span>
       </a>
     </li>
-    <li *ngIf=' role == "MEDECIN"'>
+    <li *ngIf=' role == "ADMIN"'>
       <a routerLink="/dashboard/cmptmed" routerLinkActive="active" data-bs-toggle="tooltip" data-bs-placement="right" title="Médecins">
         <i class="bi bi-clipboard2-pulse-fill"></i>
         <span class="links_name">Médecins</span>
@@ -94,17 +94,29 @@
         <i class="bi bi-person-video2"></i>
         <span class="links_name">Conférence</span>
       </a>
-    </li> <li  *ngIf=' role == " MEDECIN "'>
+    </li> <li  *ngIf=' role == "MEDECIN"'>
       <a routerLink="/dashboard/confermd" routerLinkActive="active" data-bs-toggle="tooltip" data-bs-placement="right" title="Conférence">
         <i class="bi bi-person-video2"></i>
         <span class="links_name">Conférence</span>
       </a>
+    </li> 
+    <li  *ngIf='role == "JEUNE" || role ==  "MEDECIN" || role =="ADMIN"'>
+      <a routerLink="/sensibilisation" routerLinkActive="active" data-bs-toggle="tooltip" data-bs-placement="right" title="Conférence" target="_blank">
+        <i class="bi bi-book-half"></i>
+        <span class="links_name">Sensibilisation</span>
+      </a>
     </li>
 
-    <li class="log_out"  *ngIf=' role == "MEDECIN" || "JEUNE"'>
+    <li class="log_out">
       <a data-bs-toggle="tooltip" data-bs-placement="right" title="Déconnexion">
-        <i class="bi bi-box-arrow-left"></i>
-        <span class="links_name">Log out</span>
+        <form (ngSubmit)= "OnLogout()">
+            <button type="submit">
+              <i class="bi bi-box-arrow-left"></i>
+              <span class="links_name">
+                 Log out
+              </span>
+            </button>
+          </form>
       </a>
     </li>
   </ul>
