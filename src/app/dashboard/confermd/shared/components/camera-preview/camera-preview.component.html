@@ -1,4 +1,4 @@
-<!-- <div class="camera-container">
+<div class="camera-container">
   <div class="top-controls-container">
     <a (click)="onShowSettings()">
       <fa-icon [icon]="settingIcon" class="text-white settings"></fa-icon>
@@ -9,12 +9,14 @@
   <video *ngIf="!isCameraOff" #camera id="camera"></video>
   <div class="webcam-overlay"></div>
   <div class="bottom-controls-container">
-    <app-round-tranparent-icon-button class="m-3" [isActive]="isMicrophoneMute" type="toggle" [activeIcon]="microphoneMutedIcon"
-      [inactiveIcon]="microphoneIcon" (onClick)="onMicrophoneClicked($event)">
+    <app-round-tranparent-icon-button class="m-3" [isActive]="isMicrophoneMute" type="toggle"
+                                      [activeIcon]="microphoneMutedIcon"
+                                      [inactiveIcon]="microphoneIcon" (onClick)="onMicrophoneClicked($event)">
     </app-round-tranparent-icon-button>
-    <app-round-tranparent-icon-button class="m-3" [isActive]="isCameraOff" type="toggle" [activeIcon]="cameraOffIcon" [inactiveIcon]="cameraIcon"
-      (onClick)="onCameraClicked($event)">
+    <app-round-tranparent-icon-button class="m-3" [isActive]="isCameraOff" type="toggle" [activeIcon]="cameraOffIcon"
+                                      [inactiveIcon]="cameraIcon"
+                                      (onClick)="onCameraClicked($event)">
     </app-round-tranparent-icon-button>
   </div>
 </div>
-<app-input-output-settings (closed)="onCloseSettings()" *ngIf="showSettings"></app-input-output-settings> -->
+<app-input-output-settings (closed)="onCloseSettings()" *ngIf="showSettings"></app-input-output-settings>

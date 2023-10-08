@@ -1,4 +1,4 @@
-/* a {
+ a {
   cursor: pointer;
 }
 .sound-meter {
@@ -34,12 +34,12 @@
   border-radius: 10px;
   background-color: black;
   color: white;
-  -webkit-linear-gradient: (
-    top,
-    rgba(0, 0, 0, 0.7) 0,
-    rgba(0, 0, 0, 0.3) 50%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  /*-webkit-linear-gradient: (*/
+  /*  top,*/
+  /*  rgba(0, 0, 0, 0.7) 0,*/
+  /*  rgba(0, 0, 0, 0.3) 50%,*/
+  /*  rgba(0, 0, 0, 0) 100%*/
+  /*);*/
 }
 
 .webcam-overlay {
@@ -77,4 +77,4 @@
   top: 0;
   z-index: 4;
   margin-bottom: 1rem;
-} */
+}

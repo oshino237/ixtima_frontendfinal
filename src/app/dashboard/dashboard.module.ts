@@ -4,18 +4,27 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {DashboardComponent} from "./dashboard.component";
 import { GerecmpadComponent } from './gerecmpad/gerecmpad.component';
 import { CycleComponent } from './cycle/cycle.component';
-import { CmptmedComponent } from './cmptmed/cmptmed.component';
+import {NgxAgoraSdkNgModule} from "ngx-agora-sdk-ng";
+import {ReactiveFormsModule} from "@angular/forms";
+import {AppRoutingModule} from "../app-routing.module";
 
 
 @NgModule({
   declarations: [
     GerecmpadComponent,
     CycleComponent,
-    CmptmedComponent,
+
   ],
   imports: [
+    NgbModule,
     BrowserModule,
-    NgbModule
+    ReactiveFormsModule,
+    NgxAgoraSdkNgModule.forRoot({
+      AppID: '628bcaee33e84b0d9d8f94559c5b1969',
+      Video: { codec: 'h264', mode: 'rtc', role: 'host' }
+    }),
+    // FontAwesomeModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [DashboardComponent]
