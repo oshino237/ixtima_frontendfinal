@@ -11,15 +11,14 @@ height: 100%;
 /* background-color:#e1e9ff ; */
 /* padding:5px 12px; */
 margin:auto;
-min-width: 600px;
+width: 100%;
 }
   .maincontent .maintitle{
     /* background-color:#354e9198; */
     margin:auto;
     width: 100%;
-    min-width: 600px;
     text-align: center;
-    padding: 20px;
+    padding: 10px 20px;
   }
   .maintitle h1{
     color: #354e916c;
@@ -28,13 +27,12 @@ min-width: 600px;
   }
   .card{
     --bs-card-bg:#fff;
-    min-width: 700px;
-    min-height: 600px;
+    min-height: 400px;
     border:none;
-    width: 95%;
+    width: 100%;
     overflow-y: hidden;
     position: relative;
-    margin:7% auto;
+    margin:5% auto;
     padding-bottom: 20px;
     border-top-right-radius: 8px;
     border-top-left-radius: 8px;
@@ -71,7 +69,8 @@ min-width: 600px;
   }
   .table-bordered{
     width: 100%;
-    min-height: 500px;
+    min-height: 300px;
+    overflow-x: scroll;
   }
   thead th{
     color: #303E65;

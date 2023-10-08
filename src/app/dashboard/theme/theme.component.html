@@ -18,7 +18,7 @@
 
                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                         <div class="form px-4 pt-5">
-                             <!-- Button ajout plus -->
+                             <!-- Button ajout thm -->
                          <div class="boutajout">
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ajoutplus">
                             <i class="bi bi-plus-square-fill"></i>
@@ -44,11 +44,11 @@
                                            </button>
                                         </td>
                                         <td>
-                                            <!-- Button trigger supprim-->
+                                            <!-- Button trigger supprim thm-->
                                             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#supprim">
                                                 <i class="bi bi-trash-fill"></i>
                                             </button>
-                                            <!-- button modif -->
+                                            <!-- button modif thm -->
                                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modif">
                                                 <i class="bi bi-pencil-fill"></i>
                                             </button>
@@ -56,7 +56,7 @@
                                             <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#ajousouthem">
                                                 <i class="bi bi-plus-lg"></i>Sous-thème
                                             </button>
-                                            <!-- Modal modif-->
+                                            <!-- Modal modif thm-->
                                             <div class="modal fade" id="modif" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog">
                                                 <div class="modal-content">
@@ -65,17 +65,41 @@
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form action="">
-                                                            <label for="titre">Titre :</label><br><input type="text" id="titre" required placeholder="les preservatifs"><br>
-                                                            <label for="contenu">contenu :</label><br><textarea name="" id="contenu" placeholder="Il est commun pour ..." required cols="40" rows="15"></textarea><br><br>
+                                                        <form (ngSubmit)= " Onmodthm()">
+                                                            <label for="titre">Titre :</label><br>
+                                                            <input type="text" id="titre"  placeholder="les preservatifs" [(ngModel)]= "ajthm.nom_thm" [ngModelOptions]="{standalone:true}" required maxlength="40" #modtitrethm="ngModel" [ngClass]="
+                                                            {'is-invalid':modtitrethm.touched && !modtitrethm.valid}">
+                                                             <!-- ----------------alerts----------- -->
+                                                            <div *ngIf='modtitrethm.getError("required")'  role="alert" class="invalid-feedback">
+                                                                Remplir ce champs!
+                                                            </div>
+                                                            <br>
+                        
+                                                            <label for="contenu">contenu :</label><br>
+                                                            <textarea name="" id="contenu" placeholder="Il est commun pour ..." required cols="40" rows="15" minlength="50" [(ngModel)]= "ajthm.libelle_thm" [ngModelOptions]="{standalone:true}"  #modlibthm="ngModel" [ngClass]="
+                                                            {'is-invalid':modlibthm.touched && !modlibthm.valid}"></textarea>
+                                                            <!-- ----------------alerts----------- -->
+                                                            <div *ngIf='modlibthm.getError("required")'  role="alert" class="invalid-feedback">
+                                                                Remplir ce champs!
+                                                            </div>
+                                                            <div *ngIf='modlibthm.getError("minlength")'  role="alert" class="warning-feedback">
+                                                                ce champs contient au moins 50 caracteres!
+                                                            </div>
+                                                            <br><br>
+                        
                                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-                                                             <button type="submit" class="btn btn-primary">valider</button>
+                        
+                                                            <button disabled
+                                                            *ngIf='modtitrethm.getError("required") || modlibthm.getError("minlength") || modlibthm.getError("required")' type="submit" class="btn btn-primary" type="submit" class="btn btn-primary" data-bs-dismiss="modal">Publier</button>
+                                                            <button 
+                                                            *ngIf='!modtitrethm.getError("required") && !modlibthm.getError("minlength") && !modlibthm.getError("required")' type="submit" class="btn btn-primary" type="submit" class="btn btn-primary" data-bs-dismiss="modal">Publier</button>
+                        
                                                         </form>
                                                     </div>
                                                 </div>
                                                 </div>
                                             </div>
-                                            <!-- Modal supprim-->
+                                            <!-- Modal supprim thm-->
                                             <div class="modal fade" id="supprim" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog verif">
                                                 <div class="modal-content ">
@@ -96,11 +120,35 @@
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form action="">
-                                                            <label for="titre">Titre :</label><br><input type="text" id="titre" required placeholder="les preservatifs"><br>
-                                                            <label for="contenu">contenu :</label><br><textarea name="" id="contenu" placeholder="Il est commun pour ..." required cols="40" rows="15"></textarea><br><br>
+                                                        <form (ngSubmit)= " Onajsouthm()">
+                                                            <label for="titre">Titre :</label><br>
+                                                            <input type="text" id="titre"  placeholder="les preservatifs" [(ngModel)]= "ajsouthm.nom_southm" [ngModelOptions]="{standalone:true}" required maxlength="40" #titresouthm="ngModel" [ngClass]="
+                                                            {'is-invalid':titresouthm.touched && !titresouthm.valid}">
+                                                             <!-- ----------------alerts----------- -->
+                                                            <div *ngIf='titresouthm.getError("required")'  role="alert" class="invalid-feedback">
+                                                                Remplir ce champs!
+                                                            </div>
+                                                            <br>
+                        
+                                                            <label for="contenu">contenu :</label><br>
+                                                            <textarea name="" id="contenu" placeholder="Il est commun pour ..." required cols="40" rows="15" minlength="50" [(ngModel)]= "ajsouthm.libelle_southm" [ngModelOptions]="{standalone:true}"  #libsouthm="ngModel" [ngClass]="
+                                                            {'is-invalid':libsouthm.touched && !libsouthm.valid}"></textarea>
+                                                            <!-- ----------------alerts----------- -->
+                                                            <div *ngIf='libsouthm.getError("required")'  role="alert" class="invalid-feedback">
+                                                                Remplir ce champs!
+                                                            </div>
+                                                            <div *ngIf='libsouthm.getError("minlength")'  role="alert" class="warning-feedback">
+                                                                ce champs contient au moins 50 caracteres!
+                                                            </div>
+                                                            <br><br>
+                        
                                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-                                                             <button type="submit" class="btn btn-primary">valider</button>
+                        
+                                                            <button disabled
+                                                            *ngIf='titresouthm.getError("required") || libsouthm.getError("minlength") || libsouthm.getError("required")' type="submit" class="btn btn-primary" type="submit" class="btn btn-primary" data-bs-dismiss="modal">Publier</button>
+                                                            <button 
+                                                            *ngIf='!titresouthm.getError("required") && !libsouthm.getError("minlength") && !libsouthm.getError("required")' type="submit" class="btn btn-primary" type="submit" class="btn btn-primary" data-bs-dismiss="modal">Publier</button>
+                        
                                                         </form>
                                                     </div>
                                                 </div>
@@ -168,11 +216,35 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <form action="">
-                                    <label for="titre">Titre :</label><br><input type="text" id="titre" required placeholder="les preservatifs"><br>
-                                    <label for="contenu">contenu :</label><br><textarea name="" id="contenu" placeholder="Il est commun pour ..." required cols="40" rows="15"></textarea><br><br>
+                                <form (ngSubmit)= " Onajthm()">
+                                    <label for="titre">Titre :</label><br>
+                                    <input type="text" id="titre"  placeholder="les preservatifs" [(ngModel)]= "ajthm.nom_thm" [ngModelOptions]="{standalone:true}" required maxlength="40" #titrethm="ngModel" [ngClass]="
+                                    {'is-invalid':titrethm.touched && !titrethm.valid}">
+                                     <!-- ----------------alerts----------- -->
+                                    <div *ngIf='titrethm.getError("required")'  role="alert" class="invalid-feedback">
+                                        Remplir ce champs!
+                                    </div>
+                                    <br>
+
+                                    <label for="contenu">contenu :</label><br>
+                                    <textarea name="" id="contenu" placeholder="Il est commun pour ..." required cols="40" rows="15" minlength="50" [(ngModel)]= "ajthm.libelle_thm" [ngModelOptions]="{standalone:true}"  #libthm="ngModel" [ngClass]="
+                                    {'is-invalid':libthm.touched && !libthm.valid}"></textarea>
+                                    <!-- ----------------alerts----------- -->
+                                    <div *ngIf='libthm.getError("required")'  role="alert" class="invalid-feedback">
+                                        Remplir ce champs!
+                                    </div>
+                                    <div *ngIf='libthm.getError("minlength")'  role="alert" class="warning-feedback">
+                                        ce champs contient au moins 50 caracteres!
+                                    </div>
+                                    <br><br>
+
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-                            <button type="submit" class="btn btn-primary">Publier</button>
+
+                                    <button disabled
+                                    *ngIf='titrethm.getError("required") || libthm.getError("minlength") || libthm.getError("required")' type="submit" class="btn btn-primary" type="submit" class="btn btn-primary" data-bs-dismiss="modal">Publier</button>
+                                    <button 
+                                    *ngIf='!titrethm.getError("required") && !libthm.getError("minlength") && !libthm.getError("required")' type="submit" class="btn btn-primary" type="submit" class="btn btn-primary" data-bs-dismiss="modal">Publier</button>
+
                                 </form>
                             </div>
                         </div>
@@ -205,15 +277,15 @@
                                         </td>
                                         <td>Puberté</td>
                                         <td>
-                                            <!-- Button trigger supprim-->
+                                            <!-- Button trigger supprim sthm-->
                                             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#suprim">
                                                 <i class="bi bi-trash-fill"></i>
                                             </button>
-                                            <!-- button modif -->
+                                            <!-- button modif  sousthm-->
                                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modifs">
                                                 <i class="bi bi-pencil-fill"></i>
                                             </button>
-                                            <!-- Modal modif-->
+                                            <!-- Modal modif sousthm-->
                                             <div class="modal fade" id="modifs" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog">
                                                 <div class="modal-content">
@@ -222,11 +294,35 @@
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form action="">
-                                                            <label for="titre">Titre :</label><br><input type="text" id="titre" required placeholder="les preservatifs"><br>
-                                                            <label for="contenu">contenu :</label><br><textarea name="" id="contenu" placeholder="Il est commun pour ..." required cols="40" rows="15"></textarea><br><br>
+                                                        <form (ngSubmit)= " Onmodsouthm()">
+                                                            <label for="titre">Titre :</label><br>
+                                                            <input type="text" id="titre"  placeholder="les preservatifs" [(ngModel)]= "ajsouthm.nom_southm" [ngModelOptions]="{standalone:true}" required maxlength="40" #modtitresouthm="ngModel" [ngClass]="
+                                                            {'is-invalid':modtitresouthm.touched && !modtitresouthm.valid}">
+                                                             <!-- ----------------alerts----------- -->
+                                                            <div *ngIf='modtitresouthm.getError("required")'  role="alert" class="invalid-feedback">
+                                                                Remplir ce champs!
+                                                            </div>
+                                                            <br>
+                        
+                                                            <label for="contenu">contenu :</label><br>
+                                                            <textarea name="" id="contenu" placeholder="Il est commun pour ..." required cols="40" rows="15" minlength="50" [(ngModel)]= "ajsouthm.libelle_southm" [ngModelOptions]="{standalone:true}"  #modlibsouthm="ngModel" [ngClass]="
+                                                            {'is-invalid':modlibsouthm.touched && !modlibsouthm.valid}"></textarea>
+                                                            <!-- ----------------alerts----------- -->
+                                                            <div *ngIf='modlibsouthm.getError("required")'  role="alert" class="invalid-feedback">
+                                                                Remplir ce champs!
+                                                            </div>
+                                                            <div *ngIf='modlibsouthm.getError("minlength")'  role="alert" class="warning-feedback">
+                                                                ce champs contient au moins 50 caracteres!
+                                                            </div>
+                                                            <br><br>
+                        
                                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-                                                             <button type="submit" class="btn btn-primary">valider</button>
+                        
+                                                            <button disabled
+                                                            *ngIf='modtitresouthm.getError("required") || modlibsouthm.getError("minlength") || modlibsouthm.getError("required")' type="submit" class="btn btn-primary" type="submit" class="btn btn-primary" data-bs-dismiss="modal">Publier</button>
+                                                            <button 
+                                                            *ngIf='!modtitresouthm.getError("required") && !modlibsouthm.getError("minlength") && !modlibsouthm.getError("required")' type="submit" class="btn btn-primary" type="submit" class="btn btn-primary" data-bs-dismiss="modal">Publier</button>
+                        
                                                         </form>
                                                     </div>
                                                 </div>

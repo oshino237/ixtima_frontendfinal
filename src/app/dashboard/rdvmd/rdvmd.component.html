@@ -8,10 +8,10 @@
 
                 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                     <li class="nav-item text-center">
-                      <a class="nav-link active btl" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">RDV en cours</a>
+                      <a class="nav-link active btl" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Disponibilité</a>
                     </li>
                     <li class="nav-item text-center">
-                      <a class="nav-link btr" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Historique</a>
+                      <a class="nav-link btr" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Historique rendez-vous</a>
                     </li>
                 </ul>
                 <div class="tab-content" id="pills-tabContent">
@@ -63,15 +63,31 @@
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form action="">
-                                                            <label for="titre">Date & heure début:</label><br><input
+                                                        <form (ngSubmit)= " Onmoddisp()">
+                                                            <label for="titre">Date & heure début:</label><br>
+                                                            <input
                                                             id="consultation"
                                                             type="datetime-local"
-                                                            name="consultdate" required /><br>
-                                                            <label for="titre">Date & heure fin:</label><br><input
+                                                            name="consultdate" required [(ngModel)]= "moddis.date_debut_dispo" [ngModelOptions]="{standalone:true}" required  #moddatedeb="ngModel" [ngClass]="
+                                                            {'is-invalid':moddatedeb.touched && !moddatedeb.valid}"/>
+                                                            <!-- ----------------alerts----------- -->
+                                                            <div *ngIf='moddatedeb.getError("required")'  role="alert" class="invalid-feedback">
+                                                                Remplir ce champs!
+                                                            </div>
+                                                            <br>
+
+                                                            <label for="titre">Date & heure fin:</label><br>
+                                                            <input
                                                             id="consultation"
                                                             type="datetime-local"
-                                                            name="consultdate" required /><br>
+                                                            name="consultdate" required [(ngModel)]= "moddis.date_fin_dispo" [ngModelOptions]="{standalone:true}" required  #moddatefin="ngModel" [ngClass]="
+                                                            {'is-invalid':moddatefin.touched && !moddatefin.valid}" />
+                                                            <!-- ----------------alerts----------- -->
+                                                            <div *ngIf='moddatefin.getError("required")'  role="alert" class="invalid-feedback">
+                                                                Remplir ce champs!
+                                                            </div>
+                                                            <br>
+
                                                             <label for="contenu">Hôpital  :</label><br>
                                                             <select class="form-select" required aria-label="Default select example">
                                                                 <option selected>Saint Marc</option>
@@ -79,8 +95,13 @@
                                                                 <option value="2">CHU</option>
                                                               </select>
                                                             <br><br>
+
                                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-                                                            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Valider</button>
+
+                                                            <button disabled
+                                                            *ngIf='moddatefin.getError("required") || moddatedeb.getError("required")' type="submit" class="btn btn-primary" type="submit" class="btn btn-primary" >Valider</button>
+                                                            <button 
+                                                            *ngIf='!moddatefin.getError("required") && !moddatedeb.getError("required")' type="submit" class="btn btn-primary" type="submit" class="btn btn-primary" data-bs-dismiss="modal">Valider</button>
                                                         </form>
                                                     </div>
                                                 </div>
@@ -135,15 +156,31 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <form action="">
-                                    <label for="titre">Date & heure début:</label><br><input
-                                    id="party"
+                                <form (ngSubmit)= " Onajdisp()">
+                                    <label for="titre">Date & heure début:</label><br>
+                                    <input
+                                    id="consultation"
                                     type="datetime-local"
-                                    name="partydate" required /><br>
-                                    <label for="titre">Date & heure fin:</label><br><input
-                                    id="party"
+                                    name="consultdate" required [(ngModel)]= "ajdis.date_debut_dispo" [ngModelOptions]="{standalone:true}" required  #datedeb="ngModel" [ngClass]="
+                                    {'is-invalid':datedeb.touched && !datedeb.valid}"/>
+                                    <!-- ----------------alerts----------- -->
+                                    <div *ngIf='datedeb.getError("required")'  role="alert" class="invalid-feedback">
+                                        Remplir ce champs!
+                                    </div>
+                                    <br>
+
+                                    <label for="titre">Date & heure fin:</label><br>
+                                    <input
+                                    id="consultation"
                                     type="datetime-local"
-                                    name="partydate" required /><br>
+                                    name="consultdate" required [(ngModel)]= "ajdis.date_fin_dispo" [ngModelOptions]="{standalone:true}" required  #datefin="ngModel" [ngClass]="
+                                    {'is-invalid':datefin.touched && !datefin.valid}" />
+                                    <!-- ----------------alerts----------- -->
+                                    <div *ngIf='datefin.getError("required")'  role="alert" class="invalid-feedback">
+                                        Remplir ce champs!
+                                    </div>
+                                    <br>
+
                                     <label for="contenu">Hôpital  :</label><br>
                                     <select class="form-select" required aria-label="Default select example">
                                         <option selected>Saint Marc</option>
@@ -151,8 +188,13 @@
                                         <option value="2">CHU</option>
                                       </select>
                                     <br><br>
+
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-                                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Valider</button>
+
+                                    <button disabled
+                                    *ngIf='datefin.getError("required") || datedeb.getError("required")' type="submit" class="btn btn-primary" type="submit" class="btn btn-primary" >Valider</button>
+                                    <button 
+                                    *ngIf='!datefin.getError("required") && !datedeb.getError("required")' type="submit" class="btn btn-primary" type="submit" class="btn btn-primary" data-bs-dismiss="modal">Valider</button>
                                 </form>
                             </div>
                         </div>

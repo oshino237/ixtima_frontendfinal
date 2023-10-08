@@ -27,9 +27,22 @@ import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { CmptmedComponent } from './dashboard/cmptmed/cmptmed.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
-import { catchError } from 'rxjs';
-import{DatePipe} from '@angular/common';
+// import { NgxAgoraSdkNgModule } from 'ngx-agora-sdk-ng';
+// import { Router } from '@angular/router';
+// import { catchError } from 'rxjs';
+// import{DatePipe} from '@angular/common';
+// import { MeetingPreviewComponent } from './dashboard/confermd/pages/meeting-preview/meeting-preview.component';
+// import { RoundTranparentIconButtonComponent } from './dashboard/confermd/shared/components/round-tranparent-icon-button/round-tranparent-icon-button.component';
+// import { InputOutputSettingsComponent } from './dashboard/confermd/shared/components/input-output-settings/input-output-settings.component';
+// import { SoundVisualizerComponent } from './dashboard/confermd/shared/components/sound-visualizer/sound-visualizer.component';
+// import { MeetingParticipantControlsComponent } from './dashboard/confermd/shared/components/meeting-participant-controls/meeting-participant-controls.component';
+// import { MeetingParticipantComponent } from './dashboard/confermd/shared/components/meeting-participant/meeting-participant.component';
+// import { MeetingControlsComponent } from './dashboard/confermd/shared/components/meeting-controls/meeting-controls.component';
+// import { AgoraVideoPlayerDirective } from './dashboard/confermd/shared/directives/agora-video-player.directive';
+// import { MeetingPageComponent } from './dashboard/confermd/pages/meeting-page/meeting-page.component';
+// import { WelcomeComponent } from './dashboard/confermd/pages/welcome/welcome.component';
+// import { CameraPreviewComponent } from './dashboard/confermd/shared/components/camera-preview/camera-preview.component';
+// import { SoundMeterComponent } from './dashboard/confermd/shared/components/sound-meter/sound-meter.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +66,20 @@ import{DatePipe} from '@angular/common';
     TracabiliteComponent,
     HeaderComponent,
     FooterComponent,
-    CmptmedComponent
+    CmptmedComponent,
+
+    // MeetingPreviewComponent,
+    // RoundTranparentIconButtonComponent,
+    // InputOutputSettingsComponent,
+    // SoundMeterComponent,
+    // CameraPreviewComponent,
+    // WelcomeComponent,
+    // MeetingPageComponent,
+    // AgoraVideoPlayerDirective,
+    // MeetingControlsComponent,
+    // MeetingParticipantComponent,
+    // MeetingParticipantControlsComponent,
+    // SoundVisualizerComponent
   ],
   imports: [
     BrowserModule,
@@ -62,10 +88,16 @@ import{DatePipe} from '@angular/common';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    // NgxAgoraSdkNgModule.forRoot({
+    //   AppID: '628bcaee33e84b0d9d8f94559c5b1969',
+    //   Video: { codec: 'h264', mode: 'rtc', role: 'host' }
+    // }),
+    // FontAwesomeModule,
   
     // Router,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  // schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

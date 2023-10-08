@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { RegistRequest } from 'src/app/classe/regist-request';
 import { InscriptionService } from 'src/app/service/inscription.service';
@@ -8,10 +9,17 @@ import { InscriptionService } from 'src/app/service/inscription.service';
   templateUrl: './inscription.component.html',
   styleUrls: ['./inscription.component.css']
 })
-export class InscriptionComponent {
+export class InscriptionComponent implements OnInit {
   regist: RegistRequest =  new RegistRequest();
   registmd: RegistRequest =  new RegistRequest();
-  constructor(private inscrptionService: InscriptionService){}
+  constructor(private inscrptionService: InscriptionService){
+
+  }
+  ngOnInit(): void {
+  }
+  errorMessage:string = "";
+  successMessage:string = "";
+
 
   OnRegistjn():void{
     console.log(this.regist);
@@ -19,8 +27,14 @@ export class InscriptionComponent {
       console.log(res);
       window.localStorage.setItem("token", res.token);
       console.log("inscription effectuee avec succes " + res.token+ " Et le role est "+res.role)
-    });
+      this.successMessage ="inscription effectuee avec succes";
+    }
+    );
   }
+
+
+
+
   OnRegistmd():void{
     console.log(this.registmd);
     this.inscrptionService.inscriptionMed(this.registmd).subscribe((res: any) => {

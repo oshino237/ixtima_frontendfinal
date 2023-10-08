@@ -19,7 +19,7 @@
       
 
         <input type="password" placeholder="password" 
-         name="password" class="form-contol" required minlength="5" maxlength="20" pattern="(?=.?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^& -]). {8, }$" #passvr="ngModel" 
+         name="password" class="form-contol" required minlength="3" maxlength="20" pattern="(?=.?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^& -]). {8, }$" #passvr="ngModel" 
          [ngClass]="{'is-invalid':passvr.touched && !passvr.valid}"
          [(ngModel)] = "authRequest.password" [ngModelOptions]="{standalone:true}" FormControlName="password" required>
          <!-- ----------------alerts----------- -->
@@ -27,7 +27,7 @@
           remplir le mot de passe!
         </div>
         <div *ngIf='passvr.getError("minlength")' class="warning-feedback" role="alert">
-          Le mot de pass doit avoir au moins 5 caractère!
+          Le mot de pass doit avoir au moins 3 caractère!
         </div><br>
         <!-- <div *ngIf='passvr.getError("pattern")' class="warning-feedback" role="alert">
           Le mot de pass doit contenir: Majuscule, Minuscule, Chiffre, caractère special

@@ -13,6 +13,11 @@
         <form  (ngSubmit)= "OnRegistjn()"  [formGroup]="registerForm" autocomplete="">
 
             <span><label for="chk" aria-hidden="true">JEUNE</label></span>
+            <!-- --------------------------error--------------------------- -->
+
+          <div class="alert alert-success" role="alert" *ngIf="successMessage" >{{successMessage}}</div>
+          <div class="alert alert-danger" role="alert" *ngIf="errorMessage" >{{errorMessage}}</div>
+
 
           <input type="text" placeholder="Nom" class="input-slide" [(ngModel)]= "regist.firstname" [ngModelOptions]="{standalone:true}" required maxlength="25" minlength="2" #nomvr="ngModel" [ngClass]="
           {'is-invalid':nomvr.touched && !nomvr.valid}">
@@ -70,7 +75,7 @@
           <div *ngIf='telvr.getError("required")' class="invalid-feedback" role="alert">
             le numero ne doit pas rester vide!
           </div>
-          <!-- <div *ngIf='telvr.getError("type")' class="invalid-feedback" role="alert">
+          <!-- <div *ngIf='telvr.getError("number")' class="invalid-feedback" role="alert">
             le numero est composé uniauement de chiffres!
           </div> -->
 

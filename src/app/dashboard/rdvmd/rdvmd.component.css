@@ -68,6 +68,12 @@ width: 100%;
    min-height: 300px;
    height: 100%;
   }
+  .invalid-feedback,.warning-feedback{
+    font-size: 12px;
+  }
+  .warning-feedback{
+    color: rgb(184, 167, 14);
+  }
   .table-bordered{
     width: 100%;
     min-height: 300px;

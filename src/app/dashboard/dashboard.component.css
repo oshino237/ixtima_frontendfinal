@@ -45,7 +45,7 @@
 }
 .sidebar .logo-details .logo_name p{
   color: #fff;
-  font-size: 25px;
+  font-size: 40px;
   font-weight: 500;
   margin: 0;
   display: inline-block;
@@ -55,7 +55,7 @@
   margin:0;
     width: 60px;
     display: inline-block;
-    background-color: #2697FF;
+    /* background-color: #2697FF; */
     vertical-align: top;
 }
 .logo img{

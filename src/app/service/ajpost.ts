@@ -12,7 +12,7 @@ export class Ajpost {
         const httpOptions = {
           headers: new HttpHeaders({
             "Content-type" : "application/json",
-            Authorization: "Bearer "+token,
+            Authorization: "Bearer"+token,
           }),
         }
         console.log(" LE TOKEN EST "+token);
