@@ -42,18 +42,21 @@
                                         <td>Saint marc</td>
                                         <td></td>
                                         <td>
-                                            <!-- Button trigger supprim-->
-                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#supprim">
-                                               Annuler
-                                            </button>
+                                                <input type="checkbox" id="chk" aria-hidden="true">
+                                                <!-- Button trigger supprim-->
+                                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#supprim" for="chk" aria-hidden="true">
+                                                Annuler
+                                                </button>
+                                                <!-- button envoyer -->
+                                                <!-- <button type="button" class="btn btn-success"  data-bs-target="#envoyer" for="chk" aria-hidden="true">
+                                                <i class="bi bi-send"></i>Publier
+                                                </button> -->
+                                            
                                             <!-- button modif -->
                                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modif">
                                                 <i class="bi bi-pencil-fill"></i>
                                             </button>
-                                            <!-- button envoyer -->
-                                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#envoyer">
-                                                <i class="bi bi-send"></i>Publier
-                                            </button>
+                                            
                                             <!-- Modal modif-->
                                             <div class="modal fade" id="modif" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog">

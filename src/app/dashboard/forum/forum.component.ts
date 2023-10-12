@@ -10,6 +10,7 @@ import { FuromserviceService } from 'src/app/service/furomservice.service';
  
 export class ForumComponent {
   messg : Furomrequest = new Furomrequest();
+  message : any[]=[]
   constructor(private forumservice : FuromserviceService){} 
 
   OnMessage(){

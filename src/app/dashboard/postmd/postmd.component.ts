@@ -13,6 +13,9 @@ import { ModifpostserviceService } from 'src/app/service/modifpostservice.servic
   styleUrls: ['./postmd.component.css']
 })
 export class PostmdComponent {
+titre: string='robert';
+contenu: string='blablablablablablablablablabla';
+source: string='manu';
 ajpost : AjpostRequest = new AjpostRequest();
 modpost : Modifpostrequest = new Modifpostrequest();
 constructor(private ajpostService : Ajpost, private modifpostservice : ModifpostserviceService, private route: Router){}  

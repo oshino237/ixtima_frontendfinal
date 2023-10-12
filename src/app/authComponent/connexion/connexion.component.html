@@ -4,6 +4,10 @@
     <div class="formulr">
       <h1>Connexion</h1>
       
+            <!-- --------------------------error--------------------------- -->
+
+            <div class="alert alert-success" role="alert" *ngIf="successMessage" >{{successMessage}}</div>
+            <div class="alert alert-danger" role="alert" *ngIf="errorMessage" >{{errorMessage}}</div>
 
       <form  FormGroup="loginForm" name="form" (ngSubmit)= " OnSubmit()">
 
@@ -43,7 +47,7 @@
         *ngIf='!emailvr.getError("required") && !emailvr.getError("email") && !passvr.getError("required") && !passvr.getError("minlength")' 
          type="submit" target="_blank" >valider</button>
 
-        <button class="boutinscr"><a routerLink="/inscription" routerLinkActive="active" target="_blank">s'inscrire</a></button><br>
+        <button class="boutinscr"><a routerLink="/inscription" routerLinkActive="active" >s'inscrire</a></button><br>
         <p><u><a href="#"> Mot de pass oublié ?</a></u></p>
         
       </form>

@@ -15,7 +15,7 @@ export class InscriptionService {
       }),
     }
     console.log("l'iscrition medecin ok "+registRequest.password+registRequest.email+registRequest.telephone);
-    return this.http.post('http://localhost:8080/auth/registers', registRequest, httpOptions).pipe();
+    return this.http.post('http://localhost:8080/auth/registers', registRequest, httpOptions);
   }
   inscription(registRequest : RegistRequest) {
     const httpOptions = {
@@ -23,8 +23,8 @@ export class InscriptionService {
         "Content-type" : "application/json",
       }),
     }
-    console.log("l'iscrition jeune ok "+registRequest.password+registRequest.email+registRequest.telephone);
-    return this.http.post('http://localhost:8080/auth/register', registRequest, httpOptions).pipe();
+    console.log("l'iscrition medecin ok "+registRequest.password+registRequest.email+registRequest.telephone);
+    return this.http.post('http://localhost:8080/auth/register', registRequest, httpOptions);
   }
 
 }

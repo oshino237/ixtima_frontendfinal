@@ -1,6 +1,8 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { catchError, throwError } from 'rxjs';
 import { RegistRequest } from 'src/app/classe/regist-request';
 import { InscriptionService } from 'src/app/service/inscription.service';
 
@@ -12,36 +14,64 @@ import { InscriptionService } from 'src/app/service/inscription.service';
 export class InscriptionComponent implements OnInit {
   regist: RegistRequest =  new RegistRequest();
   registmd: RegistRequest =  new RegistRequest();
-  constructor(private inscrptionService: InscriptionService){
+  constructor(
+    private router:Router,
+    private inscrptionService: InscriptionService){
 
   }
   ngOnInit(): void {
   }
   errorMessage:string = "";
+  errorMessagemed:string = "";
   successMessage:string = "";
+  successMessagemed:string = "";
 
 
   OnRegistjn():void{
-    console.log(this.regist);
-    this.inscrptionService.inscription(this.regist).subscribe((res: any) => {
-      console.log(res);
-      window.localStorage.setItem("token", res.token);
-      console.log("inscription effectuee avec succes " + res.token+ " Et le role est "+res.role)
-      this.successMessage ="inscription effectuee avec succes";
+    this.inscrptionService.inscription(this.regist)
+    .pipe(catchError((error) => {
+       console.log('LE CODE STATUS EST : ', error.status)
+        return throwError(() => error);
+      }) 
+    )
+    .subscribe((res: any) => {
+      if(res.statusCodeValue>400){
+        this.errorMessage=res.body
+        this.successMessage=''
+        console.log('testung error ',res.statusCodeValue )
+      }
+      else if(res.statusCodeValue>=200 &&  res.statusCodeValue<=300){
+       this. errorMessage = '';
+        window.localStorage.setItem("token", res.token);    
+        this.successMessage ="inscription effectuee avec succes";
+        this.regist =  new RegistRequest();
+        this.router.navigate(["/connexion"])
+      }
     }
     );
   }
-
-
-
-
   OnRegistmd():void{
     console.log(this.registmd);
-    this.inscrptionService.inscriptionMed(this.registmd).subscribe((res: any) => {
-      console.log(res);
+    this.inscrptionService.inscriptionMed(this.registmd).pipe(catchError((error) => {
+      console.log('testung error ', error)
+       return throwError(() => error);
+     }) 
+   )
+   .subscribe((res: any) => {
+    if(res.statusCodeValue>400){
+      this.errorMessagemed=res.body
+      this.successMessagemed=''
+      console.log('testung error ',res.statusCodeValue )
+    }
+    else if(res.statusCodeValue>=200 &&  res.statusCodeValue<=300){
+     this. errorMessagemed = '';
       window.localStorage.setItem("token", res.token);
-      console.log("inscription effectuee avec succes " + res.token+ " Et le role est "+res.role)
-    });
+      this.successMessagemed ="veuillez patienter...vos document sont en cours de validation";
+      this.registmd =  new RegistRequest();
+      // this.router.navigate(["/connexion"])
+    }
+  }
+  );
   }
   
   registerForm = new FormGroup({
