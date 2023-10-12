@@ -8,8 +8,8 @@ import { GetMedecinService } from "./get-medecin.service";
   })
 export class Ajpost {
     constructor(private http: HttpClient, private medecin: GetMedecinService) { }
-    id !: number;
-    Ajoutpost(ajpostRequest : AjpostRequest) {
+    private ide !:number 
+    Ajoutpost(ajpostRequest : AjpostRequest, d: number) {
       const token = window.localStorage.getItem("token")
       
         const httpOptions = {
@@ -18,12 +18,16 @@ export class Ajpost {
             Authorization: "Bearer "+token,
           }),
         }
-        this.medecin.Trouvemedecin().subscribe(data=>{
-          this.id = data;
-        })
-        console.log(" LE ID EST  ",this.id);
-        console.log("ajout post ok ",ajpostRequest," L'IDENTIFIANT EST  ",this.id );
-        return this.http.post('http://localhost:8080/post/add/'+this.id, ajpostRequest, httpOptions).pipe();
+        // this.medecin.Trouvemedecin().subscribe((d:number)=>{
+          
+        //   console.log(" DATA  ",d);
+        //   this.ide = d
+        //   //window.localStorage.setItem("id_medec",d)
+        //   console.log(" IDE  ",this.ide);
+        // })
+        
+        console.log("L IDENTIFIANT EST  ", window.localStorage.getItem("id_medec"));
+        return this.http.post('http://localhost:8080/post/add/'+d, ajpostRequest, httpOptions).pipe();
       }
     }
 

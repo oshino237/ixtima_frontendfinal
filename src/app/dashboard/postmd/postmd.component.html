@@ -180,6 +180,12 @@
                             </div>
                             <div class="modal-body">
                                 <form (ngSubmit)= " OnAjpost()">
+                                    <!-- --------------------------error--------------------------- -->
+<!-- 
+                                    <div class="alert alert-success" role="alert" *ngIf="successMessage" >{{successMessage}}</div>
+                                    <div class="alert alert-danger" role="alert" *ngIf="errorMessage" >{{errorMessage}}</div>
+                                     -->
+
                                     <label for="titre">Titre :</label><br>
                                     <input type="text" id="titre" required placeholder="les preservatifs" [(ngModel)]= "ajpost.titre_post" [ngModelOptions]="{standalone:true}" maxlength="50" minlength="3" required #titrevr="ngModel" [ngClass]="
                                     {'is-invalid':titrevr.touched && !titrevr.valid}">
