@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from '@angular/core';
 import { AjpostRequest } from "../classe/ajpost-request";
 import { GetMedecinService } from "./get-medecin.service";
+import { Observable } from "rxjs";
 
 @Injectable({
     providedIn: 'root'
@@ -27,7 +28,18 @@ export class Ajpost {
         // })
         
         console.log("L IDENTIFIANT EST  ", window.localStorage.getItem("id_medec"));
-        return this.http.post('http://localhost:8080/post/add/'+d, ajpostRequest, httpOptions).pipe();
+        return this.http.post('http://localhost:8080/post/add/'+d, ajpostRequest, httpOptions);
+      }
+      getListPost(id:number):Observable<AjpostRequest[]>{
+        const token = window.localStorage.getItem("token")
+      
+        const httpOptions = {
+          headers: new HttpHeaders({
+            "Content-type" : "application/json",
+            Authorization: "Bearer "+token,
+          }),
+        }
+        return this.http.get<AjpostRequest[]>('http://localhost:8080/post/getAll',httpOptions);
       }
     }
 

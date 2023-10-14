@@ -46,7 +46,8 @@
             ce champ doit contenir un email!
           </div><br>
 
-          <input type="date" placeholder="Date de naissance" class="input-slide" [(ngModel)]= "regist.datenaiss" [ngModelOptions]="{standalone:true}" required #datevr="ngModel" [ngClass]="
+          <input type="date" placeholder="Date de naissance" 
+          min="2011-01-01" class="input-slide" [(ngModel)]= "regist.datenaiss" [ngModelOptions]="{standalone:true}" required #datevr="ngModel" [ngClass]="
           {'is-invalid':datevr.touched && !datevr.valid}">
           <!-- ----------------alerts----------- -->
           <div *ngIf='datevr.getError("required")' class="invalid-feedback" role="alert">
@@ -163,8 +164,10 @@
             </div>
             <div *ngIf='passedvr.getError("minlength")'  class="warning-feedback" role="alert">
               Le mot de pass doit avoir au moins 5 caractères!
-            </div><br>
-            <input type="date" placeholder="Date de naissance" class="input-slide" [(ngModel)]= "registmd.datenaiss" [ngModelOptions]="{standalone:true}" required #datedvr="ngModel" [ngClass]="
+            </div>
+
+            <input type="date" placeholder="Date de naissance" 
+                                    min="2002-01-01" class="input-slide" [(ngModel)]= "registmd.datenaiss" [ngModelOptions]="{standalone:true}" required #datedvr="ngModel" [ngClass]="
             {'is-invalid':datedvr.touched && !datedvr.valid}">
             <!-- ----------------alerts----------- -->
           <div *ngIf='datedvr.getError("required")' class="invalid-feedback" role="alert">
@@ -189,12 +192,19 @@
             <div class="file-upload">
               <i class="fas fa-upload"></i>&nbsp; choisir fichier 
               <div class="load">
-                <input type="file" required name="autori" [(ngModel)]= "registmd.auto_exercice" [ngModelOptions]="{standalone:true}">
+                <input type="file" required name="autori" [(ngModel)]= "registmd.auto_exercice" [ngModelOptions]="{standalone:true}" #auto="ngModel" [ngClass]="
+                {'is-invalid':auto.touched && !auto.valid}">
               </div>
-            </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+            </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             <!-- ----------------alerts----------- -->
+          <div *ngIf='auto.getError("required")' class="invalid-feedback" role="alert">
+           champ requis!
+          </div>
+            <br>
     
             Proféssion <br>
-            <select class="form-select" aria-label="Default select example" required>
+            <select class="form-select" aria-label="Default select example" required [(ngModel)]= "registmd.specialite" [ngModelOptions]="{standalone:true}" #speci="ngModel" [ngClass]="
+            {'is-invalid':speci.touched && !speci.valid}">
               <option selected>Généraliste</option>
               <option value="1">Spychologue</option>
               <option value="2">Généraliste</option>
@@ -202,10 +212,16 @@
               <option value="5">Urologue</option>
               <option value="6">Ostéopathe</option>
               <option value="7">Sexologue</option>
-            </select><br>
+            </select>
+             <!-- ----------------alerts----------- -->
+          <div *ngIf='speci.getError("required")' class="invalid-feedback" role="alert">
+            champ requis!
+           </div>
+            <br>
             
-            Ville <br>
-            <select class="form-select" aria-label="Default select example" required>
+            Ville de résidence <br>
+            <select class="form-select" aria-label="Default select example" required [(ngModel)]= "registmd.ville" [ngModelOptions]="{standalone:true}" #ville="ngModel" [ngClass]="
+            {'is-invalid':ville.touched && !ville.valid}">
               <option selected>Yaounde</option>
               <option value="1">Douala</option>
               <option value="2">Nkonsamba</option>
@@ -214,14 +230,19 @@
               <option value="6">Dschang</option>
               <option value="7">Sangmelima</option>
             </select>
-            
+             <!-- ----------------alerts----------- -->
+          <div *ngIf='ville.getError("required")' class="invalid-feedback" role="alert">
+            champ requis!
+           </div>
+
             <div class="choix1">
               <label for="s">Sexe</label><br>
               F &nbsp;<input type="radio" name="cl"  id="s" required [(ngModel)]= "regist.sexe" [ngModelOptions]="{standalone:true}" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               M &nbsp;<input type="radio" name="cl"id="s" required>
             </div>
             Hôpital <br>
-            <select class="form-select" aria-label="Default select example"  required>
+            <select class="form-select" aria-label="Default select example"  required [(ngModel)]= "registmd.nom_hopital" [ngModelOptions]="{standalone:true}" #hopital="ngModel" [ngClass]="
+            {'is-invalid':hopital.touched && !hopital.valid}">
               <option selected>Saint marc</option>
               <option value="1">La caisse</option>
               <option value="2">Mvolier</option>
@@ -230,16 +251,19 @@
               <option value="6">La main du secours</option>
               <option value="7">Les soeurs</option>
             </select>
-            
+             <!-- ----------------alerts----------- -->
+          <div *ngIf='hopital.getError("required")' class="invalid-feedback" role="alert">
+            champ requis!
+           </div>
     
           </div>
           <br>
           <button 
           class="submit-btn" disabled
-        *ngIf='emailedvr.getError("required") || emailedvr.getError("email")|| emailedvr.getError("email") || teledvr.getError("pattern") || passedvr.getError("minlength") || nomedvr.getError("required") || datedvr.getError("required") || pseudoedvr.getError("required") || pseudoedvr.getError("minlength") || teledvr.getError("minlength") || teledvr.getError("required") || prenomedvr.getError("minlength") || nomedvr.getError("minlength")'
+        *ngIf='emailedvr.getError("required") || emailedvr.getError("email") || emailedvr.getError("email") || teledvr.getError("pattern") || passedvr.getError("minlength") || nomedvr.getError("required") || hopital.getError("required") || speci.getError("required") || ville.getError("required") || datedvr.getError("required") || pseudoedvr.getError("required") || pseudoedvr.getError("minlength") || teledvr.getError("minlength") || teledvr.getError("required") || prenomedvr.getError("minlength") || nomedvr.getError("minlength")'
          type="submit" >valider</button> 
          <button 
-        *ngIf='!emailedvr.getError("required") && !emailedvr.getError("email") && !passedvr.getError("required") && !passedvr.getError("minlength")&& !teledvr.getError("pattern") && !nomedvr.getError("required") && !datedvr.getError("required") && !pseudoedvr.getError("required") && !pseudoedvr.getError("minlength") && !teledvr.getError("minlength") && !teledvr.getError("required") && 
+        *ngIf='!emailedvr.getError("required") && !emailedvr.getError("email") && !passedvr.getError("required") && !passedvr.getError("minlength")&& !teledvr.getError("pattern") && !nomedvr.getError("required") && !datedvr.getError("required") && !pseudoedvr.getError("required") && !hopital.getError("required") && !speci.getError("required") && !ville.getError("required") && !pseudoedvr.getError("minlength") && !teledvr.getError("minlength") && !teledvr.getError("required") && 
         !prenomedvr.getError("minlength") && !nomedvr.getError("minlength")' 
          type="submit" class="submit-btn">valider</button><br>
         </form> 

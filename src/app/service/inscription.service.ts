@@ -14,7 +14,7 @@ export class InscriptionService {
         "Content-type" : "application/json",
       }),
     }
-    console.log("l'iscrition medecin ok "+registRequest.password+registRequest.email+registRequest.telephone);
+    console.log("l'iscrition medecin ok ",registRequest);
     return this.http.post('http://localhost:8080/auth/registers', registRequest, httpOptions);
   }
   inscription(registRequest : RegistRequest) {

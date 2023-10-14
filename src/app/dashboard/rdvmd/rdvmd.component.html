@@ -25,11 +25,12 @@
                             </button>
                         </div>
                             <table class="table table-bordered" data-toggle="table" data-search="true" data-pagination="true">
-                                <table class="table">
+                                <table class="table"  *ngFor="let alldispo of viewdispoModel">
                                     <thead>
                                         <tr>
                                         <th scope="col">No</th>
-                                        <th scope="col">Date  et heure</th>
+                                        <th scope="col">Date de  début</th>
+                                        <th scope="col">Date  de fin</th>
                                         <th scope="col">Hôpital </th>
                                         <th scope="col">Nom patient</th>
                                         <th scope="col">Actions</th>
@@ -38,8 +39,9 @@
                                     <tbody>
                                         <tr>
                                         <th scope="row">1</th>
-                                        <td>30/09/2023 08:30</td>
-                                        <td>Saint marc</td>
+                                        <td>{{alldispo.date_debut_dispo}}</td>
+                                        <td>{{alldispo.date_fin_dispo}}</td>
+                                        <td>{{alldispo.nom_hopital}}</td>
                                         <td></td>
                                         <td>
                                                 <input type="checkbox" id="chk" aria-hidden="true">
@@ -71,6 +73,8 @@
                                                             <input
                                                             id="consultation"
                                                             type="datetime-local"
+                                                            min="2023-10-17T09:00"
+                                                            max="2023-12-31T17:00"
                                                             name="consultdate" required [(ngModel)]= "moddis.date_debut_dispo" [ngModelOptions]="{standalone:true}" required  #moddatedeb="ngModel" [ngClass]="
                                                             {'is-invalid':moddatedeb.touched && !moddatedeb.valid}"/>
                                                             <!-- ----------------alerts----------- -->
@@ -83,6 +87,8 @@
                                                             <input
                                                             id="consultation"
                                                             type="datetime-local"
+                                                            min="2023-10-17T09:00"
+                                                            max="2023-12-31T17:00"
                                                             name="consultdate" required [(ngModel)]= "moddis.date_fin_dispo" [ngModelOptions]="{standalone:true}" required  #moddatefin="ngModel" [ngClass]="
                                                             {'is-invalid':moddatefin.touched && !moddatefin.valid}" />
                                                             <!-- ----------------alerts----------- -->
@@ -163,7 +169,9 @@
                                     <label for="titre">Date & heure début:</label><br>
                                     <input
                                     id="consultation"
-                                    type="datetime-local"
+                                    type="datetime-local" 
+                                    min="2023-10-17T08:30"
+                                    max="2023-12-31T17:00"
                                     name="consultdate" required [(ngModel)]= "ajdis.date_debut_dispo" [ngModelOptions]="{standalone:true}" required  #datedeb="ngModel" [ngClass]="
                                     {'is-invalid':datedeb.touched && !datedeb.valid}"/>
                                     <!-- ----------------alerts----------- -->
@@ -176,6 +184,8 @@
                                     <input
                                     id="consultation"
                                     type="datetime-local"
+                                    min="2023-10-17T09:00"
+                                    max="2023-12-31T17:00"
                                     name="consultdate" required [(ngModel)]= "ajdis.date_fin_dispo" [ngModelOptions]="{standalone:true}" required  #datefin="ngModel" [ngClass]="
                                     {'is-invalid':datefin.touched && !datefin.valid}" />
                                     <!-- ----------------alerts----------- -->
@@ -185,19 +195,24 @@
                                     <br>
 
                                     <label for="contenu">Hôpital  :</label><br>
-                                    <select class="form-select" required aria-label="Default select example">
+                                    <select class="form-select" required aria-label="Default select example" [(ngModel)]= "ajdis.nom_hopital" [ngModelOptions]="{standalone:true}" required  #hopit="ngModel" [ngClass]="
+                                    {'is-invalid':hopit.touched && !hopit.valid}">
                                         <option selected>Saint Marc</option>
                                         <option value="1">La caisse</option>
                                         <option value="2">CHU</option>
                                       </select>
+                                      <!-- ----------------alerts----------- -->
+                                    <div *ngIf='hopit.getError("required")'  role="alert" class="invalid-feedback">
+                                        Remplir ce champs!
+                                    </div>
                                     <br><br>
 
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
 
                                     <button disabled
-                                    *ngIf='datefin.getError("required") || datedeb.getError("required")' type="submit" class="btn btn-primary" type="submit" class="btn btn-primary" >Valider</button>
+                                    *ngIf='datefin.getError("required") || datedeb.getError("required")|| hopit.getError("required")' type="submit" class="btn btn-primary" type="submit" class="btn btn-primary" >Valider</button>
                                     <button 
-                                    *ngIf='!datefin.getError("required") && !datedeb.getError("required")' type="submit" class="btn btn-primary" type="submit" class="btn btn-primary" data-bs-dismiss="modal">Valider</button>
+                                    *ngIf='!datefin.getError("required") && !datedeb.getError("required")&& !hopit.getError("required")' type="submit" class="btn btn-primary" type="submit" class="btn btn-primary" data-bs-dismiss="modal">Valider</button>
                                 </form>
                             </div>
                         </div>
@@ -213,7 +228,8 @@
                                     <thead>
                                         <tr>
                                         <th scope="col">No</th>
-                                        <th scope="col">Date & heure</th>
+                                        <th scope="col">Date de  début</th>
+                                        <th scope="col">Date  de fin</th>
                                         <th scope="col">Hôpital</th>
                                         <th scope="col">Patient</th>
                                         <th scope="col">Actions</th>
@@ -222,7 +238,8 @@
                                     <tbody>
                                         <tr>
                                         <th scope="row">1</th>
-                                        <td>18/09/2023 09:04</td>
+                                        <td>18/09/2023 09:00</td>
+                                        <td>18/09/2023 10:30</td>
                                         <td>CHU</td>
                                         <td>Marc</td>
                                         <td>

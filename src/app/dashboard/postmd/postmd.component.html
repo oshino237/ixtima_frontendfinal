@@ -23,57 +23,25 @@
                 <!-- ligen post  -->
                   <div class="lgpost">
 
-                    <div class="pst1">
+                    <div class="pst1" *ngFor="let allPost of viewPostModel">
                         <div class="accordion accordion-flush" id="accordionFlushExample">
                             <div class="accordion-item">
                               <h2 class="accordion-header" id="flush-headingOne">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                  {{titre}}
+                                  {{allPost.titre_post}}
                                 </button>
                               </h2>
                               <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">{{contenu}}</div>
+                                <div class="accordion-body">{{allPost.libelle_post}}</div>
                               </div>
                             </div>
                         </div>
                         <div class="drname">
-                            <p>Dr. Robert TSINGUE</p>
+                            <p>Dr. {{allPost.medecin?.utilisateur.nom}}</p>
                         </div>
                     </div>
-                    <div class="pst2">
-                        <div class="accordion accordion-flush" id="accordionFlushExample">
-                            <div class="accordion-item">
-                              <h2 class="accordion-header" id="flush-headingOne">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collaseOn" aria-expanded="false" aria-controls="flush-collapseOne">
-                                  comment se proteger?
-                                </button>
-                              </h2>
-                              <div id="flush-collaseOn" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
-                              </div>
-                            </div>
-                        </div>
-                        <div class="drname">
-                            <p>Dr. Armande DONKACK</p>
-                        </div>
-                    </div>
-                    <div class="pst3">
-                        <div class="accordion accordion-flush" id="accordionFlushExample">
-                            <div class="accordion-item">
-                              <h2 class="accordion-header" id="flush-headingOne">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOn" aria-expanded="false" aria-controls="flush-collapseOne">
-                                  les nouvelle contraceptions
-                                </button>
-                              </h2>
-                              <div id="flush-collapseOn" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
-                              </div>
-                            </div>
-                        </div>
-                        <div class="drname">
-                            <p>Dr. Simon Claude BIDJA</p>
-                        </div>
-                    </div>
+                    
+                    
 
                   </div>
                 </div>
@@ -181,13 +149,13 @@
                             <div class="modal-body">
                                 <form (ngSubmit)= " OnAjpost()">
                                     <!-- --------------------------error--------------------------- -->
-<!-- 
+
                                     <div class="alert alert-success" role="alert" *ngIf="successMessage" >{{successMessage}}</div>
                                     <div class="alert alert-danger" role="alert" *ngIf="errorMessage" >{{errorMessage}}</div>
-                                     -->
+                                    
 
                                     <label for="titre">Titre :</label><br>
-                                    <input type="text" id="titre" required placeholder="les preservatifs" [(ngModel)]= "ajpost.titre_post" [ngModelOptions]="{standalone:true}" maxlength="50" minlength="3" required #titrevr="ngModel" [ngClass]="
+                                    <input type="text" id="titre"   placeholder="les preservatifs" [(ngModel)]= "ajpost.titre_post" [ngModelOptions]="{standalone:true}" maxlength="50" minlength="3" required #titrevr="ngModel" [ngClass]="
                                     {'is-invalid':titrevr.touched && !titrevr.valid}">
                                     <!-- ----------------alerts----------- -->
                                     <div *ngIf='titrevr.getError("required")' class="invalid-feedback" role="alert">

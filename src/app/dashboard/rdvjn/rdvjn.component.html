@@ -19,11 +19,12 @@
                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                         <div class="form px-4 pt-5">
                             <table class="table table-bordered" data-toggle="table" data-search="true" data-pagination="true">
-                                <table class="table">
+                                <table class="table" *ngFor="let alldispo of viewdispoModel">
                                     <thead>
                                         <tr>
                                             <th scope="col">No</th>
-                                            <th scope="col">Date & heure</th>
+                                            <th scope="col">Date de  début</th>
+                                            <th scope="col">Date  de fin</th>
                                             <th scope="col">Hôpital</th>
                                             <th scope="col">Médecin</th>
                                             <th scope="col">Spétialité</th>
@@ -33,8 +34,9 @@
                                     <tbody>
                                         <tr>
                                         <th scope="row">1</th>
-                                        <td>18/09/2023 09:04</td>
-                                        <td>CHU</td>
+                                        <td>{{alldispo.date_debut_dispo}}</td>
+                                        <td>{{alldispo.date_fin_dispo}}</td>
+                                        <td>{{alldispo.nom_hopital}}</td>
                                         <td>Simon</td>
                                         <td>Sexologue</td>
                                         <td>
@@ -61,11 +63,12 @@
                         <div class="form px-4 pt-5">
                                        
                             <table class="table table-bordered" data-toggle="table" data-search="true" data-pagination="true">
-                                <table class="table">
+                                <table class="table" *ngFor="let alldispo of viewdispoModel">
                                     <thead>
                                         <tr>
                                         <th scope="col">No</th>
-                                        <th scope="col">Date & heure</th>
+                                        <th scope="col">Date de  début</th>
+                                        <th scope="col">Date  de fin</th>
                                         <th scope="col">Hôpital</th>
                                         <th scope="col">Médecin</th>
                                         <th scope="col">Spétialité</th>
@@ -75,8 +78,9 @@
                                     <tbody>
                                         <tr>
                                         <th scope="row">1</th>
-                                        <td>18/09/2023 09:04</td>
-                                        <td>CHU</td>
+                                        <td>{{alldispo.date_debut_dispo}}</td>
+                                        <td>{{alldispo.date_fin_dispo}}</td>
+                                        <td>{{alldispo.nom_hopital}}</td>
                                         <td>Simon</td>
                                         <td>Sexologue</td>
                                         <td>

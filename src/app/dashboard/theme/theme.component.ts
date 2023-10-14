@@ -52,4 +52,23 @@ export class ThemeComponent {
       // console.log("ajout post effectuee avec succes " + res.token+ " Et le role est ")
     });
   }
+  viewthemeModel : Themerequest[]=[];
+  viewsouthemeModel : Soustmrequest[]=[];
+  
+  
+  ngOnInit(): void {
+    this.viewtheme();
+    this.viewsoutheme();
+  }
+
+  viewtheme(){
+    this.themeserviceService.getListTheme(2).subscribe((res : any ) =>{
+        this.viewthemeModel = res;
+    })
+    }
+  viewsoutheme(){
+    this.soustmserviceService.getListsouTheme(2).subscribe((res : any ) =>{
+        this.viewsouthemeModel = res;
+    })
+    }
 }
