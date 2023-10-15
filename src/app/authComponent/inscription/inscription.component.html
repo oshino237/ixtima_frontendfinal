@@ -18,7 +18,6 @@
           <div class="alert alert-success" role="alert" *ngIf="successMessage" >{{successMessage}}</div>
           <div class="alert alert-danger" role="alert" *ngIf="errorMessage" >{{errorMessage}}</div>
 
-
           <input type="text" placeholder="Nom" class="input-slide" [(ngModel)]= "regist.firstname" [ngModelOptions]="{standalone:true}" required maxlength="25" minlength="2" #nomvr="ngModel" [ngClass]="
           {'is-invalid':nomvr.touched && !nomvr.valid}">
           <!-- ----------------alerts----------- -->
@@ -47,7 +46,8 @@
             ce champ doit contenir un email!
           </div><br>
 
-          <input type="date" placeholder="Date de naissance" class="input-slide" [(ngModel)]= "regist.datenaiss" [ngModelOptions]="{standalone:true}" required #datevr="ngModel" [ngClass]="
+          <input type="date" placeholder="Date de naissance" 
+          min="2011-01-01" class="input-slide" [(ngModel)]= "regist.datenaiss" [ngModelOptions]="{standalone:true}" required #datevr="ngModel" [ngClass]="
           {'is-invalid':datevr.touched && !datevr.valid}">
           <!-- ----------------alerts----------- -->
           <div *ngIf='datevr.getError("required")' class="invalid-feedback" role="alert">
@@ -66,7 +66,7 @@
           </div>
           <br>
 
-          <input type="tel" placeholder="telephone" class="input-slide" [(ngModel)]= "regist.telephone" [ngModelOptions]="{standalone:true}" maxlength="9" minlength="9"  required #telvr="ngModel" [ngClass]="
+          <input type="tel" placeholder="telephone" class="input-slide" [(ngModel)]= "regist.telephone" [ngModelOptions]="{standalone:true}" maxlength="9" minlength="9" pattern="6[0-9]{8}$"  required #telvr="ngModel" [ngClass]="
           {'is-invalid':telvr.touched && !telvr.valid}">
           <!-- ----------------alerts----------- -->
           <div *ngIf='telvr.getError("minlength")' class="warning-feedback" role="alert">
@@ -75,9 +75,9 @@
           <div *ngIf='telvr.getError("required")' class="invalid-feedback" role="alert">
             le numero ne doit pas rester vide!
           </div>
-          <!-- <div *ngIf='telvr.getError("number")' class="invalid-feedback" role="alert">
-            le numero est composé uniauement de chiffres!
-          </div> -->
+          <div *ngIf='telvr.getError("pattern")' class="invalid-feedback" role="alert">
+            le numero contient uniquement des chiffres et  commence par 6
+           </div>
 
           <input type="password" placeholder="password" class="input-slide" [(ngModel)]= "regist.password" [ngModelOptions]="{standalone:true}" minlength="5" maxlength="30" required #passvr="ngModel" [ngClass]="
           {'is-invalid':passvr.touched && !passvr.valid}">
@@ -96,11 +96,11 @@
 
           <button 
           class="submit-btn" disabled
-        *ngIf='emailvr.getError("required") || emailvr.getError("email") || passvr.getError("required") || passvr.getError("minlength") || nomvr.getError("required") || datevr.getError("required") || pseudovr.getError("required") || pseudovr.getError("minlength") || telvr.getError("minlength") || telvr.getError("required") || prenomvr.getError("minlength")|| nomvr.getError("minlength")'
+        *ngIf='emailvr.getError("required") || emailvr.getError("email") || passvr.getError("required") || passvr.getError("minlength") || nomvr.getError("required") || datevr.getError("required") || pseudovr.getError("required") || pseudovr.getError("minlength") || telvr.getError("minlength") || telvr.getError("pattern") || telvr.getError("required") || prenomvr.getError("minlength")|| nomvr.getError("minlength")'
          type="submit" >valider</button>
 
          <button 
-        *ngIf='!emailvr.getError("required") && !emailvr.getError("email") && !passvr.getError("required") && !passvr.getError("minlength") && !nomvr.getError("required") && !datevr.getError("required") && !pseudovr.getError("required") && !pseudovr.getError("minlength") && !telvr.getError("minlength") && !telvr.getError("required") && !prenomvr.getError("minlength") && !nomvr.getError("minlength")' 
+        *ngIf='!emailvr.getError("required") && !emailvr.getError("email") && !passvr.getError("required") && !passvr.getError("minlength") && !nomvr.getError("required") && !datevr.getError("required") && !pseudovr.getError("required") && !pseudovr.getError("minlength") && !telvr.getError("minlength") && !telvr.getError("pattern") && !telvr.getError("required") && !prenomvr.getError("minlength") && !nomvr.getError("minlength")' 
          type="submit" class="submit-btn">valider</button><br>
           
         </form>
@@ -110,8 +110,12 @@
         <form  (ngSubmit)= "OnRegistmd()"  [formGroup]="registerForm"  autocomplete="">
 
           <span><label for="chk" aria-hidden="true">MEDECIN</label></span>
+             <!-- ---------------------- error ------------------- -->
+            <div class="alert alert-success" role="alert" *ngIf="successMessagemed" >{{successMessagemed}}</div>
+            <div class="alert alert-danger" role="alert" *ngIf="errorMessagemed" >{{errorMessagemed}}</div>
+        
           <div class="col1">
-
+           
             <input type="text" placeholder="Nom" class="input-slide" [(ngModel)]= "registmd.firstname" [ngModelOptions]="{standalone:true}" required #nomedvr="ngModel" maxlength="25" minlength="2" [ngClass]="
             {'is-invalid':nomedvr.touched && !nomedvr.valid}">
             <!-- ----------------alerts----------- -->
@@ -139,7 +143,7 @@
             ce champ doit contenir un email!
           </div>
 
-            <input type="tel" required placeholder="telephone" value="+237 " [(ngModel)]= "registmd.telephone" [ngModelOptions]="{standalone:true}" class="input-slide" #teledvr="ngModel" maxlength="9" minlength="9" [ngClass]="
+            <input type="tel" required placeholder="telephone" value="+237 " pattern="6[0-9]{8}$" [(ngModel)]= "registmd.telephone" [ngModelOptions]="{standalone:true}" class="input-slide" #teledvr="ngModel" maxlength="9" minlength="9" [ngClass]="
             {'is-invalid':teledvr.touched && !teledvr.valid}">
               <!-- ----------------alerts----------- -->
             <div *ngIf='teledvr.getError("minlength")' class="warning-feedback" role="alert">
@@ -147,6 +151,9 @@
             </div>
             <div *ngIf='teledvr.getError("required")' class="invalid-feedback" role="alert">
               le numero ne doit pas rester vide!
+            </div>
+            <div *ngIf='teledvr.getError("pattern")' class="invalid-feedback" role="alert">
+             le numero contient uniquement des chiffres et  commence par 6
             </div>
 
             <input type="password" placeholder="password" class="input-slide" [(ngModel)]= "registmd.password" [ngModelOptions]="{standalone:true}" required #passedvr="ngModel" minlength="5" [ngClass]="
@@ -157,8 +164,10 @@
             </div>
             <div *ngIf='passedvr.getError("minlength")'  class="warning-feedback" role="alert">
               Le mot de pass doit avoir au moins 5 caractères!
-            </div><br>
-            <input type="date" placeholder="Date de naissance" class="input-slide" [(ngModel)]= "registmd.datenaiss" [ngModelOptions]="{standalone:true}" required #datedvr="ngModel" [ngClass]="
+            </div>
+
+            <input type="date" placeholder="Date de naissance" 
+                                    min="2002-01-01" class="input-slide" [(ngModel)]= "registmd.datenaiss" [ngModelOptions]="{standalone:true}" required #datedvr="ngModel" [ngClass]="
             {'is-invalid':datedvr.touched && !datedvr.valid}">
             <!-- ----------------alerts----------- -->
           <div *ngIf='datedvr.getError("required")' class="invalid-feedback" role="alert">
@@ -183,12 +192,19 @@
             <div class="file-upload">
               <i class="fas fa-upload"></i>&nbsp; choisir fichier 
               <div class="load">
-                <input type="file" required name="autori" [(ngModel)]= "registmd.auto_exercice" [ngModelOptions]="{standalone:true}">
+                <input type="file" required name="autori" [(ngModel)]= "registmd.auto_exercice" [ngModelOptions]="{standalone:true}" #auto="ngModel" [ngClass]="
+                {'is-invalid':auto.touched && !auto.valid}">
               </div>
-            </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+            </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             <!-- ----------------alerts----------- -->
+          <div *ngIf='auto.getError("required")' class="invalid-feedback" role="alert">
+           champ requis!
+          </div>
+            <br>
     
             Proféssion <br>
-            <select class="form-select" aria-label="Default select example" required>
+            <select class="form-select" aria-label="Default select example" required [(ngModel)]= "registmd.specialite" [ngModelOptions]="{standalone:true}" #speci="ngModel" [ngClass]="
+            {'is-invalid':speci.touched && !speci.valid}">
               <option selected>Généraliste</option>
               <option value="1">Spychologue</option>
               <option value="2">Généraliste</option>
@@ -196,10 +212,16 @@
               <option value="5">Urologue</option>
               <option value="6">Ostéopathe</option>
               <option value="7">Sexologue</option>
-            </select><br>
+            </select>
+             <!-- ----------------alerts----------- -->
+          <div *ngIf='speci.getError("required")' class="invalid-feedback" role="alert">
+            champ requis!
+           </div>
+            <br>
             
-            Ville <br>
-            <select class="form-select" aria-label="Default select example" required>
+            Ville de résidence <br>
+            <select class="form-select" aria-label="Default select example" required [(ngModel)]= "registmd.ville" [ngModelOptions]="{standalone:true}" #ville="ngModel" [ngClass]="
+            {'is-invalid':ville.touched && !ville.valid}">
               <option selected>Yaounde</option>
               <option value="1">Douala</option>
               <option value="2">Nkonsamba</option>
@@ -208,14 +230,19 @@
               <option value="6">Dschang</option>
               <option value="7">Sangmelima</option>
             </select>
-            
+             <!-- ----------------alerts----------- -->
+          <div *ngIf='ville.getError("required")' class="invalid-feedback" role="alert">
+            champ requis!
+           </div>
+
             <div class="choix1">
               <label for="s">Sexe</label><br>
               F &nbsp;<input type="radio" name="cl"  id="s" required [(ngModel)]= "regist.sexe" [ngModelOptions]="{standalone:true}" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               M &nbsp;<input type="radio" name="cl"id="s" required>
             </div>
             Hôpital <br>
-            <select class="form-select" aria-label="Default select example"  required>
+            <select class="form-select" aria-label="Default select example"  required [(ngModel)]= "registmd.nom_hopital" [ngModelOptions]="{standalone:true}" #hopital="ngModel" [ngClass]="
+            {'is-invalid':hopital.touched && !hopital.valid}">
               <option selected>Saint marc</option>
               <option value="1">La caisse</option>
               <option value="2">Mvolier</option>
@@ -224,16 +251,19 @@
               <option value="6">La main du secours</option>
               <option value="7">Les soeurs</option>
             </select>
-            
+             <!-- ----------------alerts----------- -->
+          <div *ngIf='hopital.getError("required")' class="invalid-feedback" role="alert">
+            champ requis!
+           </div>
     
           </div>
           <br>
           <button 
           class="submit-btn" disabled
-        *ngIf='emailedvr.getError("required") || emailedvr.getError("email") || passedvr.getError("required") || passedvr.getError("minlength") || nomedvr.getError("required") || datedvr.getError("required") || pseudoedvr.getError("required") || pseudoedvr.getError("minlength") || teledvr.getError("minlength") || teledvr.getError("required") || prenomedvr.getError("minlength") || nomedvr.getError("minlength")'
+        *ngIf='emailedvr.getError("required") || emailedvr.getError("email") || emailedvr.getError("email") || teledvr.getError("pattern") || passedvr.getError("minlength") || nomedvr.getError("required") || hopital.getError("required") || speci.getError("required") || ville.getError("required") || datedvr.getError("required") || pseudoedvr.getError("required") || pseudoedvr.getError("minlength") || teledvr.getError("minlength") || teledvr.getError("required") || prenomedvr.getError("minlength") || nomedvr.getError("minlength")'
          type="submit" >valider</button> 
          <button 
-        *ngIf='!emailedvr.getError("required") && !emailedvr.getError("email") && !passedvr.getError("required") && !passedvr.getError("minlength") && !nomedvr.getError("required") && !datedvr.getError("required") && !pseudoedvr.getError("required") && !pseudoedvr.getError("minlength") && !teledvr.getError("minlength") && !teledvr.getError("required") && 
+        *ngIf='!emailedvr.getError("required") && !emailedvr.getError("email") && !passedvr.getError("required") && !passedvr.getError("minlength")&& !teledvr.getError("pattern") && !nomedvr.getError("required") && !datedvr.getError("required") && !pseudoedvr.getError("required") && !hopital.getError("required") && !speci.getError("required") && !ville.getError("required") && !pseudoedvr.getError("minlength") && !teledvr.getError("minlength") && !teledvr.getError("required") && 
         !prenomedvr.getError("minlength") && !nomedvr.getError("minlength")' 
          type="submit" class="submit-btn">valider</button><br>
         </form> 

@@ -18,7 +18,6 @@ body{
     /* background-color:#354e9198; */
     margin: 0px auto 10px auto;
     width: 100%;
-    min-width: 600px;
     text-align: center;
     padding: 20px;
   }
@@ -30,7 +29,6 @@ body{
   .card{
     width: 100%;
     margin: 20px auto;
-    min-width: 500px;
     min-height: 350px;
     border-radius: 3px;
     border:2px solid #fdadb5;
@@ -44,9 +42,8 @@ body{
   .pst1 ,.pst2,.pst3{
     display: inline-block;
     border-radius: 5px;
-    width: 40%;
+    width:48%;
     margin: 3px;
-    min-width: 370px;
     border: 2px solid #D4DFFE;
     vertical-align: top;
     transition: ease-in-out .3s;
@@ -80,14 +77,19 @@ body{
     background-color:#dfe8ff9d ;
     
   }
-  @media(max-width:725px){
+  @media(max-width:948px){
     .pst1 ,.pst2,.pst3{
-      width: 90%;
+      width: 80%;
       display: block;
       margin: 10px auto;
     }
     .lgpost{
       width: 100%;
       margin: auto;
+    }
+  }
+  @media(max-width:725px){
+    .pst1 ,.pst2,.pst3{
+      width: 90%;
     }
   }

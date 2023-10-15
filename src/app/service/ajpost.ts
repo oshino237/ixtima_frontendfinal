@@ -1,22 +1,45 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from '@angular/core';
 import { AjpostRequest } from "../classe/ajpost-request";
+import { GetMedecinService } from "./get-medecin.service";
+import { Observable } from "rxjs";
 
 @Injectable({
     providedIn: 'root'
   })
 export class Ajpost {
-    constructor(private http: HttpClient) { }
-    Ajoutpost(ajpostRequest : AjpostRequest) {
+    constructor(private http: HttpClient, private medecin: GetMedecinService) { }
+    private ide !:number 
+    Ajoutpost(ajpostRequest : AjpostRequest, d: number) {
       const token = window.localStorage.getItem("token")
+      
         const httpOptions = {
           headers: new HttpHeaders({
             "Content-type" : "application/json",
-            Authorization: "Bearer"+token,
+            Authorization: "Bearer "+token,
           }),
         }
-        console.log(" LE TOKEN EST "+token);
-        console.log("ajout post ok "+ajpostRequest.source_post+ajpostRequest.date_creation_post+ajpostRequest.libelle_post);
-        return this.http.post('http://localhost:8080/post/add', ajpostRequest, httpOptions).pipe();
+        // this.medecin.Trouvemedecin().subscribe((d:number)=>{
+          
+        //   console.log(" DATA  ",d);
+        //   this.ide = d
+        //   //window.localStorage.setItem("id_medec",d)
+        //   console.log(" IDE  ",this.ide);
+        // })
+        
+        console.log("L IDENTIFIANT EST  ", window.localStorage.getItem("id_medec"));
+        return this.http.post('http://localhost:8080/post/add/'+d, ajpostRequest, httpOptions);
       }
-}
+      getListPost(id:number):Observable<AjpostRequest[]>{
+        const token = window.localStorage.getItem("token")
+      
+        const httpOptions = {
+          headers: new HttpHeaders({
+            "Content-type" : "application/json",
+            Authorization: "Bearer "+token,
+          }),
+        }
+        return this.http.get<AjpostRequest[]>('http://localhost:8080/post/getAll',httpOptions);
+      }
+    }
+

@@ -8,8 +8,9 @@ export class RegistRequest {
     datenaiss!:Date;
     telephone!:number;
     specialite!:string;
-    // id_medc!:number;
     auto_exercice!:string;
+    ville!:string;
+    nom_hopital!:string;
 
 }
 

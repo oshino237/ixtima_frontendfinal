@@ -30,4 +30,16 @@ export class RdvmdComponent {
       // console.log("ajout post effectuee avec succes " + res.token+ " Et le role est ")
     });
   }
+  viewdispoModel : any[]=[];
+  
+  
+  ngOnInit(): void {
+    this.viewdispo();
+  }
+
+  viewdispo(){
+    this.disponibiliteserviveService.getListdispo(2).subscribe((res : any ) =>{
+        this.viewdispoModel = res;
+    })
+    }
 }

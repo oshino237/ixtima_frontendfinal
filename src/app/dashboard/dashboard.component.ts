@@ -17,7 +17,7 @@ export class DashboardComponent {
 // roleMed:string='Med'
 constructor(private deconnec : TokenService, private route:Router){}
  role = window.localStorage.getItem("role")
-nom = window.localStorage.getItem("nom")
+nom = window.localStorage.getItem("pseudo")
 
 OnLogout(): any{
   this.deconnec.log_out();

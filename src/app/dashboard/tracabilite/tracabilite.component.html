@@ -36,16 +36,16 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
+                                        <tr *ngFor= "let jeune of jeunes">
+                                        <th scope="row">{{jeune.id_user}}</th>
+                                        <td>{{jeune.nom}}</td>
+                                        <td>{{jeune.prenom}}</td>
+                                        <td>{{jeune.pseudo}}</td>
+                                        <td>{{jeune.datenaiss}}</td>
+                                        <td>{{jeune.email}}</td>
+                                        <td>M</td>
+                                        <td>{{jeune.nom}}</td>
+                                        <td>{{jeune.telephone}}</td>
                                         <td>
                                             <!-- Button trigger modal 1-->
                                             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">

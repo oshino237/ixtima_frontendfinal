@@ -58,7 +58,7 @@ span{
    justify-content: center;
    display: flex;
    margin:auto ;
-    margin-bottom: 60px;
+    margin-bottom: 30px;
    font-weight: bold;
    cursor: pointer;
    transition: .5s ease-in-out;
@@ -103,12 +103,16 @@ span{
     height: 700px;
     padding: 20px 10px;
     border-radius:100px 100px 0px 0px;
-    transform: translateY(-90px);
+    transform: translateY(-110px);
     transition: .8s ease-in-out;
 }
-
+.alert{
+    max-width: 350px;
+    padding: 20px;
+    margin: 0px auto;
+}
 #chk:checked ~ .input-groupm{
-    transform: translateY(-695px);
+    transform: translateY(-700px);
 }
 #chk:checked ~ .input-groupm span {
     transform: scale(1);
