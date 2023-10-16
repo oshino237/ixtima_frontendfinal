@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Gcmptmedrequest } from 'src/app/classe/gcmptmedrequest';
 import { GcmptmedserviceService } from 'src/app/service/gcmptmedservice.service';
 
@@ -10,8 +11,16 @@ import { GcmptmedserviceService } from 'src/app/service/gcmptmedservice.service'
 export class GerecmpmdComponent {
   
   modifpro = new Gcmptmedrequest();
-constructor(private gcmptmedserviceService : GcmptmedserviceService){}  
+constructor(private gcmptmedserviceService : GcmptmedserviceService,private route:Router){}  
 
+ngOnInit(): void {
+  const role = window.localStorage.getItem("role");
+  if(role != "MEDECIN"){
+   alert("vous n'etes pas autorisé à consulter cette page");
+   window.localStorage.clear();
+   this.route.navigate(['/connexion']);
+  }
+ }
 Onmodifprofil(){
 
   console.log(this.modifpro);

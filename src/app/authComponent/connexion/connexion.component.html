@@ -11,7 +11,7 @@
 
       <form  FormGroup="loginForm" name="form" (ngSubmit)= " OnSubmit()">
 
-        <input type="email" placeholder="E-mail" name="email" class="form-contol"  [(ngModel)] = "authRequest.email" [ngModelOptions]="{standalone:true}" required  #emailvr="ngModel" [ngClass]="
+        <input type="email" placeholder="E-mail" name="email" class="form-contol"  [(ngModel)] = "authRequest.email" [ngModelOptions]="{standalone:true}" required email #emailvr="ngModel" [ngClass]="
         {'is-invalid':emailvr.touched && !emailvr.valid}" FormControlName="email" >
          <!-- ----------------alerts----------- -->
           <div *ngIf='emailvr.getError("required")' class="invalid-feedback" role="alert">

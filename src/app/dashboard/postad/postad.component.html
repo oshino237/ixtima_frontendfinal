@@ -5,7 +5,7 @@
             
             <div class="lgpost">
     
-                <div class="pst1" *ngFor="let allPost of viewPostModel">
+                <div class="pst1"*ngFor="let allPost of viewPostModel" >
                     <div class="accordion accordion-flush" id="accordionFlushExample">
                         <div class="accordion-item">
                         <h2 class="accordion-header" id="flush-headingOne">
@@ -22,20 +22,20 @@
                         <p>Dr. {{allPost.medecin?.utilisateur.nom}}</p>
                     </div>
                     <div class="actions">
-                    <!-- Button trigger supprim-->
+                    <!-- Button trigger supprim (click)="supprimpost(allPost.id_post)" -->
                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#supprim"><i class="bi bi-trash-fill"></i>
                     </button>
                     </div>
                 </div>
             </div>
              <!-- Modal supprim-->
-             <div class="modal fade" id="supprim" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+             <div class="modal fade" id="supprim" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" *ngFor="let onePost of viewPostModel">
                 <div class="modal-dialog verif">
                 <div class="modal-content ">
                     <div class="modal-body">
                         <p>Etes-vous sûr de vouloir spprimer ce post?</p>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</button>
-                    <button type="button" class="btn btn-success"data-bs-dismiss="modal">Oui</button>
+                    <button  (click)="deletePost(onePost.id_post)"  type="button" class="btn btn-success"data-bs-dismiss="modal">Oui</button>
                     </div>
                 </div>
                 </div>

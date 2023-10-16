@@ -41,5 +41,38 @@ export class Ajpost {
         }
         return this.http.get<AjpostRequest[]>('http://localhost:8080/post/getAll',httpOptions);
       }
+
+      deletepost(p:number,d:number){
+        const token = window.localStorage.getItem("token")
+      
+        const httpOptions = {
+          headers: new HttpHeaders({
+            "Content-type" : "application/json",
+            Authorization: "Bearer "+token,
+          }),
+        }
+        if(d==p){
+          return null;
+        }else{
+          console.log('impossible de supprimer');
+          return this.http.delete(`http://localhost:8080/post/delete/${p}`,httpOptions)
+        }
+      }
+
+      deletepostAd(p:number){
+        const token = window.localStorage.getItem("token")
+      
+        const httpOptions = {
+          headers: new HttpHeaders({
+            "Content-type" : "application/json",
+            Authorization: "Bearer "+token,
+          }),
+        }
+        
+          console.log('impossible de supprimer');
+          return this.http.delete(`http://localhost:8080/post/delete/${p}`,httpOptions)
+        
+      }
+      
     }
 

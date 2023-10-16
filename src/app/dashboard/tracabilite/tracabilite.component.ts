@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Utilisateurs } from 'src/app/classe/utilisateurs';
 import { TracabiliteService } from 'src/app/service/tracabilite.service';
 
@@ -8,12 +9,17 @@ import { TracabiliteService } from 'src/app/service/tracabilite.service';
   styleUrls: ['./tracabilite.component.css']
 })
 export class TracabiliteComponent implements OnInit {
+  constructor(private tracabiliteService: TracabiliteService,private route:Router){}
   jeunes: Utilisateurs[]=[];
   ngOnInit(): void {
-     this.onListJeune()
+    this.onListJeune()
+   const role = window.localStorage.getItem("role");
+   if(role != "ADMIN"){
+    alert("vous n'etes pas autorisé à consulter cette page");
+    window.localStorage.clear();
+    this.route.navigate(['/connexion']);
+   }
   }
-constructor(private tracabiliteService: TracabiliteService){}
-
  onListJeune():void{
    this.tracabiliteService.getJeunesList().subscribe((data)=>{
      this.jeunes = data ;

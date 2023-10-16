@@ -11,13 +11,15 @@ export class ThemeserviceService {
  
   constructor(private http: HttpClient) { }
     Creethm(themerequest : Themerequest) {
-        const httpOptions = {
-          headers: new HttpHeaders({
-            "Content-type" : "application/json",
-          }),
-        }
-        console.log("modification post ok "+themerequest.nom_thm+themerequest.libelle_thm);
-        return this.http.post('http://localhost:8080/theme/add'+themerequest.nom_thm+themerequest.libelle_thm, httpOptions).pipe();
+      const token = window.localStorage.getItem("token")
+      
+      const httpOptions = {
+        headers: new HttpHeaders({
+          "Content-type" : "application/json",
+          Authorization: "Bearer "+token,
+        }),
+      }
+      return this.http.post('http://localhost:8080/theme/add',themerequest,httpOptions);
       }
     Modifthm(themerequest : Themerequest) {
         const httpOptions = {
@@ -40,4 +42,30 @@ export class ThemeserviceService {
         return this.http.get<Themerequest[]>('http://localhost:8080/theme/getAll',httpOptions);
       }
 
+      // addTheme(theme: Themerequest){
+      //   const token = window.localStorage.getItem("token")
+      
+      //   const httpOptions = {
+      //     headers: new HttpHeaders({
+      //       "Content-type" : "application/json",
+      //       Authorization: "Bearer "+token,
+      //     }),
+      //   }
+      //   return this.http.post('http://localhost:8080/theme/add',theme,httpOptions);
+      // }
+
+      deletethme(p:number){
+        const token = window.localStorage.getItem("token")
+      
+        const httpOptions = {
+          headers: new HttpHeaders({
+            "Content-type" : "application/json",
+            Authorization: "Bearer "+token,
+          }),
+        }
+        
+          console.log('impossible de supprimer');
+          return this.http.delete(`http://localhost:8080/theme/delete/${p}`,httpOptions)
+        
+      }
 }
