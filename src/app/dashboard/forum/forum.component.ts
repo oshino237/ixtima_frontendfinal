@@ -11,21 +11,23 @@ import {catchError, throwError} from "rxjs";
 export class ForumComponent implements OnInit {
   messg: Furomrequest = new Furomrequest();
   message: any[] = [];
-  id: any;
+  id: number = 1;
+  pseudo: any;
+  user_id: any;
 
   constructor(private forumservice: FuromserviceService, private webSocketServiceService: WebsocketService) {
     this.webSocketsChats();
   }
 
   ngOnInit(): void {
+    // this.createForums();
+    this.pseudo = localStorage?.getItem('pseudo');
+    this.user_id = localStorage?.getItem('user_id');
+    this.displayAllMessagesInForum();
   }
 
   OnMessage() {
-    console.log(this.messg);
-  }
-
-  createForums() {
-    this.forumservice.createForums('discussion 1', 1)
+    this.forumservice.mssg_forum(this.messg.libelle_messfor, this.user_id, 1)
       .pipe(
         catchError(error => {
           return throwError(error);
@@ -33,7 +35,23 @@ export class ForumComponent implements OnInit {
       )
       .subscribe({
         next: (res) => {
-          console.log('response', res)
+          // this.displayAllMessagesInForum();
+          this.webSocketsChats();
+          this.messg = new Furomrequest();
+        }
+      });
+  }
+
+  createForums() {
+    this.forumservice.createForums('discussion 1', 1)
+      .pipe(
+        catchError(error => {
+
+          return throwError(error);
+        })
+      )
+      .subscribe({
+        next: (res) => {
         }
       })
 
@@ -48,7 +66,6 @@ export class ForumComponent implements OnInit {
       )
       .subscribe({
         next: (res) => {
-          console.log('response', res)
         }
       })
   }
@@ -62,30 +79,18 @@ export class ForumComponent implements OnInit {
       )
       .subscribe({
         next: (res) => {
-          console.log('response', res)
+          this.message = res;
         }
       })
   }
 
-  mssg_forum() {
-    this.forumservice.mssg_forum('testing', 2, 1)
-      .pipe(
-        catchError(error => {
-          return throwError(error);
-        })
-      )
-      .subscribe({
-        next: (res) => {
-          console.log('response', res)
-        }
-      })
-  }
 
   webSocketsChats() {
     let stompClient = this.webSocketServiceService.connect();
     stompClient.connect({}, () => {
-      stompClient.subscribe('/topic/forum' + this.id, (notification: any) => {
-        this.message.push(JSON.parse(notification.body));
+      stompClient.subscribe('/topic/forum/1', (notification: any) => {
+        this.message=JSON.parse(notification.body);
+        console.log('Message send ',this.message)
       })
     })
   }
