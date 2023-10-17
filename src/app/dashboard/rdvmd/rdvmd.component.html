@@ -39,9 +39,12 @@
                                     <tbody>
                                         <tr>
                                         <th scope="row">1</th>
-                                        <td>{{alldispo.date_debut_dispo}}</td>
+                                        <!-- <td>{{alldispo.date_debut_dispo}}</td>
                                         <td>{{alldispo.date_fin_dispo}}</td>
-                                        <td>{{alldispo.nom_hopital}}</td>
+                                        <td>{{alldispo.nom_hopital}}</td> -->
+                                        <td>2023-09-18 09:00 </td>
+                                        <td>2023-09-18 10:30</td>
+                                        <td>CHU</td>
                                         <td></td>
                                         <td>
                                                 <input type="checkbox" id="chk" aria-hidden="true">
@@ -116,18 +119,6 @@
                                                 </div>
                                                 </div>
                                             </div>
-                                            <!-- Modal envoyer-->
-                                            <div class="modal fade" id="envoyer" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog verif">
-                                                <div class="modal-content ">
-                                                    <div class="modal-body">
-                                                        <p>Etes-vous sûr de vouloir publier ce rendez-vous?</p>
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</button>
-                                                    <button type="button" class="btn btn-success"data-bs-dismiss="modal">Oui</button>
-                                                    </div>
-                                                </div>
-                                                </div>
-                                            </div>
                                             <!-- Modal supprim-->
                                             <div class="modal fade" id="supprim" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog verif">
@@ -143,7 +134,103 @@
 
                                         </td>
                                         </tr>
-
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <!-- <td>{{alldispo.date_debut_dispo}}</td>
+                                            <td>{{alldispo.date_fin_dispo}}</td>
+                                            <td>{{alldispo.nom_hopital}}</td> -->
+                                            <td>2023-09-18 09:00</td>
+                                            <td>2023-09-18 10:30</td>
+                                            <td>St Marck</td>
+                                            <td></td>
+                                            <td>
+                                                    <input type="checkbox" id="chk" aria-hidden="true">
+                                                    <!-- Button trigger supprim-->
+                                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#suprim" for="chk" aria-hidden="true">
+                                                    Annuler
+                                                    </button>
+                                                    <!-- button envoyer -->
+                                                    <!-- <button type="button" class="btn btn-success"  data-bs-target="#envoyer" for="chk" aria-hidden="true">
+                                                    <i class="bi bi-send"></i>Publier
+                                                    </button> -->
+                                                
+                                                <!-- button modif -->
+                                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#moif">
+                                                    <i class="bi bi-pencil-fill"></i>
+                                                </button>
+                                                
+                                                <!-- Modal modif-->
+                                                <div class="modal fade" id="moif" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Modification de la disponibilite</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form (ngSubmit)= " Onmoddisp()">
+                                                                <label for="titre">Date & heure début:</label><br>
+                                                                <input
+                                                                id="consultation"
+                                                                type="datetime-local"
+                                                                min="2023-10-17T09:00"
+                                                                max="2023-12-31T17:00"
+                                                                name="consultdate" required [(ngModel)]= "moddis.date_debut_dispo" [ngModelOptions]="{standalone:true}" required  #moddatedeb="ngModel" [ngClass]="
+                                                                {'is-invalid':moddatedeb.touched && !moddatedeb.valid}"/>
+                                                                <!-- ----------------alerts----------- -->
+                                                                <div *ngIf='moddatedeb.getError("required")'  role="alert" class="invalid-feedback">
+                                                                    Remplir ce champs!
+                                                                </div>
+                                                                <br>
+    
+                                                                <label for="titre">Date & heure fin:</label><br>
+                                                                <input
+                                                                id="consultation"
+                                                                type="datetime-local"
+                                                                min="2023-10-17T09:00"
+                                                                max="2023-12-31T17:00"
+                                                                name="consultdate" required [(ngModel)]= "moddis.date_fin_dispo" [ngModelOptions]="{standalone:true}" required  #moddatefin="ngModel" [ngClass]="
+                                                                {'is-invalid':moddatefin.touched && !moddatefin.valid}" />
+                                                                <!-- ----------------alerts----------- -->
+                                                                <div *ngIf='moddatefin.getError("required")'  role="alert" class="invalid-feedback">
+                                                                    Remplir ce champs!
+                                                                </div>
+                                                                <br>
+    
+                                                                <label for="contenu">Hôpital  :</label><br>
+                                                                <select class="form-select" required aria-label="Default select example">
+                                                                    <option selected>Saint Marc</option>
+                                                                    <option value="1">La caisse</option>
+                                                                    <option value="2">CHU</option>
+                                                                  </select>
+                                                                <br><br>
+    
+                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+    
+                                                                <button disabled
+                                                                *ngIf='moddatefin.getError("required") || moddatedeb.getError("required")' type="submit" class="btn btn-primary" type="submit" class="btn btn-primary" >Valider</button>
+                                                                <button 
+                                                                *ngIf='!moddatefin.getError("required") && !moddatedeb.getError("required")' type="submit" class="btn btn-primary" type="submit" class="btn btn-primary" data-bs-dismiss="modal">Valider</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Modal supprim-->
+                                                <div class="modal fade" id="suprim" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog verif">
+                                                    <div class="modal-content ">
+                                                        <div class="modal-body">
+                                                            <p>Etes-vous sûr de vouloir annuler ce rendez-vous?</p>
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</button>
+                                                        <button type="button" class="btn btn-success"data-bs-dismiss="modal">Oui</button>
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                                </div>
+    
+                                            </td>
+                                            </tr>
   
                                             
                                         <!-- <tr>

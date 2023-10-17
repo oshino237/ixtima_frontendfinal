@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Disponibiliterequest } from 'src/app/classe/disponibiliterequest';
 import { DisponibiliteserviveService } from 'src/app/service/disponibiliteservive.service';
 
@@ -7,11 +8,19 @@ import { DisponibiliteserviveService } from 'src/app/service/disponibiliteserviv
   templateUrl: './rdvmd.component.html',
   styleUrls: ['./rdvmd.component.css']
 })
-export class RdvmdComponent {
+export class RdvmdComponent implements OnInit {
   ajdis= new Disponibiliterequest();
   moddis = new Disponibiliterequest();
-  constructor(private disponibiliteserviveService : DisponibiliteserviveService){}  
-  
+  constructor(private disponibiliteserviveService : DisponibiliteserviveService,private route:Router){}  
+  ngOnInit(): void {
+    this.viewdispo();
+   const role = window.localStorage.getItem("role");
+   if(role != "MEDECIN"){
+    alert("vous n'etes pas autorisé à consulter cette page");
+    window.localStorage.clear();
+    this.route.navigate(['/connexion']);
+   }
+  }
   Onajdisp(){
   
     console.log(this.ajdis);
@@ -31,11 +40,7 @@ export class RdvmdComponent {
     });
   }
   viewdispoModel : any[]=[];
-  
-  
-  ngOnInit(): void {
-    this.viewdispo();
-  }
+
 
   viewdispo(){
     this.disponibiliteserviveService.getListdispo(2).subscribe((res : any ) =>{

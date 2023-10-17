@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AjpostRequest } from '../../classe/ajpost-request';
 import { Ajpost } from '../../service/ajpost';
 import { catchError, throwError } from 'rxjs';
@@ -13,7 +13,7 @@ import { GetMedecinService } from 'src/app/service/get-medecin.service';
   templateUrl: './postmd.component.html',
   styleUrls: ['./postmd.component.css']
 })
-export class PostmdComponent {
+export class PostmdComponent implements OnInit{
 titre: string='robert';
 contenu: string='blablablablablablablablablabla';
 source: string='manu';
@@ -22,12 +22,25 @@ modpost : Modifpostrequest = new Modifpostrequest();
 
 
 viewPostModel : any[]=[];
-constructor(private ajpostService : Ajpost, private modifpostservice : ModifpostserviceService, private route: Router, private medecin: GetMedecinService){}  
-
+constructor(private ajpostService : Ajpost, private modifpostservice : ModifpostserviceService, private route: Router, private medecin: GetMedecinService){}
+id_medecin!:number;  
 
 ngOnInit(): void {
-  this.viewPost();
-}
+this.medecin.Trouvemedecin().subscribe(data =>{
+  this.id_medecin = data;
+   console.log(data)
+    console.log(" ID TROUVER EST", this.id_medecin)
+  })
+ 
+   this.viewPost();
+  const role = window.localStorage.getItem("role");
+
+  if(role != "MEDECIN"){
+   alert("vous n'etes pas autorisé à consulter cette page");
+   window.localStorage.clear();
+   this.route.navigate(['/connexion']);
+  }
+ }
 errorMessage:string = "";
 successMessage:string = "";
 
@@ -62,6 +75,8 @@ OnAjpost(){
         console.log('ajout ok',res.statusCodeValue)
         // this.router.navigate(['/dashboard /forum'])
       }
+      
+      this.viewPost();
    });
     //window.localStorage.setItem("id_medec",d)
     console.log(" IDE  ",d);
@@ -78,7 +93,14 @@ Onmodifpost(){
     // console.log("ajout post effectuee avec succes " + res.token+ " Et le role est ")
   });
 }
+supprimpost(id :any){
+ const idm = this.id_medecin;
+ this.ajpostService.deletepost(id, idm)?.subscribe(d =>{
 
+  console.log("LA REPONSE D EST ",d);
+  this.viewPost();
+ })
+}
 viewPost(){
 this.ajpostService.getListPost(2).subscribe((res : any ) =>{
     this.viewPostModel =res;

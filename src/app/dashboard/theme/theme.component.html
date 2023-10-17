@@ -20,12 +20,12 @@
                         <div class="form px-4 pt-5">
                              <!-- Button ajout thm -->
                          <div class="boutajout">
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ajoutplus">
+                            <button  type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ajoutplus">
                             <i class="bi bi-plus-square-fill"></i>
                             </button>
                         </div>
                             <table class="table table-bordered" data-toggle="table" data-search="true" data-pagination="true">
-                                <table class="table" *ngFor="let alltheme of viewthemeModel">
+                                <table class="table" >
                                     <thead>
                                         <tr>
                                         <th scope="col">No</th>
@@ -34,11 +34,10 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                        <th scope="row">1</th>
+                                        <tr  *ngFor="let alltheme of viewthemeModel"  >
+                                        <th scope="row">  {{alltheme.id_thm}}</th>
                                         <td>
-                                            Puberté 
-                                            <!-- {{alltheme.nom_thm}} -->
+                                        {{alltheme.nom_thm}} 
                                         </td>
                                         <td>
                                             <!-- button consulthm -->
@@ -46,7 +45,7 @@
                                               Consulter
                                           </button>
                                             <!-- Button trigger supprim thm-->
-                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#supprim">
+                                            <button   type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#supprim">
                                                 <i class="bi bi-trash-fill"></i>
                                             </button>
                                             <!-- button modif thm -->
@@ -107,7 +106,7 @@
                                                     <div class="modal-body">
                                                         <p>Etes-vous sûr de vouloir supprimer ce thème?</p>
                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</button>
-                                                    <button type="button" class="btn btn-success"data-bs-dismiss="modal">Oui</button>
+                                                    <button (click)="deletethm(alltheme.id_thm)" type="button" class="btn btn-success"data-bs-dismiss="modal">Oui</button>
                                                     </div>
                                                 </div>
                                                 </div>
@@ -158,39 +157,17 @@
                                              <!-- Modal consluthm -->
                                              <div class="modal fade" id="consulthm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog">
-                                                <div class="modal-content">
+                                                <div class="modal-content" >
                                                     <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Puberté</h5>
+                                                    <h5 class="modal-title" id="exampleModalLabel">puberte </h5>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <strong>Chez le garçon</strong> <br>
-                                                        <ul>
-                                                            <li><span>*</span>&nbsp;&nbsp; La puberté survient souvent chez les garçons entre l’âge de 11 et 14 ans (en moyenne à l’âge de 12 ans)</li>
-                                                            <li><span>*</span>&nbsp;&nbsp;Changement de la voix </li>
-                                                            <li><span>*</span>&nbsp;&nbsp;Croissance de l’appareil génital</li>
-                                                            <li><span>*</span>&nbsp;&nbsp;Poussée de poil sous les aisselles et autour de l’appareil génital</li>
-                                                            <li><span>*</span>&nbsp;&nbsp;Apparition de l’acné</li>
-                                                            <li><span>*</span>&nbsp;&nbsp;Emergence des sentiments d’amour et d’attirance vers l’autre</li>
-                                                            <li><span>*</span>&nbsp;&nbsp;Survenue de la première éjaculation (la sortie du sperme du pénis)</li>
-                                                            <li><span>*</span>&nbsp;&nbsp;Le corps et le système reproducteur grandissent et le pubère(ou adolescent) acquiert la faculté de se procréer et avoir des enfants</li>
-                                                        </ul>
-                                                        Le rythme de croissance et de changement physique varie d’un adolescent à un autre. <br><br>
-
-                                                        <strong>Chez la fille</strong><br>
-                                                        <ul>
-                                                            <li><span>*</span>&nbsp;&nbsp;La puberté survient souvent chez les filles entre l’âge de 11 et 14 ans (en moyenne à l’âge de 11 ans)</li>
-                                                            <li><span>*</span>&nbsp;&nbsp;Développement des seins</li>
-                                                            <li><span>*</span>&nbsp;&nbsp;Poussée de poils sous les aisselles et autour de l’appareil génital</li>
-                                                            <li><span>*</span>&nbsp;&nbsp;Apparition de l’acné</li>
-                                                            <li>Emergence des sentiments d’amour et d’attirance vers l’autre</li>
-                                                            <li><span>*</span>&nbsp;&nbsp;Survenue des premières règles qui se manifestent par un petit saignement de l'appareil génital (sortie d'un peu de sang du vagin).</li>
-                                                            <li><span>*</span>&nbsp;&nbsp;Le cycle menstruel survient chaque mois le corps et le système reproducteur grandissent et la pubère(ou adolescente) acquiert la faculté de se procréer et avoir des enfants.</li>
-                                                        </ul><br>
-                                                        Le rythme de croissance et de changement physique varie d'une adolescente à une autre.
-                                                    </div>
+                                                         {{alltheme.libelle_thm}} 
+                                                        
                                                 </div>
                                                 </div>
+                                            </div>
                                             </div>
 
                                         </td>
@@ -257,7 +234,7 @@
                         <div class="form px-4 pt-5">
                                        
                             <table class="table table-bordered" data-toggle="table" data-search="true" data-pagination="true">
-                                <table class="table" *ngFor="let allsoutheme of viewsouthemeModel">
+                                <table class="table" >
                                     <thead>
                                         <tr>
                                         <th scope="col">No</th>
@@ -267,11 +244,11 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
+                                        <tr *ngFor="let allsoutheme of viewsouthemeModel">
                                         <th scope="row">1</th>
                                         <td>
                                             Adoéscence 
-                                            <!-- {{allsoutheme.nom_southm}} -->
+                                            <!--  (click)=""{{allsoutheme.nom_southm}} -->
                                         </td>
                                         <td>Puberté</td>
                                         <td>
