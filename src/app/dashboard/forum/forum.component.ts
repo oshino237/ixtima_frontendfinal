@@ -1,15 +1,14 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Furomrequest} from 'src/app/classe/furomrequest';
 import {FuromserviceService} from 'src/app/service/furomservice.service';
 import {WebsocketService} from "../../service/websocket.service";
+import {catchError, throwError} from "rxjs";
 
 @Component({
-  selector: 'app-forum',
-  templateUrl: './forum.component.html',
-  styleUrls: ['./forum.component.css']
+  selector: 'app-forum', templateUrl: './forum.component.html', styleUrls: ['./forum.component.css']
 })
 
-export class ForumComponent {
+export class ForumComponent implements OnInit {
   messg: Furomrequest = new Furomrequest();
   message: any[] = [];
   id: any;
@@ -18,14 +17,69 @@ export class ForumComponent {
     this.webSocketsChats();
   }
 
-  OnMessage() {
-
-    console.log(this.messg);
-    this.forumservice.Forummess(this.messg).subscribe((res: any) => {
-      console.log(res);
-    });
+  ngOnInit(): void {
   }
 
+  OnMessage() {
+    console.log(this.messg);
+  }
+
+  createForums() {
+    this.forumservice.createForums('discussion 1', 1)
+      .pipe(
+        catchError(error => {
+          return throwError(error);
+        })
+      )
+      .subscribe({
+        next: (res) => {
+          console.log('response', res)
+        }
+      })
+
+  }
+
+  getAllForums() {
+    this.forumservice.getAllForums()
+      .pipe(
+        catchError(error => {
+          return throwError(error);
+        })
+      )
+      .subscribe({
+        next: (res) => {
+          console.log('response', res)
+        }
+      })
+  }
+
+  displayAllMessagesInForum() {
+    this.forumservice.displayAllMessagesInForum(1)
+      .pipe(
+        catchError(error => {
+          return throwError(error);
+        })
+      )
+      .subscribe({
+        next: (res) => {
+          console.log('response', res)
+        }
+      })
+  }
+
+  mssg_forum() {
+    this.forumservice.mssg_forum('testing', 2, 1)
+      .pipe(
+        catchError(error => {
+          return throwError(error);
+        })
+      )
+      .subscribe({
+        next: (res) => {
+          console.log('response', res)
+        }
+      })
+  }
 
   webSocketsChats() {
     let stompClient = this.webSocketServiceService.connect();
