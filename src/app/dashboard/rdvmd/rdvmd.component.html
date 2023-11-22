@@ -25,7 +25,7 @@
                             </button>
                         </div>
                             <table class="table table-bordered" data-toggle="table" data-search="true" data-pagination="true">
-                                <table class="table"  *ngFor="let alldispo of viewdispoModel">
+                                <table class="table" >
                                     <thead>
                                         <tr>
                                         <th scope="col">No</th>
@@ -37,7 +37,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
+                                        <tr *ngFor="let alldispo of viewdispoModel">
                                         <th scope="row">1</th>
                                         <!-- <td>{{alldispo.date_debut_dispo}}</td>
                                         <td>{{alldispo.date_fin_dispo}}</td>
@@ -56,12 +56,12 @@
                                                 <!-- <button type="button" class="btn btn-success"  data-bs-target="#envoyer" for="chk" aria-hidden="true">
                                                 <i class="bi bi-send"></i>Publier
                                                 </button> -->
-                                            
+
                                             <!-- button modif -->
                                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modif">
                                                 <i class="bi bi-pencil-fill"></i>
                                             </button>
-                                            
+
                                             <!-- Modal modif-->
                                             <div class="modal fade" id="modif" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog">
@@ -112,7 +112,7 @@
 
                                                             <button disabled
                                                             *ngIf='moddatefin.getError("required") || moddatedeb.getError("required")' type="submit" class="btn btn-primary" type="submit" class="btn btn-primary" >Valider</button>
-                                                            <button 
+                                                            <button
                                                             *ngIf='!moddatefin.getError("required") && !moddatedeb.getError("required")' type="submit" class="btn btn-primary" type="submit" class="btn btn-primary" data-bs-dismiss="modal">Valider</button>
                                                         </form>
                                                     </div>
@@ -153,12 +153,12 @@
                                                     <!-- <button type="button" class="btn btn-success"  data-bs-target="#envoyer" for="chk" aria-hidden="true">
                                                     <i class="bi bi-send"></i>Publier
                                                     </button> -->
-                                                
+
                                                 <!-- button modif -->
                                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#moif">
                                                     <i class="bi bi-pencil-fill"></i>
                                                 </button>
-                                                
+
                                                 <!-- Modal modif-->
                                                 <div class="modal fade" id="moif" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog">
@@ -182,7 +182,7 @@
                                                                     Remplir ce champs!
                                                                 </div>
                                                                 <br>
-    
+
                                                                 <label for="titre">Date & heure fin:</label><br>
                                                                 <input
                                                                 id="consultation"
@@ -196,7 +196,7 @@
                                                                     Remplir ce champs!
                                                                 </div>
                                                                 <br>
-    
+
                                                                 <label for="contenu">Hôpital  :</label><br>
                                                                 <select class="form-select" required aria-label="Default select example">
                                                                     <option selected>Saint Marc</option>
@@ -204,12 +204,12 @@
                                                                     <option value="2">CHU</option>
                                                                   </select>
                                                                 <br><br>
-    
+
                                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-    
+
                                                                 <button disabled
                                                                 *ngIf='moddatefin.getError("required") || moddatedeb.getError("required")' type="submit" class="btn btn-primary" type="submit" class="btn btn-primary" >Valider</button>
-                                                                <button 
+                                                                <button
                                                                 *ngIf='!moddatefin.getError("required") && !moddatedeb.getError("required")' type="submit" class="btn btn-primary" type="submit" class="btn btn-primary" data-bs-dismiss="modal">Valider</button>
                                                             </form>
                                                         </div>
@@ -228,11 +228,11 @@
                                                     </div>
                                                     </div>
                                                 </div>
-    
+
                                             </td>
                                             </tr>
-  
-                                            
+
+
                                         <!-- <tr>
                                         <th scope="row">3</th>
                                         <td colspan="2">Larry the Bird</td>
@@ -256,7 +256,7 @@
                                     <label for="titre">Date & heure début:</label><br>
                                     <input
                                     id="consultation"
-                                    type="datetime-local" 
+                                    type="datetime-local"
                                     min="2023-10-17T08:30"
                                     max="2023-12-31T17:00"
                                     name="consultdate" required [(ngModel)]= "ajdis.date_debut_dispo" [ngModelOptions]="{standalone:true}" required  #datedeb="ngModel" [ngClass]="
@@ -298,7 +298,7 @@
 
                                     <button disabled
                                     *ngIf='datefin.getError("required") || datedeb.getError("required")|| hopit.getError("required")' type="submit" class="btn btn-primary" type="submit" class="btn btn-primary" >Valider</button>
-                                    <button 
+                                    <button
                                     *ngIf='!datefin.getError("required") && !datedeb.getError("required")&& !hopit.getError("required")' type="submit" class="btn btn-primary" type="submit" class="btn btn-primary" data-bs-dismiss="modal">Valider</button>
                                 </form>
                             </div>
@@ -309,7 +309,7 @@
 
                     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                         <div class="form px-4 pt-5">
-                                       
+
                             <table class="table table-bordered" data-toggle="table" data-search="true" data-pagination="true">
                                 <table class="table">
                                     <thead>
@@ -361,7 +361,7 @@
                         </div>
                     </div>
                 </div>
-              
+
             </div>
         </div>
     </div>

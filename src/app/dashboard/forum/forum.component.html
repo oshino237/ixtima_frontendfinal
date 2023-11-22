@@ -4,49 +4,34 @@
       <h1>Bienvennu dans le forum</h1>
     </div>
     <div class="chat">
-
       <div class="messages-chat">
-        <div class="message" *ngFor="let mess of message">
-          <div *ngIf="pseudo !== mess.sender_id.pseudo">
-            <div class="photo">
-              <i class="bi bi-person-fill"></i>
-              <div class="online"></div>
-            </div>
-            <div class=" text-only">
-              <p class="text"> {{mess.message}}</p>
-              <p class="time"> {{mess.send_date | date:'dd/MM/yyyy HH:mm:ss'}}</p>
-            </div>
-          </div>
-
-          <div *ngIf="pseudo === mess.sender_id.pseudo" class="response">
-            <div class="text-only">
-              <p class="text">{{mess.message}}</p>
-              <p class="response-time time"> {{mess.send_date | date:'dd/MM/yyyy HH:mm:ss'}}</p>
+        <ng-container *ngFor="let mess of message">
+          <div class="message" [ngClass]="{'response': pseudo === mess.sender_id.pseudo}">
+            <div class="message-details">
+              <div class="photo">
+                <i class="bi bi-person-fill"></i>
+                <div class="online"></div>
+              </div>
+              <div class="message-content">
+                <p class="text">{{ mess.message }}</p>
+                <p class="time">{{ mess.send_date | date:'dd/MM/yyyy HH:mm:ss' }}</p>
+              </div>
             </div>
           </div>
-        </div>
-
+        </ng-container>
       </div>
     </div>
     <div class="footer-chat">
-
       <div class="foot-center">
-        <form (ngSubmit)=" OnMessage()">
+        <form (ngSubmit)="OnMessage()" class="message-form">
           <input type="text" class="write-message" placeholder="Message" [(ngModel)]="messg.libelle_messfor"
-                 [ngModelOptions]="{standalone:true}" required minlength="1" #messvr="ngModel" [ngClass]="
-                    {'is-invalid':messvr.touched && !messvr.valid}">
-          <!-- ----------------alerts----------- -->
-
-          <button type="submit" class="btn btn-dark" disabled
-                  *ngIf='messvr.getError("required") || messvr.getError("minlength")'><i class="bi bi-send-fill"></i>
-          </button>
-          <button type="submit" class="btn btn-dark"
-                  *ngIf='!messvr.getError("required") && !messvr.getError("minlength")'><i class="bi bi-send-fill"></i>
+                 [ngModelOptions]="{standalone:true}" required minlength="1" #messvr="ngModel"
+                 [ngClass]="{'is-invalid': messvr.touched && !messvr.valid}">
+          <button type="submit" class="send-button" [disabled]="messvr.invalid">
+            <i class="bi bi-send-fill"></i>
           </button>
         </form>
       </div>
-
     </div>
   </div>
 </section>
-
